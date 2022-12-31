@@ -22,7 +22,8 @@ public class ProductImage extends EntityBase {
     private Integer width;
     private Integer height;
     private Boolean isMain = false;
-
+    private Long size;
+       
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
