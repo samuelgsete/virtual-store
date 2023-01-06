@@ -1,0 +1,39 @@
+/* Estilização das tabelas */
+table {
+    padding: 2%;
+    border-collapse: collapse;
+    width: 96%;
+}
+
+table tr td, table tr th {
+    padding: 15px 10px;
+    text-align: left;
+}
+
+table tr th {
+    color: #383c3f;
+    font-family: 'Arial';
+    font-size: 0.9em;
+}
+
+tr {
+    border-bottom: 1px solid rgb(var(--gray-2));
+    color: rgb(var(--gray-6));
+}
+
+tr:nth-child(even) {
+    background-color: rgba(var(--purple), 0.04);
+}
+
+table tr {
+    cursor: pointer;
+}
+
+table tr td img {
+    width: 60px;
+    height: 60px;
+}
+
+table tr td {
+    animation: down 0.4s;
+}

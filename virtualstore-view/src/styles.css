@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('../src/assets/css/card.css');
+@import url('../src/assets/css/buttons.css');
+@import url('../src/assets/css/stars.css');
+@import url('../src/assets/css/badge.css');
+@import url('../src/assets/css/ripple.css');
+@import url('../src/assets/css/alerts.css');
+@import url('../src/assets/css/upload.css');
+@import url('../src/assets/css/animations.css');
+@import url('../src/assets/css/table.css');
+@import url('../src/assets/css/list-property.css');
+
+@import '~ngx-toastr/toastr';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
