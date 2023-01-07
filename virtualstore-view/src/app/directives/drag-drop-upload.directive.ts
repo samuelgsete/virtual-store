@@ -38,7 +38,7 @@ export class DragDropUploadDirective {
     evt.preventDefault();
     evt.stopPropagation();
     this.borderColor = "rgb(var(--gray-4))";
-    this.background = "#fff";
+    this.background = "rgba(var(--purple), 0.05)";
 
     const files = evt.dataTransfer?.files;
     this.fileDropped.emit(files);

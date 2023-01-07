@@ -16,7 +16,7 @@ import { OnLoadFilesService } from 'src/app/usecases/uploads-images/on-load-file
 export class UploadImageComponent implements OnInit {
 
   public images: ImageModel[] = [];
-  public listProgress: number[] = [];
+  public readonly maxSizeUploads: number = 1;
   
   public constructor(
     protected readonly upload: UploadImageService,
@@ -26,7 +26,6 @@ export class UploadImageComponent implements OnInit {
     protected readonly onLoadFiles: OnLoadFilesService
   ) {}
   
-
   public getSelectedImages(): ImageModel[] {
     return this.images.filter(img => { return img.isSelected; });
   }

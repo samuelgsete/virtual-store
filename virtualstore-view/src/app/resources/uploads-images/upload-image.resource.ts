@@ -12,10 +12,6 @@ export class UploadImageResource {
     public constructor(protected readonly http: HttpClient) {}
 
     public run(image: FormData): Observable<any> {
-        return this.http.post<any>(this.localUrl, image, {
-            reportProgress: true,
-            observe: "events",
-            responseType: 'json'
-        });
+        return this.http.post<any>(this.localUrl, image);
     }
 }

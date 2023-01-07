@@ -1,11 +1,11 @@
 <div class="card-upload">
     <div class="drag-and-drop" dragDropUpload (fileDropped)="onFilesDropped.run($event)" matRipple>
         <img class="image-upload-ilustration" src="/assets/img/svg/upload.svg" alt="Ilustration Upload">
-        <p class="upload-text">Arraste e solte aqui ou <label for="input-upload" class="browser">navegue</label> pelo seu sistema</p>
+        <p class="upload-text">Arraste e solte as imagens aqui ou <label for="input-upload" class="browser">navegue</label> pelo seu sistema</p>
         <input type="file" id="input-upload" #uploadInput (change)="onLoadFiles.run($event)" accept="image/png, image/jpg, image/jpeg" multiple hidden>
     </div>
-    <div *ngIf="images.length == 0" class="alert" color="warning">
-        Você ainda não adicionou fotos a este produto. Adicione até 10 imagens. 
+    <div *ngIf="!upload.progress() && images.length == 0" class="alert" color="warning">
+        Você ainda não adicionou fotos a este produto. Adicione até {{ maxSizeUploads }} imagens. 
         Para uma melhor experiência de seus clientes procure utiizar imagens 
         que tenham fundo transparente ou branco.
     </div>
@@ -14,7 +14,14 @@
         <button mat-icon-button color="accent" (click)="deleteManyImages.run(getSelectedImages())">
             <mat-icon>delete</mat-icon>
         </button>
-    </div>  
+    </div>
+    <div class="upload-info" *ngIf="images.length > 1">
+        <p class="images-size">Imagens adicionados: {{ images.length }}</p>
+        <button class="btn" color="purple" (click)="deleteManyImages.run(images)">REMOVER TODAS</button>
+    </div>
+    <div class="upload-progress" *ngIf="upload.progress()">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
     <div class="drag-drop" (cdkDropListDropped)="orderImages($event)" cdkDropList>
         <div class="item-uploaded" *ngFor="let img of images; let i = index" cdkDrag> 
             <div class="item-description">  
@@ -27,18 +34,13 @@
                 <div class="img-details">
                     <mat-spinner *ngIf="img.isDeleted" [diameter]="20"></mat-spinner>
                     <h3 class="name-img">{{ img.randomName }}</h3>
-                    <a 
-                        class="url-img" 
-                        [href]="img.url" 
-                        target="_blank" 
-                        matTooltip="Ver imagem"
-                    >
+                    <a class="url-img" [href]="img.url" target="blank" matTooltip="Ver imagem">
                         {{ img.url }}
                     </a>
                     <p class="size-img" >{{ img.size | sizefile }}</p>
                 </div>
             </div>
-            <button 
+            <button
                 class="btn-delete" 
                 color="primary" 
                 matTooltip="Remover esta imagem"
@@ -49,9 +51,5 @@
                 <mat-icon>delete</mat-icon>
             </button>
         </div>
-    </div> 
-    <div class="circle-progress" *ngIf="upload.progressOf() > 0">
-        <circle-progress [percent]="upload.progressOf()" [animation]="false"></circle-progress>
-        <p>Aguarde um momento ...</p>
     </div>
 </div>

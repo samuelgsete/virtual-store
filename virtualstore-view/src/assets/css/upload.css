@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
-.card-upload .drag-and-drop {
+.card-upload {
     padding: 2%;
-    margin: 2% 0;
+}
+
+.card-upload .drag-and-drop {
+    padding: 1% 0;
     display: flex;
     flex-direction: column;
     background-color: rgba(var(--purple), 0.05);
@@ -15,6 +18,9 @@
 
 .card-upload .drag-and-drop .upload-text {
     font-family: 'Inter', sans-serif;
+    color: rgb(var(--gray-8));
+    font-size: 0.99em;
+
 }
 
 .card-upload .drag-and-drop:hover {
@@ -27,9 +33,13 @@
     cursor: pointer;
 }
 
+.card-upload .drag-and-drop .browser:hover {
+    text-decoration: underline;
+}
+
 .card-upload .drag-and-drop .image-upload-ilustration {
-    width: 12%;
-    margin: 1% 0;
+    width: 15%;
+    margin: 2% 0;
 }
 
 .card-upload .item-uploaded {
@@ -40,6 +50,15 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: rgb(var(--white));
     cursor: pointer;
+}
+
+.card-upload .upload-progress {
+    padding: 2% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    animation: up 0.9s
 }
 
 .card-upload .item-uploaded .item-description {
@@ -96,4 +115,17 @@ div.img-preview .main-img {
     margin: 0;
     font-weight: bold;
     text-align: center;
+}
+
+.upload-info {
+    padding: 1% 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upload-info .images-size {
+    font-size: 0.97em;
+    font-family: 'Inter', sans-serif;
+    color: rgb(var(--gray-8));
 }
