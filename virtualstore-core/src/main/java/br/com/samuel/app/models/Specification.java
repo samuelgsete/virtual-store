@@ -2,6 +2,7 @@ package br.com.samuel.app.models;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -17,6 +18,8 @@ import lombok.Setter;
 public class Specification extends EntityBase {    // Especificações do produto
     
     private String name;    // Nome da especificação
+
+    @Column(name="_value")
     private String value;   // Valor da especificação
 
     @JsonIgnore
