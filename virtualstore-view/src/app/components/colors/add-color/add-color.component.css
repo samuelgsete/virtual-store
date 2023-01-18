@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+div.content {
+    padding: 2%;
+}
+
+.image-preview {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgb(var(--gray-2));
+}
+
+.is-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.is-empty .empty-ilustration {
+    width: 22%;
+    margin: 2% 0;
+}
+
+.is-empty .empty-label {
+    font-size: 1.21em;
+    color: rgb(var(--gray-7));
+    font-family: 'Quicksand', sans-serif;
+}

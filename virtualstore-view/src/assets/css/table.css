@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 /* Estilização das tabelas */
 table {
     padding: 2%;
     border-collapse: collapse;
-    width: 96%;
+    width: 100%;
 }
 
 table tr td, table tr th {
-    padding: 15px 10px;
+    padding: 6px 3px;
     text-align: left;
 }
 
 table tr th {
-    color: #383c3f;
-    font-family: 'Arial';
-    font-size: 0.9em;
+    color: rgb(var(--dark));
+    font-family: 'Karla', sans-serif;
+    font-size: 0.99em;
 }
 
 tr {
@@ -22,7 +25,7 @@ tr {
 }
 
 tr:nth-child(even) {
-    background-color: rgba(var(--purple), 0.04);
+    background-color: rgba(var(--purple), 0.05);
 }
 
 table tr {
@@ -36,4 +39,5 @@ table tr td img {
 
 table tr td {
     animation: down 0.4s;
+    font-family: 'Open Sans', sans-serif;
 }

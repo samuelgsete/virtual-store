@@ -1,0 +1,64 @@
+<div class="content">
+  <div class="row">
+    <mat-form-field class="width-fix" appearance="fill">
+      <mat-label>Cores</mat-label>
+      <input 
+        matInput
+        type="text"
+        placeholder="Cores"
+        [formControl]="formColor"
+        [matAutocomplete]="auto"
+        >
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <div *ngFor="let color of filteredColors | async">
+          <mat-option [value]="color" [disabled]="color.isAdded">
+            {{ color.isAdded ?  color.name.concat(' (adicionado)') : color.name }}
+          </mat-option>
+        </div>
+      </mat-autocomplete>
+      <mat-error *ngIf="formColor.invalid">Escolha um ou mais ítens da lista</mat-error>
+    </mat-form-field>
+    <button 
+      mat-icon-button 
+      color="primary" 
+      [disabled]="!formColor.valid || formColor.value.isAdded" 
+      (click)="addColor(formColor.value)"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+  </div>
+  <table *ngIf="addedColors.length > 0" matRipple>
+    <tr>
+      <th>Prévia</th>
+      <th>Código Hexadecimal</th>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+    <tr *ngFor="let addedColor of addedColors; let i = index">
+      <td>
+        <div class="image-preview" [ngStyle]="{ 'background-color': addedColor.hexCode }"></div>
+      </td>
+      <td>{{ addedColor.hexCode }}</td>
+      <td>{{ addedColor.name  }}</td>
+      <td>
+        <button 
+          mat-icon-button 
+          color="primary"
+          (click)="deleteColor(i)"
+          matTooltip="Remova esta cor"
+         >
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+  <div class="is-empty" *ngIf="addedColors.length == 0">
+    <img class="empty-ilustration" src="/assets/img/svg/undraw_empty_re_opql.svg" alt="No color added">
+    <p class="empty-label">Nenhuma cor adicionada</p>
+  </div>
+  <div class="row">
+    <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+    <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
+  </div>
+  <ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
+</div>

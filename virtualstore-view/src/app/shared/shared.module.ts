@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,8 +24,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatRippleModule } from '@angular/material/core';
 
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxCurrencyModule } from "ngx-currency";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { SmallTextPipe } from 'src/app/pipes/small-text.pipe';
 import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
@@ -59,16 +60,8 @@ import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
     MatAutocompleteModule,
     MatBadgeModule,
     MatRippleModule,
-    NgCircleProgressModule.forRoot({
-      radius: 38,
-      outerStrokeWidth: 8,
-      innerStrokeWidth: 1,
-      outerStrokeColor: "#7315F7",
-      innerStrokeColor: "#FFBF00",
-      animation: true,
-      animationDuration: 300,
-      showSubtitle: false
-    })
+    NgxCurrencyModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
   exports: [
     SmallTextPipe,
@@ -92,11 +85,13 @@ import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
     MatExpansionModule,
     DragDropModule,
     MatAutocompleteModule,
-    NgCircleProgressModule,
     MatDialogModule,
     MatButtonToggleModule,
     MatBadgeModule,
     MatRippleModule,
-  ]
+    NgxCurrencyModule,
+    NgxSpinnerModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

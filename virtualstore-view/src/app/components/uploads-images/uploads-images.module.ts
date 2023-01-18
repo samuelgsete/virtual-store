@@ -23,7 +23,8 @@ import { OnLoadFilesService } from 'src/app/usecases/uploads-images/on-load-file
     SharedModule
   ],
   exports: [
-    DragDropUploadDirective
+    DragDropUploadDirective,
+    UploadImageComponent
   ],
   providers: [
     DeleteImageResource,

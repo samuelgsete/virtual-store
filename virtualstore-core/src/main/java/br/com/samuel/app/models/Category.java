@@ -21,6 +21,7 @@ import lombok.Setter;
 public class Category extends EntityBase {
     
     private String name;
+    private Integer totalProducts;
     
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

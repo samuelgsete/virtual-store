@@ -23,11 +23,12 @@ export class UploadImageService {
         this.uploadProgress = true;
             this.uploadImage.run(image).subscribe({
                 next: (response) => {
-                    this.uploadProgress = false;
                     this.upload.emit(response)
                 }, error: (eventErr) => {
                     this.toastr.error('O upload não foi realizado', 'Que triste! :(', { progressBar: true });
                 }
+            }).add(() => {
+                this.uploadProgress = false;
             })
     }
 }

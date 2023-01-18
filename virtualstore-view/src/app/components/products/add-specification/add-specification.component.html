@@ -1,0 +1,57 @@
+<form [formGroup]="formSpecification">
+    <div class="alert" color="primary">
+        Informe as especificações do seu produto (Ex: nome = Armazenamento, valor = 500Gb)
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input #inputnome formControlName="name" minlength="1" maxlength="60" matInput required>
+            <mat-error *ngIf="formSpecification['controls']['name'].errors?.['required']">
+                Esse campo é obrigatório
+            </mat-error>
+            <mat-error *ngIf="formSpecification['controls']['name'].errors?.['minlength']">
+                Informe no mínimo 1 caracteres
+            </mat-error>
+            <mat-error *ngIf="formSpecification['controls']['name'].errors?.['maxlength']">
+                Informe no mínimo 15 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Valor</mat-label>
+            <mat-error *ngIf="formSpecification['controls']['value'].errors?.['required']">
+                Esse campo é obrigatório
+            </mat-error>
+            <input formControlName="value" minlength="1" maxlength="60" matInput>
+            <mat-error *ngIf="formSpecification['controls']['value'].errors?.['minlength']">
+                Informe no mínimo 1 caracteres
+            </mat-error>
+            <mat-error *ngIf="formSpecification['controls']['value'].errors?.['maxlength']">
+                Informe no mínimo 15 caracteres
+            </mat-error>
+        </mat-form-field>
+        <button 
+            mat-icon-button 
+            color="primary" 
+            [disabled]="!formSpecification.valid" 
+            matTooltip="Adicione novas especificações"
+            (click)="addSpecifications(formSpecification.value)"
+        >
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</form>
+<div class="list-property">
+    <div class="item-list" *ngFor="let spec of specifications" [ngClass]="{ 'selected-item': spec.isSelected, 'unselected-item': !spec.isSelected }">
+        <div class="check-item">
+            <mat-checkbox class="check-item" (change)="select($event.checked, spec)" [checked]="spec.isSelected"></mat-checkbox>
+        </div>
+        <label class="name-property">{{ spec.name }}</label>
+        <label class="value-property">{{ spec.value }}</label>
+    </div>
+</div>
+<div *ngIf="selectedSpecifications().length > 0" class="alert" color="secondary">
+    {{ selectedSpecifications().length }} selecionado(s) 
+    <button mat-icon-button color="primary" (click)="deleteSelecteds(selectedSpecifications())" matTooltip="Remover selecionados">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

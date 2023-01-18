@@ -1,0 +1,42 @@
+<form [formGroup]="formMeasurements">
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Peso</mat-label>
+            <input matInput type="number" formControlName="weight" min="0">
+            <span matSuffix>kg</span>
+            <mat-error *ngIf="formMeasurements['controls']['weight'].errors?.['required']">
+                O peso é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Altura</mat-label>
+            <input matInput type="number" formControlName="height" min="0">
+            <span matSuffix>mm</span>
+            <mat-error *ngIf="formMeasurements['controls']['height'].errors?.['required']">
+                A altura é obrigatória
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Largura</mat-label>
+            <input matInput type="number" formControlName="width" min="0">
+            <span matSuffix>mm</span>
+            <mat-error *ngIf="formMeasurements['controls']['width'].errors?.['required']">
+                A largura obrigatória
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Diâmetro</mat-label>
+            <input matInput type="number" formControlName="diameter" min="0">
+            <span matSuffix>mm</span>
+            <mat-error *ngIf="formMeasurements['controls']['diameter'].errors?.['required']">
+                O diâmetro é obrigatório
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+        <button class="btn" color="purple" matStepperNext [disabled]="!formMeasurements.valid">PRÓXIMO</button>
+    </div>
+</form>

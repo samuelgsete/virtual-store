@@ -1,0 +1,143 @@
+<form [formGroup]="formPricing">
+    <div class="row">
+        <div class="alert" color="primary">Seus clientes vão gostar de um bom desconto. Ofereca uma boa taxa de desconto sem comprometer sua margem de lucro</div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Preço base</mat-label>
+            <input 
+                matInput 
+                formControlName="basePrice" 
+                (blur)="generatePricing.run(formPricing.value)"
+                currencyMask 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                required
+            >
+            <mat-error *ngIf="formPricing['controls']['basePrice'].errors?.['required']">O preço base é obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Parcelamento</mat-label>
+            <mat-select 
+                formControlName="maxInstallment" 
+                (selectionChange)="generatePricing.run(formPricing.value)"
+                required>
+                <mat-option *ngFor="let installment of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]" [value]="installment">
+                    Em até {{  installment }}x sem juros
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formPricing['controls']['maxInstallment'].errors?.['required']">
+                Esse campo é obrigatório
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="row-content">
+            <label class="slider-label">
+                Taxa de desconto à vista ({{ _rateIncashDiscount.value }}%)
+            </label>
+            <mat-slider 
+                class="slider"
+                max="100"
+                min="0"
+                discrete="true"
+                [displayWith]="formatLabel"
+            >
+                <input 
+                    matSliderThumb 
+                    class="input-slider" 
+                    (change)="generatePricing.run(formPricing.value)"
+                    formControlName="rateIncashDiscount" 
+                    #_rateIncashDiscount >
+            </mat-slider>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Preço à vista</mat-label>
+            <input 
+                formControlName="incashPrice" 
+                currencyMask 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                matInput 
+                readonly
+            >
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Desconto à vista</mat-label>
+            <input 
+                formControlName="incashDiscount" 
+                currencyMask 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                matInput 
+                readonly
+            >
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="row-content">
+            <label class="slider-label">
+                Taxa de desconto à prazo ({{ _rateInstallmentDiscount.value }}%)
+            </label>
+            <mat-slider 
+                class="slider"
+                max="100"
+                min="0"
+                discrete="true"
+                [displayWith]="formatLabel"
+            >
+                <input 
+                    matSliderThumb 
+                    class="input-slider" 
+                    formControlName="rateInstallmentDiscount" 
+                    (change)="generatePricing.run(formPricing.value)"
+                    #_rateInstallmentDiscount >
+            </mat-slider>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Preço a prazo</mat-label>
+            <input 
+                formControlName="installmentPrice" 
+                currencyMask 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                matInput 
+                readonly
+            >
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Desconto a prazo</mat-label>
+            <input 
+                formControlName="installmentDiscount" 
+                currencyMask 
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                matInput 
+                readonly
+            >
+        </mat-form-field> 
+    </div>
+    <mat-accordion multi>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Ver parcelamento</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="ui-table">
+                <div class="ui-row" *ngFor="let installment of pricing.installments">
+                    <div class="ui-row-content">
+                        <div class="ui-col">
+                            {{ installment.quantity }}x {{ installment.amount | currency: 'BRL' }} sem juros
+                        </div>
+                        <div class="ui-col">
+                            {{ pricing.installmentPrice | currency: 'BRL' }}
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="row">
+        <button matRipple class="btn" color="light" matStepperPreviou>ANTERIOR</button>
+        <button matRipple class="btn" color="purple" [disabled]="!formPricing.valid" matStepperNext>PRÓXIMO</button>
+    </div>
+</form>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

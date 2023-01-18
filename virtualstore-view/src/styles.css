@@ -8,8 +8,22 @@
 @import url('../src/assets/css/animations.css');
 @import url('../src/assets/css/table.css');
 @import url('../src/assets/css/list-property.css');
+@import url('../src/assets/css/grid.css');
+@import url('../src/assets/css/scroll-bar.css');
 
 @import '~ngx-toastr/toastr';
+@import "../node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css";
+
+.width-fix {
+    width: 100%;
+}
+
+mat-error, mat-hint {
+    font-size: 1.2em;
+    padding: 0.4em 0;
+    width: 100%;
+    margin-left: -16px;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

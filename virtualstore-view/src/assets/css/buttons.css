@@ -201,6 +201,7 @@ button.btn:enabled:hover {
 }
 
 button.btn[disabled=true], button:disabled {
-    opacity: 0.85;
     cursor: not-allowed;
+    pointer-events: none;
+    background-color: rgb(var(--gray-5)) !important;
 }

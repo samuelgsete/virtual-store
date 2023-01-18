@@ -15,8 +15,7 @@ public class UpdateBrand extends Update<Brand, BrandRepository> {
             .map(unupdatedBrand -> {
                 unupdatedBrand.setName(createdBrand.getName());
                 unupdatedBrand.setWebsite(createdBrand.getWebsite());
-                unupdatedBrand.setUrlLogo(createdBrand.getUrlLogo());
-
+               
                 Brand updatedBrand = getRepository().save(unupdatedBrand);
                 return updatedBrand;
             });
