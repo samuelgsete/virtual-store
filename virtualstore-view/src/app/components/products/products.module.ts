@@ -8,20 +8,22 @@ import { ConditionsOfProductService } from 'src/app/usecases/products/conditions
 import { AddSpecificationComponent } from './add-specification/add-specification.component';
 import { UploadsImagesModule } from '../uploads-images/uploads-images.module';
 import { ProductMeasurementsComponent } from './product-measurements/product-measurements.component';
-import { ProductPricingComponent } from './product-pricing/product-pricing.component';
-import { GeneratePricingResource } from 'src/app/resources/pricing/generate-pricing.resource';
-import { GeneratePricingService } from 'src/app/usecases/pricing/generate-pricing.service';
 import { ListDepartmentsPaginateService } from 'src/app/usecases/departments/list-departments-paginate.service';
 import { ListDepartmentsPaginateResource } from 'src/app/resources/departments/list-departments-paginate.resource';
 import { ColorsModule } from '../colors/colors.module';
 import { BrandsModule } from '../brands/brands.module';
+import { ProductVersionsModule } from '../product-versions/product-versions.module';
+import { PricingModule } from '../pricing/pricing.module';
+import { GeneralInfoProductComponent } from './general-info-product/general-info-product.component';
+import { CreateProductResource } from 'src/app/resources/products/create-product.resource';
+import { CreateProductService } from 'src/app/usecases/products/create-product.service';
 
 @NgModule({
   declarations: [
     CreateProductComponent,
     AddSpecificationComponent,
     ProductMeasurementsComponent,
-    ProductPricingComponent
+    GeneralInfoProductComponent
   ],
   imports: [
     CommonModule,
@@ -29,14 +31,16 @@ import { BrandsModule } from '../brands/brands.module';
     SharedModule,
     UploadsImagesModule,
     ColorsModule,
-    BrandsModule
+    BrandsModule,
+    PricingModule,
+    ProductVersionsModule
   ],
   providers: [
     ConditionsOfProductService,
-    GeneratePricingResource,
-    GeneratePricingService,
     ListDepartmentsPaginateService,
-    ListDepartmentsPaginateResource
+    ListDepartmentsPaginateResource,
+    CreateProductResource,
+    CreateProductService
   ]
 })
 export class ProductsModule {}

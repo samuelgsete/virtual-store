@@ -1,0 +1,42 @@
+.slider, .input-slider {
+    width: 100%;
+}
+
+label.slider-label {
+    font-size: 0.88em;
+    color: rgb(var(--gray-6));
+}
+
+.interest-free {
+    color: rgb(var(--purple));
+}
+
+.ui-table {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.ui-table .ui-row-content {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-table .ui-row {
+    color: rgb(var(--gray-6));
+    font-size: 0.9em;
+    font-family: 'Barlow', sans-serif !important;
+}
+
+.ui-table .ui-row:first-child {
+    border-top: 1.3pt solid rgb(var(--gray-3));
+}
+
+.ui-table .ui-row:last-child {
+    border-bottom: 1.3pt solid rgb(var(--gray-3));
+}
+
+.ui-table .ui-row:nth-child(even) {
+    background-color: rgb(var(--gray-7), 0.09);
+}

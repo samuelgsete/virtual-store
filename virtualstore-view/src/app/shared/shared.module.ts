@@ -27,14 +27,19 @@ import { MatRippleModule } from '@angular/material/core';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxCurrencyModule } from "ngx-currency";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SwiperModule } from "swiper/angular";
 
 import { SmallTextPipe } from 'src/app/pipes/small-text.pipe';
 import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { StarRaterComponent } from './components/star-rater/star-rater.component';
 
 @NgModule({
   declarations: [
     SmallTextPipe,
-    SizeFilePipe
+    SizeFilePipe,
+    CarouselComponent,
+    StarRaterComponent
   ],
   imports: [
     CommonModule,
@@ -62,10 +67,14 @@ import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
     MatRippleModule,
     NgxCurrencyModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    SwiperModule
+    
   ],
   exports: [
     SmallTextPipe,
     SizeFilePipe,
+    CarouselComponent,
+    StarRaterComponent,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -90,7 +99,8 @@ import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
     MatBadgeModule,
     MatRippleModule,
     NgxCurrencyModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SwiperModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

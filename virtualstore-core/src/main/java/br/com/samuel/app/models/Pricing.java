@@ -7,6 +7,8 @@ import java.util.Set;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.OrderColumn;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,8 +24,9 @@ public class Pricing extends EntityBase {
     private Double rateIncashDiscount;              // taxa desconto avista
     private BigDecimal incashDiscount;              // desconto avista
     private BigDecimal installmentDiscount;         // desconto parcelamento
-    private Integer maxInstallment;                    // parcelamento
+    private Integer maxInstallment;                 // parcelamento
 
+    @OrderBy("amount DESC")
     @OneToMany(mappedBy = "pricing", cascade = CascadeType.ALL)
     private Set<Installment> installments = new LinkedHashSet<Installment>();
 

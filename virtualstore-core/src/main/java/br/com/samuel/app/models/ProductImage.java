@@ -1,6 +1,5 @@
 package br.com.samuel.app.models;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,20 +27,4 @@ public class ProductImage extends EntityBase {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
-
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        ProductImage that = (ProductImage) o;
-        return Objects.equals(randomName, that.randomName);
-    }
-
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((randomName == null) ? 0 : randomName.hashCode());
-        return result;
-    }
 }

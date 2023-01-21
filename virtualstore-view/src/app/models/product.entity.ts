@@ -1,10 +1,11 @@
 import { Brand } from "./brand.entity";
 import { Category } from "./category.entity";
-import { Color } from "./color.entity";
 import { EntityBase } from "./entity-base.entity";
+import { ImageModel } from "./image-model.entity";
 import { Pricing } from "./pricing.entity";
 import { ProductCondition } from "./product-condition.enum";
 import { ProductMeasurements } from "./product-measurements.entity";
+import { ProductVersion } from "./product-version.entity";
 import { Specification } from "./specification.entity";
 
 export class Product extends EntityBase {
@@ -14,11 +15,11 @@ export class Product extends EntityBase {
     public model!: string;
     public line!: string;
     public warranty!: number;
-    public stock!: number;
     public soldUnits!: number;
     public freeDelivery!: boolean;
     public justReleased!: boolean;
     public ratingAverage!: number;
+    public numberOfRaters!: number;
     public productCondition!: ProductCondition;
     public contentPackaging!: string;
     public isActive!: boolean;
@@ -29,9 +30,10 @@ export class Product extends EntityBase {
     public brand!: Brand;
     public offeredAt!: Date;
     public updatedAt!: Date;
-    public colors: Color[] = [];
     public category!: Category;
-    public specification: Specification[] = []
+    public specifications: Specification[] = [];
+    public productVersions: ProductVersion[] = [];
+    public images: ImageModel[] = []
 
     public constructor(values: Object = {}) { 
         super();

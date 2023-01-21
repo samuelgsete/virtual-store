@@ -1,0 +1,34 @@
+<table *ngIf="productVersions.length > 0">
+    <tr>
+        <th>Cor</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+    </tr>
+    <tr *ngFor="let productVersion of productVersions; let i = index">
+        <td>
+            <div class="color">
+                <div class="color-preview" [ngStyle]="{ 'background-color': productVersion.color.hexCode }"></div>
+                {{ productVersion.color.name }}
+            </div>
+        </td>
+        <td>
+            {{ productVersion.stock.availableUnits }} unidade(s)
+        </td>
+        <td>
+            <div class="row">
+                <button 
+                    mat-icon-button 
+                    color="warn"
+                    (click)="deleteVersion(i)"
+                    matTooltip="Deseja remover!?"
+                >
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="is-empty-list" *ngIf="productVersions.length == 0">
+    <img class="empty-ilustration" src="/assets/img/svg/undraw_empty_re_opql.svg" alt="Not found">
+    <p class="empty-text">Nenhuma variação cadastrada!</p>
+</div>

@@ -13,12 +13,23 @@ export class ProductMeasurementsComponent implements OnInit {
   @Input()
   public productMeaurements: ProductMeasurements = new ProductMeasurements();
 
-  public formMeasurements!: FormGroup;
+  public form!: FormGroup;
 
   public constructor(protected readonly _fb: FormBuilder) {}
+
+  public getMeaurements(): ProductMeasurements {
+    return new ProductMeasurements({
+      id: this.form.value.id,
+      weight: this.form.value.weight,
+      width: this.form.value.width,
+      height: this.form.value.height,
+      diameter: this.form.value.diameter
+    });
+  }
   
   public ngOnInit(): void {
-    this.formMeasurements = this._fb.group({
+    this.form = this._fb.group({
+      id: [this.productMeaurements.id],
       weight: [this.productMeaurements.weight, Validators.required],
       width: [this.productMeaurements.width, Validators.required],
       height: [this.productMeaurements.height, Validators.required],

@@ -1,0 +1,51 @@
+<section class="content">
+    <form [formGroup]="form">
+        <div class="row">
+            <mat-form-field class="width-fix" appearance="fill">
+                <mat-label>Cor</mat-label>
+                <input 
+                    matInput
+                    type="text"
+                    placeholder="Cor"
+                    formControlName="color"
+                    [matAutocomplete]="auto"
+                >
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <div *ngFor="let color of filteredColors | async">
+                        <mat-option [value]="color" [disabled]="color.isAdded" #_color>
+                            {{ color.name }}
+                            <div class="image-preview" [ngStyle]="{ 'background-color': _color.value.hexCode }"></div>
+                        </mat-option>
+                    </div>
+                </mat-autocomplete>
+                <mat-error *ngIf="form['controls']['color'].errors?.['required']">
+                    A cor é obrigatória
+                </mat-error>
+                <mat-error *ngIf="form['controls']['color'].errors?.['unSelected']">
+                    Escolha uma opção
+                </mat-error>
+                <mat-error *ngIf="form['controls']['color'].errors?.['isAdded']">
+                    Essa cor já foi adicionada
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="width-fix" appearance="fill">
+                <mat-label>Estoque</mat-label>
+                <input matInput type="number" formControlName="stock" min="0" required>
+                <span matSuffix>unidade(s)</span>
+                <mat-error *ngIf="form['controls']['stock'].errors?.['required']">
+                    O estoque é obrigatório
+                </mat-error>
+            </mat-form-field>
+            <button 
+                mat-icon-button 
+                color="primary"
+                [disabled]="!form.valid" 
+                matTooltip="Adicione novas versões"
+                (click)="addProductVersion(form.value)"
+            >
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </form>
+    <app-list-product-versions [productVersions]="productVersions"></app-list-product-versions>
+</section>

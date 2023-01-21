@@ -1,0 +1,13 @@
+.image-preview {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgb(var(--gray-2));
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+mat-option {
+    position: relative;
+}

@@ -13,8 +13,6 @@ import lombok.Setter;
 public abstract class EntityBase {
 
     @Id
-    @GeneratedValue(
-        strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 }

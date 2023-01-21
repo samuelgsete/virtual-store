@@ -1,0 +1,25 @@
+<section class="container">
+    <div class="product-catalog" *ngFor="let product of products">
+        <div class="images">
+            <app-carousel [images]="product.images"></app-carousel>
+        </div>
+        <p class="product-description">{{ product.name }}</p>
+        <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
+        <div class="product-promo">
+            <p class="previous-prince">{{ product.pricing.basePrice | currency: 'BRL' }}</p>
+            <span class="discount-percent">{{ product.pricing.rateInstallmentDiscount | percent }} OFF</span>
+        </div>
+        <h1 class="incash-prince">{{ product.pricing.incashPrice | currency: 'BRL' }}</h1>
+        <span class="spot-promotion">À vista no PIX <span class="off">{{ product.pricing.rateIncashDiscount| percent }} OFF</span></span>
+        <button class="btn" color="pink">QUERO COMPRAR</button>
+        <hr>
+        <p class="product-installment">
+            Em até 
+            <span class="value-installment">
+                {{ product.pricing.maxInstallment }} x de {{ product.pricing.installments[product.pricing.maxInstallment - 1].amount | currency: 'BRL'}}
+            </span> 
+            sem juros
+        </p>
+    </div>
+</section>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

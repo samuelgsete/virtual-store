@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsModule } from './components/products/products.module';
 import { ColorsModule } from './components/colors/colors.module';
 import { BrandsModule } from './components/brands/brands.module';
+import { ProductVersionsModule } from './components/product-versions/product-versions.module';
+import { PricingModule } from './components/pricing/pricing.module';
+import { CatalogModule } from './components/catalog/catalog.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { BrandsModule } from './components/brands/brands.module';
     UploadsImagesModule,
     ProductsModule,
     ColorsModule,
-    BrandsModule
+    BrandsModule,
+    ProductVersionsModule,
+    PricingModule,
+    CatalogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

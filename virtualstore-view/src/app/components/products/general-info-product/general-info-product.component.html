@@ -1,0 +1,158 @@
+<form [formGroup]="form">
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input formControlName="name" minlength="4" maxlength="255" matInput required>
+            <mat-error *ngIf="form['controls']['name'].errors?.['required']">
+                O nome do produto é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['name'].errors?.['minlength']">
+                Informe no mínimo 4 caracteres
+            </mat-error>
+            <mat-error *ngIf="form['controls']['name'].errors?.['maxlength']">
+                Informe no mínimo 255 caracteres
+            </mat-error>
+        </mat-form-field> 
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Marca</mat-label>
+            <input 
+                matInput
+                type="text"
+                formControlName="brand"
+                [matAutocomplete]="auto"
+            >
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <div *ngFor="let brand of filteredBrands | async">
+                    <mat-option [value]="brand">
+                        {{ brand.name }}
+                    </mat-option>
+                </div>
+            </mat-autocomplete>
+            <mat-error *ngIf="form['controls']['brand'].errors?.['required']">
+                A marca é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['brand'].errors?.['unSelectedOption']">
+                Escolha uma opção válida
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <input formControlName="model" minlength="2" maxlength="15" matInput required>
+            <mat-error *ngIf="form['controls']['model'].errors?.['required']">
+                modelo é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['model'].errors?.['minlength']">
+                Informe no mínimo 2 caracteres
+            </mat-error>
+            <mat-error *ngIf="form['controls']['model'].errors?.['maxlength']">I
+                nforme no mínimo 15 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Linha</mat-label>
+            <input formControlName="line" minlength="2" maxlength="30" matInput required>
+            <mat-error *ngIf="form['controls']['line'].errors?.['required']">A linha é obrigatório</mat-error>
+            <mat-error *ngIf="form['controls']['line'].errors?.['minlength']">Informe no mínimo 2 caracteres</mat-error>
+            <mat-error *ngIf="form['controls']['line'].errors?.['maxlength']">Informe no mínimo 15 caracteres</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <textarea 
+                matInput
+                formControlName="contentPackaging"
+                placeholder="Conteúdo da embalagem" 
+                maxlength="10000"
+                #_contentPackaging
+            >
+            </textarea>
+            <mat-error *ngIf="form['controls']['contentPackaging'].errors?.['required']">
+                O conteúdo da embalagem é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['contentPackaging'].errors?.['maxlength']">
+                Informe no mínimo 10000 caracteres
+            </mat-error>
+            <mat-hint>{{ _contentPackaging.value.length || 0 }}/10000</mat-hint>                            
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Condição do produto</mat-label>
+            <mat-select formControlName="productCondition" required>
+                <mat-option *ngFor="let condition of conditions.run()" [value]="condition">
+                    {{ condition }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form['controls']['productCondition'].errors?.['required']">
+                A condição do produto é obrigatória
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Garantia</mat-label>
+            <input matInput type="number" formControlName="warranty">
+            <span matSuffix>meses</span>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Código EAN</mat-label>
+            <input matInput type="text" formControlName="ean" required>
+            <mat-error *ngIf="form['controls']['ean'].errors?.['required']">
+                O código ean é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Categorias</mat-label>
+            <mat-select formControlName="category" [compareWith]="categoryComparator" required>
+                <mat-optgroup *ngFor="let department of departments" [label]="department.name">
+                    <mat-option *ngFor="let category of department.categories" [value]="category">
+                        {{ category.name }}
+                    </mat-option>
+                </mat-optgroup>
+            </mat-select>
+            <mat-error *ngIf="form['controls']['category'].errors?.['required']">
+                A categproa do produto é obrigatória
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="row-content">
+            <label class="label-toggle">Este produto é lançamento?</label>
+            <mat-slide-toggle #released class="width-fix" formControlName="justReleased" color="primary" checked="true">
+                {{ released.checked ? 'SIM' : 'NÃO' }}
+            </mat-slide-toggle>
+        </div>
+        <div class="row-content">
+            <label class="label-toggle">Deseja oferecer frete gratuito?</label>
+            <mat-slide-toggle #_freeDelivery class="width-fix" formControlName="freeDelivery" color="primary" checked="true">
+                {{ _freeDelivery.checked ? 'SIM': 'NÃO' }}
+            </mat-slide-toggle>
+        </div>  
+    </div>
+    <div class="row">
+        <mat-form-field class="width-fix" appearance="fill">
+            <textarea 
+                matInput
+                formControlName="details"
+                placeholder="Detalhes do produto" 
+                maxlength="20000"
+                #_details
+            >
+            </textarea>
+            <mat-error *ngIf="form['controls']['details'].errors?.['required']">
+                O conteúdo da embalagem é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['details'].errors?.['maxlength']">
+                Informe no mínimo 20000 caracteres
+            </mat-error>
+            <mat-hint>{{ _details.value.length || 0 }}/20000</mat-hint>                            
+        </mat-form-field>          
+    </div>
+    <div class="row">
+        <button matRipple class="btn" color="purple" [disabled]="!form.valid" matStepperNext>PRÓXIMO</button>
+    </div>
+</form>

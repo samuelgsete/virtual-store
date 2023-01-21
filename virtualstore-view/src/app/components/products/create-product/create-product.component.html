@@ -1,194 +1,53 @@
-<div class="container">
-    <main class="main-content">
-        <mat-stepper linear="true" orientation="vertical">
-            <mat-step label="Informações Gerais">
-                <form [formGroup]="formProduct">
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Nome</mat-label>
-                            <input formControlName="name" minlength="4" maxlength="255" matInput required>
-                            <mat-error *ngIf="formProduct['controls']['name'].errors?.['required']">
-                                O nome do produto é obrigatório
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['name'].errors?.['minlength']">
-                                Informe no mínimo 4 caracteres
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['name'].errors?.['maxlength']">
-                                Informe no mínimo 255 caracteres
-                            </mat-error>
-                        </mat-form-field> 
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Marca</mat-label>
-                            <input 
-                                matInput
-                                type="text"
-                                formControlName="brand"
-                                [matAutocomplete]="auto"
-                            >
-                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                                <div *ngFor="let brand of filteredBrands | async">
-                                    <mat-option [value]="brand">
-                                        {{ brand.name }}
-                                    </mat-option>
-                                </div>
-                            </mat-autocomplete>
-                            <mat-error *ngIf="formProduct['controls']['brand'].errors?.['required']">
-                                A marca é obrigatório
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['brand'].errors?.['unSelectedOption']">
-                                Escolha uma opção válida
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Modelo</mat-label>
-                            <input formControlName="model" minlength="2" maxlength="15" matInput required>
-                            <mat-error *ngIf="formProduct['controls']['model'].errors?.['required']">
-                                modelo é obrigatório
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['model'].errors?.['minlength']">
-                                Informe no mínimo 2 caracteres
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['model'].errors?.['maxlength']">I
-                                nforme no mínimo 15 caracteres
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Linha</mat-label>
-                            <input formControlName="line" minlength="2" maxlength="30" matInput required>
-                            <mat-error *ngIf="formProduct['controls']['line'].errors?.['required']">A linha é obrigatório</mat-error>
-                            <mat-error *ngIf="formProduct['controls']['line'].errors?.['minlength']">Informe no mínimo 2 caracteres</mat-error>
-                            <mat-error *ngIf="formProduct['controls']['line'].errors?.['maxlength']">Informe no mínimo 15 caracteres</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <textarea 
-                                matInput
-                                formControlName="contentPackaging"
-                                placeholder="Conteúdo da embalagem" 
-                                maxlength="10000"
-                                #_contentPackaging
-                            >
-                            </textarea>
-                            <mat-error *ngIf="formProduct['controls']['contentPackaging'].errors?.['required']">
-                                O conteúdo da embalagem é obrigatório
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['contentPackaging'].errors?.['maxlength']">
-                                Informe no mínimo 10000 caracteres
-                            </mat-error>
-                            <mat-hint>{{ _contentPackaging.value.length || 0 }}/10000</mat-hint>                            
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Condição do produto</mat-label>
-                            <mat-select formControlName="productCondition" required>
-                                <mat-option *ngFor="let condition of conditions.run()" [value]="condition">
-                                    {{ condition }}
-                                </mat-option>
-                            </mat-select>
-                            <mat-error *ngIf="formProduct['controls']['productCondition'].errors?.['required']">
-                                A condição do produto é obrigatória
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Garantia</mat-label>
-                            <input matInput type="number" formControlName="warranty">
-                            <span matSuffix>meses</span>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Estoque</mat-label>
-                            <input matInput type="number" formControlName="stock" min="0" required>
-                            <span matSuffix>unidade(s)</span>
-                            <mat-error *ngIf="formProduct['controls']['stock'].errors?.['required']">
-                                O estoque do produto é obrigatório
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <mat-label>Categorias</mat-label>
-                            <mat-select formControlName="category" [compareWith]="categoryComparator" required>
-                                <mat-optgroup *ngFor="let department of departments" [label]="department.name">
-                                    <mat-option *ngFor="let category of department.categories" [value]="category.name">
-                                        {{ category.name }}
-                                    </mat-option>
-                                </mat-optgroup>
-                            </mat-select>
-                            <mat-error *ngIf="formProduct['controls']['category'].errors?.['required']">
-                                A categproa do produto é obrigatória
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <div class="row-content">
-                            <label class="label-toggle">Este produto é lançamento?</label>
-                            <mat-slide-toggle #released class="width-fix" formControlName="justReleased" color="primary" checked="true">
-                                {{ released.checked ? 'SIM' : 'NÃO' }}
-                            </mat-slide-toggle>
-                        </div>
-                        <div class="row-content">
-                            <label class="label-toggle">Deseja oferecer frete gratuito?</label>
-                            <mat-slide-toggle #_freeDelivery class="width-fix" formControlName="freeDelivery" color="primary" checked="true">
-                                {{ _freeDelivery.checked ? 'SIM': 'NÃO' }}
-                            </mat-slide-toggle>
-                        </div>  
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="width-fix" appearance="fill">
-                            <textarea 
-                                matInput
-                                formControlName="details"
-                                placeholder="Detalhes do produto" 
-                                maxlength="20000"
-                                #_details
-                            >
-                            </textarea>
-                            <mat-error *ngIf="formProduct['controls']['details'].errors?.['required']">
-                                O conteúdo da embalagem é obrigatório
-                            </mat-error>
-                            <mat-error *ngIf="formProduct['controls']['details'].errors?.['maxlength']">
-                                Informe no mínimo 20000 caracteres
-                            </mat-error>
-                            <mat-hint>{{ _details.value.length || 0 }}/20000</mat-hint>                            
-                        </mat-form-field>          
-                    </div>
-                    <div class="row">
-                        <button matRipple class="btn" color="purple" [disabled]="!formProduct.valid" matStepperNext>PRÓXIMO</button>
-                    </div>
-                </form>
-            </mat-step>
-            <mat-step label="Dimenssões do produto">
-                <app-product-measurements></app-product-measurements>
-            </mat-step>
-            <mat-step label="Cores disponíveis">
-                <app-add-color></app-add-color>
-            </mat-step>
-            <mat-step label="Especificações do Produto">
-                <app-add-specification></app-add-specification>
+<section class="content">
+    <mat-stepper linear="true" orientation="vertical">
+        <mat-step label="Informações Gerais">
+            <app-general-info-product #componentGeneralInfo></app-general-info-product>
+        </mat-step>
+        <mat-step label="Dimenssões do produto">
+            <app-product-measurements #componentMeasurements></app-product-measurements>
+        </mat-step>
+        <mat-step label="Variações do produto">
+            <app-add-product-versions #componentProductVersions></app-add-product-versions>
+            <div class="row">
                 <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
                 <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
-            </mat-step>
-            <mat-step label="Adicione imagens">
-                <app-upload-image></app-upload-image>
-                <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
-                <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
-            </mat-step>
-            <mat-step label="Precificação do produto">
-                <app-product-pricing></app-product-pricing>
-            </mat-step>
-            <mat-step label="Tudo Pronto">
-                <div class="complete-registration">
-                    <img src="/assets/img/svg/completing_re_i7ap.svg" alt="Complete registration" width="120px">
-                    <mat-spinner class="created" [diameter]="30"></mat-spinner>
-                    <p>Seu produto está pronto para ser anunciado</p>
-                    <button class="btn" color="success">FINALIZAR ANÚNCIO</button>
-                </div>
-            </mat-step>
-        </mat-stepper>
-    </main>
-</div>
+            </div>
+        </mat-step>
+        <mat-step label="Especificações do produto">
+            <app-add-specification #componentSpecifications></app-add-specification>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+
+        <mat-step label="Precificação do produto">
+            <app-generate-pricing #componentGeneratePricing></app-generate-pricing>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+        <mat-step label="Adicione imagens">
+            <app-upload-image #componentUploadImage></app-upload-image>
+            <button class="btn" color="light" matStepperPrevious>ANTERIOR</button>
+            <button class="btn" color="purple" matStepperNext>PRÓXIMO</button>
+        </mat-step>
+        <mat-step label="Tudo Pronto">
+            <div class="complete-registration">
+                <img src="/assets/img/svg/completing_re_i7ap.svg" alt="Complete registration" width="120px">
+                <p>Seu produto está pronto para ser anunciado</p>
+                <button 
+                    class="btn" 
+                    color="success" 
+                    (click)="create.run(
+                        componentGeneralInfo.form,
+                        componentMeasurements.getMeaurements(),
+                        componentProductVersions.getProductVersions(),
+                        componentSpecifications.getSpecifications(),
+                        componentGeneratePricing.getPricing(),
+                        componentUploadImage.getImages()
+                    )"
+                >
+                    FINALIZAR ANÚNCIO
+                </button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</section>

@@ -6,7 +6,7 @@ INSERT INTO colors (name, hex_code) VALUES ('Azul escuro', '#00008B');
 INSERT INTO colors (name, hex_code) VALUES ('Azul', '#0000FF');
 INSERT INTO colors (name, hex_code) VALUES ('Azul claro', '#87CEEB');
 INSERT INTO colors (name, hex_code) VALUES ('Amarelo', '#FFFF00');
-INSERT INTO colors (name, hex_code) VALUES ('Vermelho escuro', '#00008B');
+INSERT INTO colors (name, hex_code) VALUES ('Vermelho escuro', '#8B0000');
 INSERT INTO colors (name, hex_code) VALUES ('Vermelho', '#FF0000');
 INSERT INTO colors (name, hex_code) VALUES ('Vermelho tomate', '#FF6347');
 INSERT INTO colors (name, hex_code) VALUES ('Verde Limão', '#32CD32');
@@ -43,6 +43,7 @@ INSERT INTO brands (name, website, url_logo) VALUES ('AOC', 'www.aoc.com.br', 'w
 INSERT INTO brands (name, website, url_logo) VALUES ('Sandisk', 'www.sandisk.com.br', 'www.sandisk.com.br/sandisk.png');
 INSERT INTO brands (name, website, url_logo) VALUES ('HP', 'www.hp.com.br', 'www.hp.com.br/hp.png');
 INSERT INTO brands (name, website, url_logo) VALUES ('Xiaomi', 'www.xiaomi.com.br', 'www.xiaomi.com.br/xiaomi.png');
+INSERT INTO brands (name, website, url_logo) VALUES ('Apple', 'www.apple.com.', 'www.apple.com.br/apple.png');
 
 -- Departamentos
 

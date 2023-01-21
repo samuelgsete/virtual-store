@@ -15,8 +15,8 @@ import { OnLoadFilesService } from 'src/app/usecases/uploads-images/on-load-file
 })
 export class UploadImageComponent implements OnInit {
 
-  public images: ImageModel[] = [];
-  public readonly maxSizeUploads: number = 1;
+  protected images: ImageModel[] = [];
+  protected readonly maxSizeUploads: number = 1;
   
   public constructor(
     protected readonly upload: UploadImageService,
@@ -25,23 +25,25 @@ export class UploadImageComponent implements OnInit {
     protected readonly onFilesDropped: OnFilesDroppedService,
     protected readonly onLoadFiles: OnLoadFilesService
   ) {}
+
+  public getImages(): ImageModel[] { return this.images }
   
-  public getSelectedImages(): ImageModel[] {
+  protected getSelectedImages(): ImageModel[] {
     return this.images.filter(img => { return img.isSelected; });
   }
 
-  public selectImage(image: ImageModel, isSelected: boolean): void {
+  protected selectImage(image: ImageModel, isSelected: boolean): void {
     image.isSelected = isSelected;
   }
 
-  public orderImages(event: CdkDragDrop<ImageModel[]>): void {
+  protected orderImages(event: CdkDragDrop<ImageModel[]>): void {
     moveItemInArray(this.images, event.previousIndex, event.currentIndex);
     const img = this.images.filter(img => { return img.isMain })[0]
     img.isMain = false;
     this.setMainImage();
   }
 
-  public setMainImage(): void { 
+  protected setMainImage(): void { 
     if(this.images[0] != null || this.images[0] != undefined) {
       this.images[0].isMain = true;
     }

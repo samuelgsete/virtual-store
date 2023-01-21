@@ -18,20 +18,21 @@ public class CreateProduct extends Create<Product, ProductRepository> {
     public URI run(Product newProduct) {
         var allImages = newProduct.getImages();
         var allSpecifications = newProduct.getSpecifications();
-        var allColors = newProduct.getColors();
+        var allVersions = newProduct.getProductVersions();
         var category = newProduct.getCategory();
         var brand = newProduct.getBrand(); 
 
-        newProduct.addAllColors(allColors);
         newProduct.setCode(uniqueCode.run());      
         newProduct.addAllImages(allImages);  
         newProduct.addAllSpecifications(allSpecifications);
+        newProduct.addAllProductVersions(allVersions);
 
         category.addProduct(newProduct);
         brand.addProduct(newProduct);
         newProduct.setCategory(category);
         newProduct.setBrand(brand);
         newProduct.getPricing().generatePrice();
+        newProduct.getPricing().generateInstallments();
 
         Product createdProduct = getRepository().save(newProduct);
         return ServletUriComponentsBuilder

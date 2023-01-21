@@ -1,11 +1,11 @@
 package br.com.samuel.app.models;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,27 +20,11 @@ public class Color extends EntityBase {     // Entidade Cor
     private String hexCode;                 // Código hexadecimal da cor
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "colors")
-    private Set<Product> products = new HashSet<Product>();
+    @OneToMany(mappedBy = "color", cascade = CascadeType.ALL)
+    private Set<ProductVersion> productVersions = new HashSet<ProductVersion>();
 
-    public void addProduct(Product product) {
-        products.add(product);
-        product.getColors().add(this);
-    }
-
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Color that = (Color) o;
-        return Objects.equals(hexCode, that.hexCode);
-    }
-
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((hexCode == null) ? 0 : hexCode.hashCode());
-        return result;
+    public void addProduct(ProductVersion productVersion) {
+        productVersion.setColor(this);
+        productVersions.add(productVersion);
     }
 }

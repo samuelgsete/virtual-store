@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Primary;
 public class DataSourceConfig {
     
     @Bean
-    @Primary
     public DataSource memoryh2() {
         return DataSourceBuilder
             .create()
@@ -22,6 +21,7 @@ public class DataSourceConfig {
     }
 
     @Bean
+    @Primary
     public DataSource localPostgres() {
         return DataSourceBuilder
             .create()
