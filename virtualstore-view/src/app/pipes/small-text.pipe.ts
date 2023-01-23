@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from "@angular/core";
     name: 'smalltext'
 })
 export class SmallTextPipe implements PipeTransform {
-    public transform(texto: string, ...args: any[]): string {
-        const tamanho = parseInt(args[0]);
-        return texto.substring(0, tamanho).concat('.....')
+    public transform(text: string, ...args: any[]): string {
+        const size = parseInt(args[0]);
+        return text.substring(0, size).concat('.....')
     }
 }

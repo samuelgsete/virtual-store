@@ -8,18 +8,30 @@
                 <input 
                     type="text" 
                     placeholder="Informe o que você deseja comprar"
+                    [formControl]="search"
+                    [matAutocomplete]="auto"
                 >
                 <button mat-icon-button color="primary">
                     <mat-icon>search</mat-icon>
                 </button> 
             </div>
+            <mat-autocomplete 
+                class="autocomplete" 
+                autoActiveFirstOption 
+                (optionSelected)="navigateByProductName($event.option.value.name)" 
+                #auto="matAutocomplete" 
+                [displayWith]="displayFn"
+            >
+                <mat-option *ngFor="let product of products" [value]="product">
+                    {{ product.name | smalltext : '50' }}
+                </mat-option>
+            </mat-autocomplete>
         </div>
         <nav class="nav-bar">
             <ul>
-                <li *ngFor="let route of routes">
-                    <button mat-icon-button color="primary">
-                        <mat-icon>{{ route.icon }}</mat-icon>
-                    </button> 
+                <li class="menu-item" *ngFor="let route of routes" matRipple>
+                    <mat-icon>{{ route.icon }}</mat-icon>
+                    <p>{{ route.name }}</p>
                 </li>
             </ul>
         </nav>
@@ -47,11 +59,6 @@
                     </span>
                 </mat-menu>
             </li>
-        </ul>
-    </nav>
-    <nav class="categories">
-        <ul class="list-categories">
-            
         </ul>
     </nav>
 </section>
