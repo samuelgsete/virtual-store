@@ -12,6 +12,7 @@ import { BrandsModule } from './components/brands/brands.module';
 import { ProductVersionsModule } from './components/product-versions/product-versions.module';
 import { PricingModule } from './components/pricing/pricing.module';
 import { CatalogModule } from './components/catalog/catalog.module';
+import { StoreLayoutModule } from './store-layout/store-layout.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CatalogModule } from './components/catalog/catalog.module';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    StoreLayoutModule,
     UploadsImagesModule,
     ProductsModule,
     ColorsModule,

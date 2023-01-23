@@ -1,0 +1,34 @@
+<footer>
+    <section class="about">
+        <div class="social-media">
+            <p class="title">REDES SOCIAIS</p>
+            <ul>
+                <li *ngFor="let network of socialNetwork">
+                    <img [src]="network.urlImg" [alt]="network.name" loading="lazy">
+                </li>
+            </ul>
+        </div>
+        <div class="store">
+            <p class="title">CONTATOS</p>
+            <p>
+                <mat-icon>phone</mat-icon>
+                {{ store.phone }}
+            </p>
+            <p>
+                <mat-icon>mail</mat-icon>
+                {{ store.email }}
+            </p>
+        </div>
+        <div class="payments">
+            <p class="title">PAGAMENTO</p>
+            <ul>
+                <li *ngFor="let method of paymentsMethods">
+                    <img [src]="method.urlImg" [alt]="method.name" loading="lazy">
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="copyright">
+        &copy; {{ currentYear }} {{ store.fantasyName }}. Todos os direitos autorais reservados
+    </section>
+</footer>

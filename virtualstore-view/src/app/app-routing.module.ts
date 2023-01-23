@@ -6,13 +6,16 @@ import { CreateProductComponent } from './components/products/create-product/cre
 import { AddColorComponent } from './components/colors/add-color/add-color.component';
 import { AddProductVersionsComponent } from './components/product-versions/add-product-versions/add-product-versions.component';
 import { SeeCatalogComponent } from './components/catalog/see-catalog/see-catalog.component';
+import { StoreLayoutComponent } from './store-layout/store-layout.component';
 
 const routes: Routes = [
   { path: 'uploads/images', component: UploadImageComponent },
   { path: 'cores/adicionar', component: AddColorComponent },
   { path: 'produto/novo', component: CreateProductComponent },
   { path: 'produto/versoes', component: AddProductVersionsComponent },
-  { path: 'catalogo', component: SeeCatalogComponent }
+  { path: 'catalogo', component: StoreLayoutComponent, children: [
+    { path: 'ver', component: SeeCatalogComponent }
+  ] }
 ];
 
 @NgModule({

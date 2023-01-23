@@ -19,7 +19,11 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     // Listar paginado
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE %:search% ORDER BY p.name ASC")
-    Page<Product> listPaginate(@Param("search") String search, Pageable pageable);                 
+    Page<Product> listPaginate(@Param("search") String search, Pageable pageable); 
+    
+    // Listar produtos mais vendidos
+    @Query("SELECT p FROM Product p WHERE p.category.name LIKE %:search% ORDER BY p.name ASC")
+    Page<Product> listProductsByCategory(@Param("search") String search, Pageable pageable);  
 
     // Listar produtos mais vendidos
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE %:search% ORDER BY p.soldUnits DESC")

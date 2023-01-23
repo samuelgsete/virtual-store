@@ -33,6 +33,10 @@ public class ListProductsPaginate extends Paginate<Product, ProductRepository> {
             case "maisrecentes":
             return getRepository().listProductsLatest(search, pageable);
 
+            // Por categoria
+            case "category":
+            return getRepository().listProductsByCategory(search, pageable);
+
             default: return getRepository().listPaginate(search, pageable);
         }
     }

@@ -1,0 +1,57 @@
+<section>
+    <header class="top-bar">
+        <div class="logotipo">
+            <img class="logo" src="/assets/logotipo/lymagazine.png" alt="Logotipo">
+        </div>
+        <div class="search">
+            <div class="input-search">
+                <input 
+                    type="text" 
+                    placeholder="Informe o que você deseja comprar"
+                >
+                <button mat-icon-button color="primary">
+                    <mat-icon>search</mat-icon>
+                </button> 
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li *ngFor="let route of routes">
+                    <button mat-icon-button color="primary">
+                        <mat-icon>{{ route.icon }}</mat-icon>
+                    </button> 
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="departments">
+        <ul class="list-departments">
+            <li 
+                matRipple 
+                *ngFor="let department of departments" 
+                [matMenuTriggerFor]="menu"
+                #menuTrigger="matMenuTrigger"
+                (mouseover)="menuTrigger.openMenu()"
+                
+            >
+                {{ department.name }}
+                <mat-menu #menu="matMenu">
+                    <span (mouseleave)="menuTrigger.closeMenu()">
+                        <button 
+                            mat-menu-item 
+                            *ngFor="let category of department.categories"
+                            (click)="navigateByCategory(category.name)"
+                        >
+                            {{ category.name }}
+                        </button>
+                    </span>
+                </mat-menu>
+            </li>
+        </ul>
+    </nav>
+    <nav class="categories">
+        <ul class="list-categories">
+            
+        </ul>
+    </nav>
+</section>

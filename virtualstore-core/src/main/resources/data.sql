@@ -53,6 +53,7 @@ INSERT INTO departments (name) VALUES ('Gamers');
 INSERT INTO departments (name) VALUES ('Periféricos');
 INSERT INTO departments (name) VALUES ('Hardware');
 INSERT INTO departments (name) VALUES ('Informática');
+INSERT INTO departments (name) VALUES ('Software');
 
 -- Categorias
 
