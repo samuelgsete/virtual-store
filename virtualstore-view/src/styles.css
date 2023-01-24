@@ -10,6 +10,7 @@
 @import url('../src/assets/css/list-property.css');
 @import url('../src/assets/css/grid.css');
 @import url('../src/assets/css/scroll-bar.css');
+@import url('../src/assets/css/header-page.css');
 
 @import '~ngx-toastr/toastr';
 @import "../node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css";

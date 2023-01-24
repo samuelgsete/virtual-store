@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+header.header-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    padding: 2%;
+}
+
+header.header-page div.name-page {
+    display: flex;
+    column-gap: 7px;
+    align-items: center;
+}
+
+header.header-page div.name-page h1 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.78em;
+}
+
+header.header-page div.name-page mat-icon {
+    color: rgb(var(--purple));
+}

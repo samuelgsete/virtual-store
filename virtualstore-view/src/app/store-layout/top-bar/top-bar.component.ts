@@ -24,7 +24,7 @@ export class TopBarComponent implements OnInit {
   ]
   protected departments: Department[] = []
   protected products: Product[] = []
-
+ 
   public constructor(
     private readonly router: Router,
     private readonly listDepartments: ListDepartmentsPaginateService,

@@ -1,3 +1,17 @@
+<header class="header-page">
+    <div class="name-page">
+        <mat-icon>graphic_eq</mat-icon>
+        <h1>Catálogo</h1>
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Ordenar por</mat-label>
+        <mat-select (selectionChange)="orderBy($event.value)">
+            <mat-option *ngFor="let ordination of ordinations" [value]="ordination.name">
+               {{ ordination.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</header>
 <section class="container">
     <div class="product-catalog" *ngFor="let product of products">
         <div class="images">

@@ -30,7 +30,7 @@ public class ListProductsPaginate extends Paginate<Product, ProductRepository> {
             return getRepository().listProductsBiggestDiscount(search, pageable);
 
             // Mais recentes
-            case "maisrecentes":
+            case "latest":
             return getRepository().listProductsLatest(search, pageable);
 
             // Por categoria
