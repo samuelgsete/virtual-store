@@ -23,6 +23,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatRippleModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgxCurrencyModule } from "ngx-currency";
@@ -65,6 +66,7 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatAutocompleteModule,
     MatBadgeModule,
     MatRippleModule,
+    MatRadioModule,
     NgxCurrencyModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     SwiperModule
@@ -98,6 +100,7 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatButtonToggleModule,
     MatBadgeModule,
     MatRippleModule,
+    MatRadioModule,
     NgxCurrencyModule,
     NgxSpinnerModule,
     SwiperModule

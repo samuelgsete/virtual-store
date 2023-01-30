@@ -39,4 +39,8 @@ export class Product extends EntityBase {
         super();
         Object.assign(this, values);
     }
+
+    public getMainImage(): ImageModel {
+        return this.images.filter(img => { return img.isMain })[0]
+    }
 }

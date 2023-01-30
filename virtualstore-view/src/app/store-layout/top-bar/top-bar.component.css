@@ -80,6 +80,7 @@ nav.departments ul.list-departments li {
 
 nav.departments ul.list-departments li:hover {
     background-color: rgb(var(--dark));
+    color: rgb(var(--pink));
 }
 
 header.top-bar nav.nav-bar {

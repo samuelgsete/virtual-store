@@ -24,6 +24,10 @@
 @import '../node_modules/swiper/modules/effect-fade/effect-fade.min.css';
 @import '../node_modules/swiper/modules/effect-flip/effect-flip.min.css';
 
+.no-shadow {
+    box-shadow: none;
+}
+
 .width-fix {
     width: 100%;
 }

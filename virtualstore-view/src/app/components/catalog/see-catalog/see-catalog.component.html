@@ -1,39 +1,37 @@
-<header class="header-page">
-    <div class="name-page">
-        <mat-icon>graphic_eq</mat-icon>
-        <h1>Catálogo</h1>
-    </div>
-    <mat-form-field appearance="outline">
-        <mat-label>Ordenar por</mat-label>
-        <mat-select (selectionChange)="orderBy($event.value)">
-            <mat-option *ngFor="let ordination of ordinations" [value]="ordination.name">
-               {{ ordination.label }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</header>
-<section class="container">
-    <div class="product-catalog" *ngFor="let product of products">
-        <div class="images">
-            <app-carousel [images]="product.images"></app-carousel>
+<section class="cards-product">
+    <div class="card-product-default" *ngFor="let product of products">
+        <div class="card-product-header">
+            <button mat-icon-button class="no-shadow">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
         </div>
-        <p class="product-description">{{ product.name }}</p>
-        <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
-        <div class="product-promo">
-            <p class="previous-prince">{{ product.pricing.basePrice | currency: 'BRL' }}</p>
-            <span class="discount-percent">{{ product.pricing.rateInstallmentDiscount | percent }} OFF</span>
+        <div class="main-image">
+            <img class="product-image" [src]="getMainImage(product.images)" alt="Main Image">
         </div>
-        <h1 class="incash-prince">{{ product.pricing.incashPrice | currency: 'BRL' }}</h1>
-        <span class="spot-promotion">À vista no PIX <span class="off">{{ product.pricing.rateIncashDiscount| percent }} OFF</span></span>
-        <button class="btn" color="pink" matRipple>QUERO COMPRAR</button>
-        <hr>
-        <p class="product-installment">
-            Em até 
-            <span class="value-installment">
-                {{ product.pricing.maxInstallment }} x de {{ product.pricing.installments[product.pricing.maxInstallment - 1].amount | currency: 'BRL'}}
-            </span> 
-            sem juros
-        </p>
+        <div class="card-product-body">
+            <p class="product-name">{{ product.name }}</p> 
+            <p class="previous-prince">De.: {{ product.pricing.basePrice | currency: 'BRL' }}</p>
+            <div class="incash-price-row">
+                <p class="incash-price-label">Por.:</p>
+                <h1 class="incash-price">{{ product.pricing.incashPrice | currency: 'BRL' }}</h1>
+            </div>
+            <p class="incash-discount">
+                <span class="discount-percent">{{ product.pricing.rateIncashDiscount | percent }} OFF</span>
+                á vista no PIX
+            </p>
+            <p class="product-max-installment">
+                Ou em até 
+                <span class="value-installment">
+                    {{ product.pricing.maxInstallment }} x de {{ product.pricing.installments[product.pricing.maxInstallment - 1].amount | currency: 'BRL'}}
+                </span> 
+                sem juros no cartão
+            </p>
+            <button class="btn" color="pink" block="true" (click)="seeDetailsProduct(product.code)" matRipple>QUERO COMPRAR</button>
+        </div>
+        <div class="card-product-footer">
+
+        </div>
     </div>
 </section>
 <ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

@@ -1,5 +1,3 @@
-@import url('./animations.css');
-
 div.stars {
     transition: transform 0.2s;
 }
@@ -9,9 +7,9 @@ div.stars span {
 }
 
 div.stars span.unchecked {
-    color: #afac96;
+    color: rgb(var(--gray-6));
 }
 
 div.stars span.checked {
-    color: #f0d90a;
+    color: rgb(var(--orange));
 }

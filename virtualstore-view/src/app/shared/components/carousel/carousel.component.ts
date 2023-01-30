@@ -12,6 +12,9 @@ SwiperCore.use([ Pagination, Autoplay, EffectCoverflow ]);
 })
 export class CarouselComponent {
 
+  @Input()
+  public brandLogo: string = '';
+  @Input()
+  public isFavorite: boolean = false;
   @Input() public images: ImageModel[] = [];
-
 }

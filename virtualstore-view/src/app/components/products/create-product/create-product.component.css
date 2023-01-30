@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
 
 section.content {
+    width: 96%;
     padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.content mat-stepper {
+    max-width: min-content;
+    height: 100%;
 }
 
 div.complete-registration {

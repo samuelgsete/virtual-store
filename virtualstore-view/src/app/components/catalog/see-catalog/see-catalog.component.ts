@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { ImageModel } from 'src/app/models/image-model.entity';
 import { Pagination } from 'src/app/models/pagination.entity';
 import { Product } from 'src/app/models/product.entity';
 import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
@@ -30,6 +31,14 @@ export class SeeCatalogComponent implements OnInit {
 
   protected orderBy(_ordination: string): void {
     this.router.navigate(['catalogo/ver'], { queryParams: { page: 0, ordination: _ordination, search: '' }})
+  }
+
+  protected seeDetailsProduct(code: string): void {
+    this.router.navigate([`catalogo/produto/${code}`])
+  }
+
+  protected getMainImage(images: ImageModel[]): String {
+    return images.filter(img => { return img.isMain })[0].url;
   }
 
   public ngOnInit(): void {

@@ -43,7 +43,7 @@ export class GeneralInfoProductComponent implements OnInit {
     return this.brands;
   }
 
-  protected displayFn(brand: Brand) { return brand.name }
+  protected displayFn(brand: Brand): string { return brand.name }
 
   public ngOnInit(): void {
     this.form = this._fb.group({

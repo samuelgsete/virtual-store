@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+div.card-checkout-product {
+    display: flex;
+    column-gap: 2%;
+}
+
+div.card-checkout-product p, h1, span {
+    margin: 8px 0;
+}
+
+div.card-checkout-product
+div.card-product-images
+div.product-brand
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+div.card-checkout-product
+div.card-product-images
+div.product-carousel-images {
+    padding: 5%;
+}
+
+div.card-checkout-product
+div.card-product-images
+div.product-brand
+img.product-brand-logo {
+    transform: scale(65%);
+}
+
+div.card-checkout-product
+div.card-product-images
+div.product-brand button
+{
+    color: rgb(var(--gray-6));
+}
+
+div.card-checkout-product
+div.card-product-images
+{
+    width: 30%;
+}
+
+div.card-checkout-product
+div.card-product-description {
+    width: 70%;
+}
+
+div.card-checkout-product
+div.card-product-description
+p.product-sold-units {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.14em;
+    color: rgb(var(--gray-7));
+}
+
+div.card-checkout-product
+div.card-product-description
+h1.card-product-name {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+
+div.card-checkout-product
+div.card-product-description
+span.produt-unique-code {
+    color: rgb(var(--gray-7));
+    font-family: 'Ubuntu';
+}
+
+div.card-checkout-product
+div.card-product-description
+span.product-in-stock {
+    color: rgb(var(--default));
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+}
+
+div.card-checkout-product
+div.card-product-description
+span.produt-out-of-stock {
+    color: rgb(var(--danger));
+    font-family: 'Roboto';
+}
+
+div.card-checkout-product
+div.card-product-description
+p.product-previous-prince {
+    font-size: 1.3em;
+    color: rgb(var(--gray-6));
+    text-decoration: line-through;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-checkout-product
+div.card-product-description
+h1.product-incash-prince {
+    font-size: 2.5em;
+    font-family: 'Outfit', sans-serif;
+    color: rgb(var(--purple));
+    font-weight: bold;
+}
+
+div.card-checkout-product
+div.card-product-description
+p.product-incash-discount {
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    color: rgb(var(--gray-8));
+}
+
+div.card-checkout-product
+div.card-product-description
+span.discount-value {
+    color: rgb(var(--pink));
+    font-weight: bolder;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div.card-checkout-product
+div.card-product-description
+p.product-max-installment {
+    color: rgb(var(--gray-6));
+}
+
+div.card-checkout-product
+div.card-product-description
+span.value-installment {
+    font-weight: bold;
+    color: rgb(var(--purple));
+}
+
+div.card-checkout-product
+div.card-product-description
+p.colors-availability {
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(var(--gray-7));
+}
+
+div.card-checkout-product
+div.card-product-description
+.product-versions-availability {
+    display: flex;
+    column-gap: 15px;
+    margin: 5px 0;
+}
+
+div.card-checkout-product
+div.card-product-description
+.product-version-preview {
+    border: 1.5pt solid rgb(var(--gray-2));
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50px;
+    color: rgb(var(--gray-7));
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.98em;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: border 6ms;
+}
+
+div.card-checkout-product
+div.card-product-description
+.color-preview {
+    border: 1.2pt solid rgb(var(--gray-3));
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
