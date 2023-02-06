@@ -1,0 +1,37 @@
+<div class="dialog-content">
+    <header class="dialog-header">
+        <h1 class="dialog-title">Cores disponíveis</h1>
+        <button mat-icon-button class="no-shadow" (click)="dialogRef.close()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </header>
+    <form [formGroup]="formCart">
+        <mat-selection-list [multiple]="false" formControlName="productVersion" >
+            <mat-list-option 
+                [value]="productVersion" 
+                *ngFor="let productVersion of _product.productVersions"
+                [disabled]="productVersion.stock.availableUnits == 0"
+            >
+                <div class="color-preview" [ngStyle]="{ 'background-color' : productVersion.color.hexCode }"></div>
+                <span class="color-name">{{ productVersion.color.name }}</span>
+            </mat-list-option>
+        </mat-selection-list>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Quantidade</mat-label>
+            <input matInput type="number" formControlName="quantity" min="0" required>
+            <span matSuffix>unidade(s)</span>
+            <mat-error *ngIf="formCart['controls']['quantity'].errors?.['required']">
+                Esse campo é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <button 
+            class="btn" 
+            color="pink"
+            block="true"
+            [disabled]="!formCart.valid"
+            matRipple 
+        >
+            ADICIONAR AO CARRINHO
+        </button>
+    </form>
+</div>

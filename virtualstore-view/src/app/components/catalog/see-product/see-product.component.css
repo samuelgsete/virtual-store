@@ -23,6 +23,11 @@ section.content {
     line-height: 1.8em;
 }
 
+.text-name {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.4em;
+}
+
 mat-panel-title {
     color: rgb(var(--gray-6));
     font-size: 1.05em;

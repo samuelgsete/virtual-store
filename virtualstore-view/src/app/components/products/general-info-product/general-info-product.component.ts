@@ -49,15 +49,15 @@ export class GeneralInfoProductComponent implements OnInit {
     this.form = this._fb.group({
       name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(255)]],
       brand: ['', [Validators.required, new OptionNeedIsSelected().validate()]],
-      model: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-      line: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+      model: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(64)]],
+      line: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(64)]],
       warranty: [''],
       details: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20000)]],
       ean:['', Validators.required],
       freeDelivery: [true, Validators.required],
       justReleased:[false, Validators.required],
       productCondition: ['', Validators.required],
-      contentPackaging: ['', [Validators.required, Validators.maxLength(10000)]],
+      contentPackaging: ['', [Validators.required, Validators.maxLength(255)]],
       category: ['', Validators.required]
     })
 

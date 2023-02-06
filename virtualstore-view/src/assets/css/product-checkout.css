@@ -173,7 +173,7 @@ div.card-checkout-product
 div.card-product-description
 .color-preview {
     border: 1.2pt solid rgb(var(--gray-3));
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
 }

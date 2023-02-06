@@ -9,12 +9,14 @@ import { SeeProductComponent } from './see-product/see-product.component';
 import { FindByUniqueCodeService } from 'src/app/usecases/products/findby-unique-code.service';
 import { FindByUniqueCodeResource } from 'src/app/resources/products/findby-unique-code.resource';
 import { CalculateShippingComponent } from './calculate-shipping/calculate-shipping.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
     SeeCatalogComponent,
     SeeProductComponent,
-    CalculateShippingComponent
+    CalculateShippingComponent,
+    AddToCartComponent
   ],
   imports: [
     CommonModule,

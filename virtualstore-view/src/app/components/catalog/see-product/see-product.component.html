@@ -1,4 +1,3 @@
-<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>
 <section class="content">
     <div class="card-checkout-product">
         <div class="card-product-images">
@@ -45,7 +44,7 @@
                 </span> 
                 sem juros
             </p>
-            <div class="product-models-available" *ngIf="product.productVersions.length > 1">
+            <!--<div class="product-models-available" *ngIf="product.productVersions.length > 1">
                 <p class="colors-availability">Modelos disponíveis</p>
                 <div class="product-versions-availability">
                     <div matRipple
@@ -58,11 +57,13 @@
                         <span>{{ version.stock.availableUnits }} uni</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
+            <!--<app-add-to-cart [_product]="product"></app-add-to-cart>-->           
             <button 
                 class="btn" 
                 color="pink"
                 [disabled]="!formProductVersion.valid"
+                (click)="openAddToCart()"
                 matRipple 
             >
                 ADICIONAR AO CARRINHO
@@ -73,8 +74,9 @@
     <mat-accordion multi>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>Descrição</mat-panel-title>
+            <mat-panel-title>Ver Detalhes</mat-panel-title>
           </mat-expansion-panel-header>
+          <h1 class="text-name">{{ product.name }}</h1>
           <p class="text-details">{{ product.details }}</p>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -141,3 +143,4 @@
         </mat-expansion-panel>
     </mat-accordion>
 </section>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

@@ -41,7 +41,7 @@
     <div class="row">
         <mat-form-field class="width-fix" appearance="fill">
             <mat-label>Modelo</mat-label>
-            <input formControlName="model" minlength="2" maxlength="15" matInput required>
+            <input formControlName="model" minlength="2" maxlength="64" matInput required>
             <mat-error *ngIf="form['controls']['model'].errors?.['required']">
                 modelo é obrigatório
             </mat-error>
@@ -49,15 +49,21 @@
                 Informe no mínimo 2 caracteres
             </mat-error>
             <mat-error *ngIf="form['controls']['model'].errors?.['maxlength']">I
-                nforme no mínimo 15 caracteres
+                nforme no mínimo 64 caracteres
             </mat-error>
         </mat-form-field>
         <mat-form-field class="width-fix" appearance="fill">
             <mat-label>Linha</mat-label>
-            <input formControlName="line" minlength="2" maxlength="30" matInput required>
-            <mat-error *ngIf="form['controls']['line'].errors?.['required']">A linha é obrigatório</mat-error>
-            <mat-error *ngIf="form['controls']['line'].errors?.['minlength']">Informe no mínimo 2 caracteres</mat-error>
-            <mat-error *ngIf="form['controls']['line'].errors?.['maxlength']">Informe no mínimo 15 caracteres</mat-error>
+            <input formControlName="line" minlength="2" maxlength="64" matInput required>
+            <mat-error *ngIf="form['controls']['line'].errors?.['required']">
+                A linha é obrigatório
+            </mat-error>
+            <mat-error *ngIf="form['controls']['line'].errors?.['minlength']">
+                Informe no mínimo 2 caracteres
+            </mat-error>
+            <mat-error *ngIf="form['controls']['line'].errors?.['maxlength']">
+                Informe no mínimo 64 
+            </mat-error>
         </mat-form-field>
     </div>
     <div class="row">
@@ -66,7 +72,7 @@
                 matInput
                 formControlName="contentPackaging"
                 placeholder="Conteúdo da embalagem" 
-                maxlength="10000"
+                maxlength="255"
                 #_contentPackaging
             >
             </textarea>
@@ -76,7 +82,7 @@
             <mat-error *ngIf="form['controls']['contentPackaging'].errors?.['maxlength']">
                 Informe no mínimo 10000 caracteres
             </mat-error>
-            <mat-hint>{{ _contentPackaging.value.length || 0 }}/10000</mat-hint>                            
+            <mat-hint>{{ _contentPackaging.value.length || 0 }}/255</mat-hint>                            
         </mat-form-field>
     </div>
     <div class="row">
@@ -115,7 +121,7 @@
                 </mat-optgroup>
             </mat-select>
             <mat-error *ngIf="form['controls']['category'].errors?.['required']">
-                A categproa do produto é obrigatória
+                A categoria do produto é obrigatória
             </mat-error>
         </mat-form-field>
     </div>
@@ -144,7 +150,7 @@
             >
             </textarea>
             <mat-error *ngIf="form['controls']['details'].errors?.['required']">
-                O conteúdo da embalagem é obrigatório
+                Esse campo é obrigatório
             </mat-error>
             <mat-error *ngIf="form['controls']['details'].errors?.['maxlength']">
                 Informe no mínimo 20000 caracteres

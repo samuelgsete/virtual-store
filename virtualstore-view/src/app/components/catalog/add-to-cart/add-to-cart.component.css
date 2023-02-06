@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/*div.content {
+    padding: 4%;
+    display: flex;
+    align-items: center;
+}*/
+
+header.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 5% 0% 5%; /* Top, Right, Bottom, Left */
+}
+
+h1.dialog-title {
+    font-size: 1.3em;
+    color: rgb(var(--dark));
+    font-family: 'Ubuntu', sans-serif;
+}
+
+span.color-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.99em;
+    color: rgb(var(--gray-7));
+}
+
+form {
+    padding: 0% 5% 0% 5%;
+    max-width: min-content;
+    margin: 0 auto;
+}
+
+.color-preview {
+    border: 1.2pt solid rgb(var(--gray-3));
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    right: 6px;
+}
+
+mat-option {
+    position: relative;
+}
