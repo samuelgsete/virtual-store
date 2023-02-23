@@ -8,6 +8,7 @@ import { AddProductVersionsComponent } from './components/product-versions/add-p
 import { SeeCatalogComponent } from './components/catalog/see-catalog/see-catalog.component';
 import { StoreLayoutComponent } from './store-layout/store-layout.component';
 import { SeeProductComponent } from './components/catalog/see-product/see-product.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: 'uploads/images', component: UploadImageComponent },
@@ -17,7 +18,10 @@ const routes: Routes = [
   { path: 'catalogo', component: StoreLayoutComponent, children: [
     { path: 'ver', component: SeeCatalogComponent },
     { path: 'produto/:code', component: SeeProductComponent }
-  ] }
+  ]},
+  { path: 'home', component: StoreLayoutComponent, children: [
+    { path: '', component: HomeComponent }
+  ]}
 ];
 
 @NgModule({

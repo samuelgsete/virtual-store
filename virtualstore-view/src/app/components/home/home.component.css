@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+div.content {
+    padding: 1.5%;
+}
+
+div.list-products {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+ul.cards-list {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    column-gap: 1.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+li div.card-item {
+    padding: 1%;
+    background-color: rgb(var(--gray-1));
+    border: 1.4pt solid rgb(var(--gray-3));
+    width: 228px;
+}

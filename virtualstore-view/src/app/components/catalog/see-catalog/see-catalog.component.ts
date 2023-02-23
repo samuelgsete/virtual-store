@@ -21,7 +21,7 @@ export class SeeCatalogComponent implements OnInit {
     { label: 'Maiores discontos', name: 'biggestdiscount' },
     { label: 'Mais recentes', name: 'latest' }
   ]
-  protected pagination: Pagination = new Pagination();
+  protected pagination: Pagination = new Pagination()
 
   public constructor(
     private readonly router: Router,

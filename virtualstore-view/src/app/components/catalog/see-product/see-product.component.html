@@ -43,22 +43,7 @@
                     {{ product.pricing.maxInstallment }} x de {{ ( product.pricing.installments[product.pricing.maxInstallment -1].amount) | currency: 'BRL'}}
                 </span> 
                 sem juros
-            </p>
-            <!--<div class="product-models-available" *ngIf="product.productVersions.length > 1">
-                <p class="colors-availability">Modelos disponíveis</p>
-                <div class="product-versions-availability">
-                    <div matRipple
-                        class="product-version-preview" 
-                        *ngFor="let version of product.productVersions"
-                        (click)="selectVersion(version)"
-                        [ngStyle]="{ 'border-color': productVersionSelected == version ? 'rgb(var(--purple))': 'rgb(var(--gray-2))' }"
-                    >
-                        <div class="color-preview" [ngStyle]="{ 'background-color': version.color.hexCode }"></div>
-                        <span>{{ version.stock.availableUnits }} uni</span>
-                    </div>
-                </div>
-            </div>-->
-            <!--<app-add-to-cart [_product]="product"></app-add-to-cart>-->           
+            </p>        
             <button 
                 class="btn" 
                 color="pink"

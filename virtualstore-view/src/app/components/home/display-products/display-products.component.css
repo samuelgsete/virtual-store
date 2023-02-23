@@ -1,0 +1,26 @@
+@import url('../../../../assets/css/product-catalog.css');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+section {
+    padding: 30px 0 40px;
+    border-bottom: 3px solid rgb(var(--gray-2));
+}
+
+h1.title {
+    font-family: 'Prompt', sans-serif;
+}
+
+div.list-products {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+ul.cards-list {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    column-gap: 1.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}

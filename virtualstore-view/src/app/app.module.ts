@@ -13,6 +13,7 @@ import { ProductVersionsModule } from './components/product-versions/product-ver
 import { PricingModule } from './components/pricing/pricing.module';
 import { CatalogModule } from './components/catalog/catalog.module';
 import { StoreLayoutModule } from './store-layout/store-layout.module';
+import { HomeModule } from './components/home/home.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { StoreLayoutModule } from './store-layout/store-layout.module';
     BrandsModule,
     ProductVersionsModule,
     PricingModule,
-    CatalogModule
+    CatalogModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
