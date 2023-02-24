@@ -10,13 +10,20 @@ import { FindByUniqueCodeService } from 'src/app/usecases/products/findby-unique
 import { FindByUniqueCodeResource } from 'src/app/resources/products/findby-unique-code.resource';
 import { CalculateShippingComponent } from './calculate-shipping/calculate-shipping.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { DisplayCatalogComponent } from './display-catalog/display-catalog.component';
+import { SearchProductsComponent } from './search-products/search-products.component';
+import { OrderByProductsService } from 'src/app/usecases/products/orderby-products.service';
+import { DisplayMainImageService } from 'src/app/usecases/products/display-main-image.service';
+import { DisplayDetailsProductService } from 'src/app/usecases/products/display-details-product.service';
 
 @NgModule({
   declarations: [
     SeeCatalogComponent,
     SeeProductComponent,
     CalculateShippingComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    DisplayCatalogComponent,
+    SearchProductsComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +33,10 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
     ListProductsPaginateResource,
     ListProductsPaginateService,
     FindByUniqueCodeService,
-    FindByUniqueCodeResource
+    FindByUniqueCodeResource,
+    OrderByProductsService,
+    DisplayMainImageService,
+    DisplayDetailsProductService
   ]
 })
 export class CatalogModule {}

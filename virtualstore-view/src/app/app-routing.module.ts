@@ -9,6 +9,8 @@ import { SeeCatalogComponent } from './components/catalog/see-catalog/see-catalo
 import { StoreLayoutComponent } from './store-layout/store-layout.component';
 import { SeeProductComponent } from './components/catalog/see-product/see-product.component';
 import { HomeComponent } from './components/home/home.component';
+import { DisplayCatalogComponent } from './components/catalog/display-catalog/display-catalog.component';
+import { SearchProductsComponent } from './components/catalog/search-products/search-products.component';
 
 const routes: Routes = [
   { path: 'uploads/images', component: UploadImageComponent },
@@ -18,6 +20,10 @@ const routes: Routes = [
   { path: 'catalogo', component: StoreLayoutComponent, children: [
     { path: 'ver', component: SeeCatalogComponent },
     { path: 'produto/:code', component: SeeProductComponent }
+  ]},
+  { path: 'catalog', component: StoreLayoutComponent, children: [
+    { path: '', component: DisplayCatalogComponent },
+    { path: 'search', component: SearchProductsComponent }
   ]},
   { path: 'home', component: StoreLayoutComponent, children: [
     { path: '', component: HomeComponent }

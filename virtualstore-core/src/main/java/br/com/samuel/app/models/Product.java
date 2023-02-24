@@ -30,7 +30,7 @@ public class Product extends EntityBase {               // Entidade Produto
     private Boolean freeDelivery;                       // Frete gratuito
     private Boolean justReleased;                       // Recem lançado
     private Integer ratingAverage;                      // Avaliação média
-    private Integer numberOfRaters;                      // Total de avaliadores
+    private Integer numberOfRaters;                     // Total de avaliadores
     private ProductCondition productCondition;          // Condição do produto
     private String contentPackaging;                    // Conteúdo da embalagem
     private Boolean isActive;                           // EstaAtivo

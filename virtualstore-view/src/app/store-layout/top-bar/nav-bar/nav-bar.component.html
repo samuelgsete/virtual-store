@@ -1,0 +1,16 @@
+<nav>
+    <ul class="nav-bar">
+        <li class="menu-item" *ngFor="let route of routes">
+            <a [routerLink]="route.path">
+                <mat-icon 
+                    class="route-icon" 
+                    [matBadge]="route.badge"
+                    matBadgeColor="warn"
+                >
+                    {{ route.icon }}
+                </mat-icon>
+                <p class="route-label">{{ route.name }}</p>
+            </a>
+        </li>
+    </ul>
+</nav>

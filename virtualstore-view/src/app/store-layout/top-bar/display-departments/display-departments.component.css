@@ -1,0 +1,25 @@
+nav.departments {
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid rgb(var(--pink));
+}
+
+nav.departments ul.list-departments {
+    list-style: none;
+    display: flex;
+    color: rgb(var(--gray-4));
+    padding: 14px;
+}
+
+nav.departments ul.list-departments li {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif !important;
+    transition: all 0.5s;
+    font-size: 1.01em;
+}
+
+nav.departments ul.list-departments li:hover {
+    background-color: rgb(var(--dark));
+    color: rgb(var(--pink));
+}

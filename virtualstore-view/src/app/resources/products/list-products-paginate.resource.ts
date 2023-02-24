@@ -15,6 +15,7 @@ export class ListProductsPaginateResource {
     public run(pagination: Pagination): Observable<any> {
         const _params = new HttpParams()
             .set('search', pagination.search)
+            .set('category', pagination.category)
             .set('ordination', pagination.ordination)
             .set('page', pagination.page)
             .set('size', pagination.size)

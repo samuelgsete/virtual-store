@@ -1,0 +1,47 @@
+<section class="search-cards-product">
+    <header class="header">
+        <h1>Resultados da busca</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Ordenar por</mat-label>
+            <mat-select (valueChange)="orderBy.run($event)">
+                <mat-option *ngFor="let ordination of orderBy.ordinations" [value]="ordination">
+                    {{ ordination.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </header>
+    <div class="grid">
+        <div class="card-product-default" *ngFor="let product of products">
+            <div class="card-product-header">
+                <button mat-icon-button class="no-shadow">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
+            </div>
+            <div class="main-image">
+                <img class="product-image" [src]="mainImage.run(product.images)" alt="Main Image">
+            </div>
+            <div class="card-product-body">
+                <p class="product-name">{{ product.name }}</p> 
+                <p class="previous-prince">De.: {{ product.pricing.basePrice | currency: 'BRL' }}</p>
+                <div class="incash-price-row">
+                    <p class="incash-price-label">Por.:</p>
+                    <h1 class="incash-price">{{ product.pricing.incashPrice | currency: 'BRL' }}</h1>
+                </div>
+                <p class="incash-discount">
+                    <span class="discount-percent">{{ product.pricing.rateIncashDiscount | percent }} OFF</span>
+                    á vista no PIX
+                </p>
+                <p class="product-max-installment">
+                    Ou em até 
+                    <span class="value-installment">
+                        {{ product.pricing.maxInstallment }} x de {{ product.pricing.installments[product.pricing.maxInstallment - 1].amount | currency: 'BRL'}}
+                    </span> 
+                    sem juros no cartão
+                </p>
+                <button class="btn" color="pink" block="true" (click)="goToDetails.run(product.code)" matRipple>QUERO COMPRAR</button>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

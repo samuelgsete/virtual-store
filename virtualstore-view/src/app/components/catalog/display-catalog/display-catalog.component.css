@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('../../../../assets/css/product-catalog.css');
+
+section {
+    padding: 1% 2% 0 2%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header mat-form-field {
+    margin-top: 20px;
+}
+
+div.title {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+}
+
+div.title > span {
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    color: rgb(var(--gray-7));
+    font-size: 1.21em;
+    transition: all 0.5s;
+}
+
+div.title > span:hover {
+    text-decoration: underline;
+    color: rgb(var(--gray-8));
+}
+
+div.title > mat-icon {
+    cursor: pointer;
+    color: rgb(var(--purple));
+}
+
+div.grid {
+    padding: 15px 0;
+    display: grid;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

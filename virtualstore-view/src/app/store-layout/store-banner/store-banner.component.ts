@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import SwiperCore, { Pagination, Autoplay, EffectFade, EffectCoverflow, EffectFlip, Navigation } from 'swiper';
 
-SwiperCore.use([ Navigation, Pagination, Autoplay, EffectFade, EffectCoverflow, EffectFlip ]);
+SwiperCore.use([ Navigation, Pagination, EffectFade, EffectCoverflow, EffectFlip ]);
 
 @Component({
   selector: 'app-store-banner',

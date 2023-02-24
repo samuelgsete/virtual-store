@@ -5,6 +5,7 @@ export class Department extends EntityBase {
 
     public name!: string;
     public categories: Category[] = [];
+    public isActive: boolean = false;
 
     public constructor(values: Object = {}) { 
         super();

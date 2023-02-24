@@ -1,0 +1,25 @@
+<nav class="departments">
+    <ul class="list-departments">
+        <li 
+            matRipple 
+            *ngFor="let department of departments" 
+            [matMenuTriggerFor]="menu"
+            #menuTrigger="matMenuTrigger"
+            (click)="menuTrigger.openMenu()"
+            
+        >
+            {{ department.name }}
+            <mat-menu #menu="matMenu">
+                <span (mouseleave)="menuTrigger.closeMenu()">
+                    <button 
+                        mat-menu-item 
+                        *ngFor="let category of department.categories"
+                        (click)="displayProducts.run(department.name, category.name)"
+                    >
+                        {{ category.name }}
+                    </button>
+                </span>
+            </mat-menu>
+        </li>
+    </ul>
+</nav>

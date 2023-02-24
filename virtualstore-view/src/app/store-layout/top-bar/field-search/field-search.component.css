@@ -1,0 +1,22 @@
+div.input-search {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    border-radius: 35px;
+    width: 480px;
+}
+
+div.input-search input {
+    border: none;
+    padding: 2%;
+    width: 96%;
+    font-size: 1.11em;
+    color: rgb(var(--gray-7));
+    font-family: 'Inter', sans-serif;
+}
+
+div.input-search input:focus {
+    outline: none;
+}
