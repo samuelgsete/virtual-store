@@ -23,8 +23,8 @@ public class Color extends EntityBase {     // Entidade Cor
     @OneToMany(mappedBy = "color", cascade = CascadeType.ALL)
     private Set<ProductVersion> productVersions = new HashSet<ProductVersion>();
 
-    public void addProduct(ProductVersion productVersion) {
+    /*public void addProduct(ProductVersion productVersion) {
         productVersion.setColor(this);
         productVersions.add(productVersion);
-    }
+    }*/
 }

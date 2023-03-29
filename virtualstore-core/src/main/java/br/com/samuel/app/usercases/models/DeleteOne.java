@@ -1,5 +1,7 @@
 package br.com.samuel.app.usercases.models;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class DeleteOne<T, R> {
@@ -9,5 +11,5 @@ public abstract class DeleteOne<T, R> {
 
     protected R getRepository() { return repository; }
 
-    public abstract T run(Integer id, T object);
+    public abstract Optional<T> run(Integer id, T object);
 }

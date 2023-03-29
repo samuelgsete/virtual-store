@@ -1,23 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-/*div.content {
-    padding: 4%;
-    display: flex;
-    align-items: center;
-}*/
-
 header.dialog-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5% 5% 0% 5%; /* Top, Right, Bottom, Left */
+    padding: 5% 5% 2% 5%; /* Top, Right, Bottom, Left */
 }
 
 h1.dialog-title {
     font-size: 1.3em;
     color: rgb(var(--dark));
     font-family: 'Ubuntu', sans-serif;
+    margin: 0;
 }
 
 span.color-name {
@@ -42,6 +37,14 @@ form {
     right: 6px;
 }
 
+mat-form-field {
+    margin: 4px 0;
+}
+
 mat-option {
     position: relative;
+}
+
+mat-error {
+    font-size: 0.99em !important;
 }

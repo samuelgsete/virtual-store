@@ -15,6 +15,10 @@ import { SearchProductsComponent } from './search-products/search-products.compo
 import { OrderByProductsService } from 'src/app/usecases/products/orderby-products.service';
 import { DisplayMainImageService } from 'src/app/usecases/products/display-main-image.service';
 import { DisplayDetailsProductService } from 'src/app/usecases/products/display-details-product.service';
+import { CreateShoppingCartService } from 'src/app/usecases/shoppingCarts/create-shopping-cart.service';
+import { CreateShoppingCartResource } from 'src/app/resources/shoppingCarts/create-shopping-cart.resource';
+import { AddItemCartResource } from 'src/app/resources/itemCart/add-item-cart.resource';
+import { AddItemCartService } from 'src/app/usecases/itemCart/add-item-cart.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { DisplayDetailsProductService } from 'src/app/usecases/products/display-
     FindByUniqueCodeResource,
     OrderByProductsService,
     DisplayMainImageService,
-    DisplayDetailsProductService
+    DisplayDetailsProductService,
+    CreateShoppingCartService,
+    CreateShoppingCartResource,
+    AddItemCartResource,
+    AddItemCartService
   ]
 })
 export class CatalogModule {}

@@ -14,6 +14,7 @@ import { PricingModule } from './components/pricing/pricing.module';
 import { CatalogModule } from './components/catalog/catalog.module';
 import { StoreLayoutModule } from './store-layout/store-layout.module';
 import { HomeModule } from './components/home/home.module';
+import { ShoppingCartsModule } from './components/shopping-carts/shopping-carts.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeModule } from './components/home/home.module';
     ProductVersionsModule,
     PricingModule,
     CatalogModule,
-    HomeModule
+    HomeModule,
+    ShoppingCartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

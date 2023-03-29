@@ -45,6 +45,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<Product> listProductsBiggestDiscount(@Param("search") String search, @Param("category") String category, Pageable pageable);
 
     // Listar produtos mais recentes
-    @Query("SELECT p FROM Product p WHERE p.category.name LIKE %:category% AND LOWER(p.name) LIKE %:search% ORDER BY p.offeredAt DESC")
+    @Query("SELECT p FROM Product p WHERE p.category.name LIKE %:category% AND LOWER(p.name) LIKE %:search% ORDER BY p.createdAt DESC")
     Page<Product> listProductsLatest(@Param("search") String search, @Param("category") String category, Pageable pageable);
 }

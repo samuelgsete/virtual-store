@@ -25,7 +25,7 @@ export class SeeProductComponent implements OnInit {
   public constructor(
     private readonly dialog: MatDialog,
     private readonly router: Router,
-    private readonly findOne: FindByUniqueCodeService
+    protected readonly findOne: FindByUniqueCodeService
   ) {}
 
   protected displayFn(productVersion: ProductVersion): string {

@@ -17,6 +17,9 @@ public class DeleteBrandResource extends ResourceDeleteOne<Brand, DeleteBrand> {
 
     @DeleteMapping("{id}")
     public ResponseEntity<Brand> run(@PathVariable Integer id, @RequestBody Brand brand) {
-        return ResponseEntity.ok().body(delete().run(id, brand));
+        return delete()
+            .run(id, brand)
+            .map(brandDeleted -> ResponseEntity.ok(brandDeleted))
+            .orElse(ResponseEntity.notFound().build());
     }
 }

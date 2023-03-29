@@ -2,42 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 /* Estilização das tabelas */
-table {
+table.ui-table {
     padding: 2%;
     border-collapse: collapse;
     width: 100%;
 }
 
-table tr td, table tr th {
+table.ui-table tr td, table tr th {
     padding: 6px 3px;
     text-align: left;
 }
 
-table tr th {
+table.ui-table tr th {
     color: rgb(var(--dark));
     font-family: 'Karla', sans-serif;
     font-size: 0.99em;
 }
 
-tr {
+table.ui-table tr {
     border-bottom: 1px solid rgb(var(--gray-2));
     color: rgb(var(--gray-6));
 }
 
-tr:nth-child(even) {
+table.ui-table tr:nth-child(even) {
     background-color: rgba(var(--purple), 0.05);
 }
 
-table tr {
+table.ui-table tr {
     cursor: pointer;
 }
 
-table tr td img {
+table.ui-table tr td img {
     width: 60px;
     height: 60px;
 }
 
-table tr td {
+table.ui-table tr td {
     animation: down 0.4s;
     font-family: 'Open Sans', sans-serif;
 }

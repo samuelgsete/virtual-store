@@ -1,9 +1,9 @@
 package br.com.samuel.app.models;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -50,13 +51,8 @@ public class Product extends EntityBase {               // Entidade Produto
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;                                                       // Marca   
-            
-    @Column(name = "offered_at", columnDefinition = "TIMESTAMP")
-    private LocalDateTime offeredAt = LocalDateTime.now();                      // Ofertado desde
 
-    @Column(name = "updated_at", columnDefinition = "TIMESTAMP")
-    private LocalDateTime updatedAt = LocalDateTime.now();                      // Atualizado em
-
+    @OrderBy("isMain DESC")
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<ProductImage> images = new HashSet<ProductImage>();             // Imagens do produto
 
@@ -69,6 +65,10 @@ public class Product extends EntityBase {               // Entidade Produto
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;                                                  // Category
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<ItemCart> itemCart = new HashSet<ItemCart>();
                           
     public void addAllImages(Set<ProductImage> images) {
         this.images = images.stream().map(productImage -> {

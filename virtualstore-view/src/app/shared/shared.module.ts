@@ -35,13 +35,15 @@ import { SmallTextPipe } from 'src/app/pipes/small-text.pipe';
 import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
+import { ColorPreviewComponent } from './components/color-preview/color-preview.component';
 
 @NgModule({
   declarations: [
     SmallTextPipe,
     SizeFilePipe,
     CarouselComponent,
-    StarRaterComponent
+    StarRaterComponent,
+    ColorPreviewComponent
   ],
   imports: [
     CommonModule,
@@ -77,10 +79,6 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     
   ],
   exports: [
-    SmallTextPipe,
-    SizeFilePipe,
-    CarouselComponent,
-    StarRaterComponent,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -108,7 +106,12 @@ import { StarRaterComponent } from './components/star-rater/star-rater.component
     MatListModule,
     NgxCurrencyModule,
     NgxSpinnerModule,
-    SwiperModule
+    SwiperModule,
+    SmallTextPipe,
+    SizeFilePipe,
+    CarouselComponent,
+    StarRaterComponent,
+    ColorPreviewComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

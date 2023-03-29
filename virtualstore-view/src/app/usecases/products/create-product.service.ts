@@ -9,6 +9,7 @@ import { CreateProductResource } from "src/app/resources/products/create-product
 export class CreateProductService {
 
     private complete: EventEmitter<any> = new EventEmitter<any>();
+   
 
     public constructor(
         private readonly toastr: ToastrService,
@@ -17,7 +18,7 @@ export class CreateProductService {
     ) {}
 
     public done(): EventEmitter<any> { return this.complete }
-
+    
     public run(
         _generalInfo: any, 
         _measurements: any, 

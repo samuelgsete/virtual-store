@@ -14,6 +14,8 @@ import { FieldSearchComponent } from './top-bar/field-search/field-search.compon
 import { NavBarComponent } from './top-bar/nav-bar/nav-bar.component';
 import { DisplayDepartmentsComponent } from './top-bar/display-departments/display-departments.component';
 import { DiplayProductsByDepartments } from '../usecases/products/display-products-by-departments.service';
+import { FindOneShoppingCartResource } from '../resources/shoppingCarts/find-one-shopping-cart.resource';
+import { FindOneShoppingCartService } from '../usecases/shoppingCarts/find-one-shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DiplayProductsByDepartments } from '../usecases/products/display-produc
   providers: [
     ListProductsPaginateService,
     ListProductsPaginateResource,
-    DiplayProductsByDepartments
+    DiplayProductsByDepartments,
+    FindOneShoppingCartResource,
+    FindOneShoppingCartService
   ]
 })
 export class StoreLayoutModule {}

@@ -2,7 +2,7 @@ package br.com.samuel.app.models;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,21 +27,21 @@ public class Pricing extends EntityBase {
 
     @OrderBy("amount DESC")
     @OneToMany(mappedBy = "pricing", cascade = CascadeType.ALL)
-    private Set<Installment> installments = new LinkedHashSet<Installment>();
+    private Set<Installment> installments = new HashSet<Installment>();
 
     public void generatePrice() {
        // Calculando o desconto do preço avista
        incashDiscount = basePrice.multiply(new BigDecimal(rateIncashDiscount)).setScale(2, RoundingMode.HALF_UP);
        // Calculando o preco avista
-       incashPrice = basePrice.subtract(incashDiscount).setScale(2, RoundingMode.HALF_UP);;
+       incashPrice = basePrice.subtract(incashDiscount).setScale(2, RoundingMode.HALF_UP);
        // Calculado o desconto do preço parcelado
        installmentDiscount = basePrice.multiply(new BigDecimal(rateInstallmentDiscount)).setScale(2, RoundingMode.HALF_UP);;
        // Calculado o preço parcelado
-       installmentPrice = basePrice.subtract(installmentDiscount).setScale(2, RoundingMode.HALF_UP);;
+       installmentPrice = basePrice.subtract(installmentDiscount).setScale(2, RoundingMode.HALF_UP);
     }
 
     public void generateInstallments() {
-        installments = new LinkedHashSet<Installment>();
+        installments = new HashSet<Installment>();
         for(int quantity = 1; quantity <= maxInstallment; quantity++) {
             var installment = new Installment();
             var amount = installmentPrice.divide(BigDecimal.valueOf(quantity), 2, RoundingMode.HALF_UP);

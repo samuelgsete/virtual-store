@@ -9,6 +9,7 @@ import { FindByUniqueCodeResource } from "src/app/resources/products/findby-uniq
 export class FindByUniqueCodeService {
 
     private readonly complete: EventEmitter<Product> = new EventEmitter<Product>();
+    private progress: boolean = true;
 
     public constructor(
         private readonly toastr: ToastrService,
@@ -18,11 +19,14 @@ export class FindByUniqueCodeService {
 
     public done(): EventEmitter<Product> { return this.complete }
 
+    public inProgress(): boolean { return this.progress; }
+
     public run(code: string) {
         this.spinner.show();
         this.findOne.run(code).subscribe({
             next: (response) => {
                 this.spinner.hide();
+                this.progress = false;
                 this.complete.emit(response);
             },
             error: (eventErr) => {

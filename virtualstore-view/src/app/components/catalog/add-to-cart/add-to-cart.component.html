@@ -6,16 +6,23 @@
         </button>
     </header>
     <form [formGroup]="formCart">
-        <mat-selection-list [multiple]="false" formControlName="productVersion" >
-            <mat-list-option 
-                [value]="productVersion" 
-                *ngFor="let productVersion of _product.productVersions"
-                [disabled]="productVersion.stock.availableUnits == 0"
-            >
-                <div class="color-preview" [ngStyle]="{ 'background-color' : productVersion.color.hexCode }"></div>
-                <span class="color-name">{{ productVersion.color.name }}</span>
-            </mat-list-option>
-        </mat-selection-list>
+        <mat-form-field class="width-fix" appearance="fill">
+            <mat-label>Versão do produto</mat-label>
+            <mat-select formControlName="productVersion" required>
+                <mat-option 
+                    *ngFor="let productVersion of _product.productVersions" 
+                    [value]="productVersion"
+                    [disabled]="productVersion.stock.availableUnits == 0"
+                    #_productVersion
+                >
+                    {{ productVersion.color.name }}
+                    <div class="color-preview" [ngStyle]="{ 'background-color': _productVersion.value.color.hexCode }"></div>
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formCart['controls']['productVersion'].errors?.['required']">
+                Esse campo é obrigatório
+            </mat-error>
+        </mat-form-field>
         <mat-form-field class="width-fix" appearance="fill">
             <mat-label>Quantidade</mat-label>
             <input matInput type="number" formControlName="quantity" min="0" required>
@@ -23,12 +30,19 @@
             <mat-error *ngIf="formCart['controls']['quantity'].errors?.['required']">
                 Esse campo é obrigatório
             </mat-error>
+            <mat-error *ngIf="formCart['controls']['quantity'].errors?.['min']">
+                Informe no mínimo 1 unidade
+            </mat-error>
+            <mat-error *ngIf="formCart['controls']['quantity'].errors?.['max']">
+                Informe no máximo 10 unidades
+            </mat-error>
         </mat-form-field>
         <button 
             class="btn" 
             color="pink"
             block="true"
             [disabled]="!formCart.valid"
+            (click)="addItem()"
             matRipple 
         >
             ADICIONAR AO CARRINHO

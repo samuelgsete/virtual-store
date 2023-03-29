@@ -1,0 +1,95 @@
+<main *ngIf="!findOne.inProgress()">
+    <header>
+        <img class="logotipo" src="/assets/img/logotipo/laymagazine-2.png" alt="LyMagazine">
+        <button class="btn" color="pink" matRipple>IR PARA LOJA</button>
+    </header>
+    <section class="sec-one">
+        <ul class="cart">
+            <li class="item-cart" *ngFor="let itemCart of shoppingCart.items">
+                <img class="item-image" [src]="itemCart.product.images[0].url" [alt]="itemCart.product.name">
+                <div class="item-content">  
+                    <p class="item-name">{{ itemCart.product.name | smalltext: '36' }}</p>
+                    <p class="item-price">{{ itemCart.quantity }} uni x {{ itemCart.product.pricing.incashPrice | currency: 'BRL' }}</p>
+                    <div class="item-color-row">
+                        <p class="item-color">Cor:</p>
+                        <app-color-preview [name]="itemCart.productVersion.color.name" [hexCode]="itemCart.productVersion.color.hexCode"></app-color-preview>
+                    </div>
+                    <div class="update-quantity">
+                        <button class="delete-unit" (click)="removeUnit(itemCart)" [disabled]="itemCart.quantity == 1" matRipple>-</button>
+                        <h1 class="current-quantity">{{ itemCart.quantity }} uni</h1>
+                        <button class="add-unit" (click)="addUnit(itemCart)" matRipple [disabled]="itemCart.quantity == itemCart.productVersion.stock.availableUnits || itemCart.quantity == 5">+</button>
+                    </div>
+                </div>
+                <div class="item-subtotal">
+                    <h2 class="subtotal-incash">{{ itemCart.subtotalIncash | currency: 'BRL' }}</h2>
+                    <p class="subtotal-installment">Ou em até <strong>{{ itemCart.product.pricing.maxInstallment }}x {{ itemCart.subtotalInstallment | currency: 'BRL' }}</strong> sem juros</p>
+                    <button class="btn" color="light" (click)="deleteOne.run(itemCart.id, itemCart)" matRipple>REMOVER</button>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="sec-two">
+        <div class="shipping-and-gift-card">
+            <div class="shipping">
+                <h1>Calcular Entrega e Prazos</h1>
+                <div class="row">
+                    <input class="shipping-input" type="text" placeholder="00.000-000" value="61.895-000">
+                    <button class="btn" color="purple" matRipple>OK</button>
+                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não lembro meu CEP</a>
+                </div>
+                <p class="shipping-to">Receba {{ shoppingCart.items.length }} item(s) em <strong>Guiúba-CE</strong></p>
+                <mat-radio-group class="shipping-options">
+                    <mat-radio-button>
+                        <p><strong>PAC</strong> - Receba em até 14 dias úteis | <span>R$ 14,99</span></p>
+                    </mat-radio-button>
+                    <mat-radio-button>
+                        <p><strong>Sedex</strong> - Receba em até 4 dias úteis | <span>R$ 89,99</span></p>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="gift-card">
+                <h1>Aplicar Cupom de Desconto</h1>
+                <div class="row">
+                    <input class="gift-card-input" type="text" placeholder="Ex: VEM30" value="VEM100">
+                    <button class="btn" color="purple" matRipple>OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="resume-order">
+            <h1>Resumo do pedido</h1>
+            <table>
+                <tr>
+                    <td>À vista</td>
+                    <td>{{ shoppingCart.resumeCart.subtotalIncash | currency: 'BRL' }}</td>
+                </tr>
+                <tr>
+                    <td>Á prazo</td>
+                    <td>{{ shoppingCart.resumeCart.subtotalInstallment | currency: 'BRL' }}</td>
+                </tr>
+                <tr>
+                    <td>Descontos</td>
+                    <td>-R$ 99,79</td>
+                </tr>
+                <tr>
+                    <td>Frete</td>
+                    <td>Grátis</td>
+                </tr>
+                <tr class="total">
+                    <td>Total</td>
+                    <td>{{ shoppingCart.resumeCart.subtotalIncash | currency: 'BRL' }}</td>
+                </tr>
+                <tr class="max-installment">
+                    <td colspan="2">
+                        Ou em até 
+                        <strong>
+                            {{ shoppingCart.resumeCart.maxInstallment }}x {{ shoppingCart.resumeCart.subtotalInstallment / shoppingCart.resumeCart.maxInstallment | currency: 'BRL' }}
+                        </strong> 
+                        sem juros
+                    </td>
+                </tr>
+            </table>
+            <button class="btn" color="dark" block="true" matRipple>IR PARA PAGAMENTO</button>
+        </div>
+    </section>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

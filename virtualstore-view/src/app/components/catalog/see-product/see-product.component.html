@@ -1,5 +1,5 @@
 <section class="content">
-    <div class="card-checkout-product">
+    <div class="card-checkout-product" *ngIf="!findOne.inProgress()">
         <div class="card-product-images">
             <div class="product-brand">
                 <img class="product-brand-logo" [src]="product.brand.urlLogo" alt="Brand product">

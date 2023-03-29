@@ -28,8 +28,6 @@ export class Product extends EntityBase {
     public pricing!: Pricing;
     public measurements!: ProductMeasurements;
     public brand!: Brand;
-    public offeredAt!: Date;
-    public updatedAt!: Date;
     public category!: Category;
     public specifications: Specification[] = [];
     public productVersions: ProductVersion[] = [];
@@ -38,9 +36,5 @@ export class Product extends EntityBase {
     public constructor(values: Object = {}) { 
         super();
         Object.assign(this, values);
-    }
-
-    public getMainImage(): ImageModel {
-        return this.images.filter(img => { return img.isMain })[0]
     }
 }

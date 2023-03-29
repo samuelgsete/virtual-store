@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+header {
+    padding: 1% 2% 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img.logotipo {
+    width: 160px;
+}
+
+section.sec-one {
+    width: 96%;
+    padding: 2%;
+}
+
+section.sec-one p,
+section.sec-one h1,
+section.sec-one h2 {
+    margin: 0;
+    padding: 0;
+}
+
+section.sec-one ul.cart {
+    padding: 2% 0.5% 0.25% 0.5%;
+    list-style: none;
+}
+
+section.sec-one ul.cart li.item-cart img.item-image {
+    max-width: 10%;
+    max-height: 10%;
+    width: auto;
+    width: auto;
+    margin: 0;
+}
+
+section.sec-one ul.cart li.item-cart {
+    border-bottom: 0.6pt solid rgb(var(--gray-4));
+    padding: 1% 0;
+    display: flex;
+    align-items: center;
+    column-gap: 2%;
+}
+
+section.sec-one ul.cart li.item-cart div.item-content {
+    width: 100%;
+}
+
+section.sec-one ul.cart li.item-cart div.item-content p.item-name {
+    font-size: 1.15em;
+    font-family: 'Poppins', sans-serif;
+    margin: 3px 0;
+    font-weight: bold;
+}
+
+section.sec-one ul.cart li.item-cart div.item-content p.item-price {
+    color: rgb(var(--dark));
+    margin: 6px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+}
+
+section.sec-one ul.cart li.item-cart div.item-content div.item-color-row {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    color: rgb(var(--dark));
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+}
+
+section.sec-one ul.cart li.item-cart div.item-subtotal {
+    display: flex;
+    flex-direction: column;
+
+}
+
+section.sec-one ul.cart li.item-cart div.item-subtotal h2.subtotal-incash {
+    margin: 5px 0;
+    font-size: 1.7em;
+    font-weight: bold;
+    font-family: 'Blinker', sans-serif;
+    text-align: right;
+}
+
+section.sec-one ul.cart li.item-cart div.item-subtotal p.subtotal-installment {
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.01em;
+    text-align: right;
+}
+
+.input-quantity {
+    width: 96px;
+    margin: 15px 0;
+}
+
+div.update-quantity {
+    width: min-content;
+    border: 1.2pt solid rgb(var(--gray-4));
+    border-radius: 6px;
+    margin-top: 8px !important;
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+}
+
+div.update-quantity button {
+    border: none;
+    padding: 3px 12px;
+    background-color: transparent;
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.9em;
+    cursor: pointer;
+}
+
+div.update-quantity h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.12em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+div.update-quantity button.delete-unit {
+    border-right: 1.2pt solid rgb(var(--gray-3));
+}
+
+div.update-quantity button.add-unit {
+    border-left: 1.2pt solid rgb(var(--gray-3));
+}
+
+section.sec-two {
+    width: 96%;
+    padding: 0.5% 2% 2% 2%;
+    display: flex;
+    align-items: center;
+}
+
+section.sec-two div.shipping-and-gift-card {
+    width: 65%;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping, div.gift-card {
+    padding: 1% 0.5%;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping h1, div.gift-card h1 {
+    font-size: 1.28em;
+    font-weight: bold;
+    font-family: 'Figtree', sans-serif;
+    margin: 3px;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping .row, div.gift-card .row {
+    display: flex;    
+    align-items: center;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping input.shipping-input, div.gift-card input.gift-card-input {
+    padding: 13px 6px;
+    color: rgb(var(--gray-8));
+    font-family: 'Inter', sans-serif;
+    font-size: 0.99em;
+    width: 140px;
+    background-color: transparent;
+    border: 1.1pt solid rgb(var(--gray-6));
+    border-radius: 5px;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping a {
+    text-decoration: none;
+    color: rgb(var(--dark));
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping p.shipping-to {
+    font-size: 0.99em;
+    font-family: 'Inter', sans-serif;
+}
+
+section.sec-two div.shipping-and-gift-card
+div.shipping p.shipping-to strong {
+    color: rgb(var(--indigo));
+}
+
+mat-radio-group.shipping-options {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-radio-group.shipping-options mat-radio-button p strong {
+    font-family: 'Figtree', sans-serif !important;
+    font-size: 1.1em;
+}
+
+mat-radio-group.shipping-options mat-radio-button p {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.01em;
+    margin: 0;
+    cursor: pointer;
+}
+
+mat-radio-group.shipping-options mat-radio-button p span {
+    color: rgb(var(--dark));
+    font-weight: bold;
+    font-family: 'Blinker', sans-serif;
+    font-size: 1.2em;
+}
+
+section.sec-two div.resume-order {
+    width: 35%;
+    padding: 2%;
+    background-color: rgb(var(--gray-1));
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+section.sec-two div.resume-order table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+section.sec-two div.resume-order h1 {
+    margin: 6px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+section.sec-two div.resume-order table tr td {
+    padding: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.01em;
+}
+
+section.sec-two div.resume-order table tr td:last-child {
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Blinker', sans-serif;
+    font-size: 1.09em;
+}
+
+section.sec-two div.resume-order table tr:first-child {
+    border-top: 1.3pt solid rgb(var(--gray-6));
+}
+
+section.sec-two div.resume-order table tr.total {
+   border-top: 1.3pt solid rgb(var(--gray-6));
+   font-size: 1.4em;
+}
+
+section.sec-two div.resume-order table tr.total td {
+    padding: 10px 2px !important;
+}
+
+section.sec-two div.resume-order table tr.max-installment td {
+    font-weight: normal;
+    font-size: 1.1em;
+}
