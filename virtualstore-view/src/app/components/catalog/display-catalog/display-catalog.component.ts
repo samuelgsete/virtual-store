@@ -39,10 +39,7 @@ export class DisplayCatalogComponent implements OnInit {
     });
     
     this.listPaginate.done().subscribe(response => {
-      this.products = response.content;
-      this.pagination.isFirstPage = response.first;
-      this.pagination.isLastPage = response.last;
-      this.pagination.totalElements = response.totalElements;
+      this.products = response.content
     })
   }
 }

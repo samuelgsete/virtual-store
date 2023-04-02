@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+@import url('/src/assets/css/table.css');
+@import url('/src/assets/css/colors.css');
+
+main {
+    padding: 3%;
+    background-color: rgb(var(--gray-2));
+    height: 94%;
+}
+
+section {
+    padding: 2%;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.42em;
+    font-family: 'Figtree', sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+}
+
+header h1 mat-icon {
+    color: rgb(var(--purple));
+}
+
+div.input-search {
+    border: 1.4pt solid rgb(var(--gray-5));
+    position: relative;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+div.input-search input.search {
+    width: 96%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    color: rgb(var(--gray-7));
+    padding-left: 2%;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+div.input-search input.search:focus {
+    outline: none;
+}
+
+div.input-search mat-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: rgb(var(--gray-6));
+}
+
+table tr td:nth-child(1) {
+    width: 5%;
+    font-weight: bold;
+    font-family: 'Blinker', sans-serif;
+    font-size: 1.05em;
+}
+
+table tr td:nth-child(2) {
+    width: 20%;
+}

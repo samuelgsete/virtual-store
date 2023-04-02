@@ -1,33 +1,27 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
-import { debounceTime } from "rxjs";
 
-import { Color } from "src/app/models/color.entity";
 import { Pagination } from "src/app/models/pagination.entity";
 import { ListColorsPaginateResource } from "src/app/resources/colors/list-colors-paginate.resource";
+import { ListPaginateService } from "../models/list-paginate.service";
 
 @Injectable()
-export class ListColorsPaginateService {
-
-    private readonly complete: EventEmitter<Color[]> = new EventEmitter<Color[]>();
+export class ListColorsPaginateService extends ListPaginateService {
 
     public constructor(
         private readonly toastr: ToastrService,
         private readonly spinner: NgxSpinnerService,
         private readonly listPaginate: ListColorsPaginateResource
-    ) {}
-
-    public done(): EventEmitter<Color[]> { return this.complete }
+    ) { super() }
 
     public run(pagination: Pagination) {
         this.spinner.show();
-        this.listPaginate.run(pagination)
-        .pipe(debounceTime(5000))
-        .subscribe({
+        this.listPaginate.run(pagination).subscribe({
             next: (response) => {
                 this.spinner.hide();
-                this.complete.emit(response.content);
+                this.emptyData = response.content.length == 0 ? true : false;
+                this.complete.emit(response);
             },
             error: (eventErr) => {
                 this.spinner.hide();

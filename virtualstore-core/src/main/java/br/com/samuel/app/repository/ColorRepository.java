@@ -13,6 +13,6 @@ import br.com.samuel.app.models.Color;
 public interface ColorRepository extends JpaRepository<Color, Integer> {
     
     // Listar paginado
-    @Query("SELECT c FROM Color c WHERE LOWER(c.name) LIKE %:search% ORDER BY c.name ASC")
+    @Query("SELECT c FROM Color c WHERE LOWER(c.name) LIKE %:search% ORDER BY c.id ASC")
     Page<Color> listPaginate(@Param("search") String search, Pageable pageable);  
 }

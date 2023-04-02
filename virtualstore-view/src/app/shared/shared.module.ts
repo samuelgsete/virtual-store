@@ -36,14 +36,20 @@ import { SizeFilePipe } from 'src/app/pipes/size-file.pipe';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { StarRaterComponent } from './components/star-rater/star-rater.component';
 import { ColorPreviewComponent } from './components/color-preview/color-preview.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { EmptyDataComponent } from './components/empty-data/empty-data.component';
+import { DateDurationPipe } from '../pipes/date-duration.pipe';
 
 @NgModule({
   declarations: [
     SmallTextPipe,
     SizeFilePipe,
+    DateDurationPipe,
     CarouselComponent,
     StarRaterComponent,
-    ColorPreviewComponent
+    ColorPreviewComponent,
+    PaginationComponent,
+    EmptyDataComponent
   ],
   imports: [
     CommonModule,
@@ -107,11 +113,14 @@ import { ColorPreviewComponent } from './components/color-preview/color-preview.
     NgxCurrencyModule,
     NgxSpinnerModule,
     SwiperModule,
+    DateDurationPipe,
     SmallTextPipe,
     SizeFilePipe,
     CarouselComponent,
     StarRaterComponent,
     ColorPreviewComponent,
+    PaginationComponent,
+    EmptyDataComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

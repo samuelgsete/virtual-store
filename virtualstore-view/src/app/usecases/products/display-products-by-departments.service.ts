@@ -7,7 +7,7 @@ export class DiplayProductsByDepartments {
     public constructor(private readonly router: Router) {}
 
     public run(department: string, category: string): void {
-        this.router.navigate(['catalog'], { queryParams: { 
+        this.router.navigate(['store/catalog'], { queryParams: { 
             department: department, 
             category: category, 
             ordination: '',

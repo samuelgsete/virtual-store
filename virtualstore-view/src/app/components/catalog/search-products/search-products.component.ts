@@ -33,10 +33,7 @@ export class SearchProductsComponent implements OnInit {
       this.listPaginate.run(this.pagination);
     })
     this.listPaginate.done().subscribe(response => {
-      this.products = response.content;
-      this.pagination.isFirstPage = response.first;
-      this.pagination.isLastPage = response.last;
-      this.pagination.totalElements = response.totalElements;
+      this.products = response.content
     })
   }
 }

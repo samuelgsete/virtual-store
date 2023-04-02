@@ -1,43 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
+@import url('./colors.css');
 
 /* Estilização das tabelas */
 table.ui-table {
     padding: 2%;
     border-collapse: collapse;
-    width: 100%;
+    width: 96%;
 }
 
-table.ui-table tr td, table tr th {
-    padding: 6px 3px;
+table.ui-table tr td {
+    padding: 0.5% 1%;
     text-align: left;
+    animation: down 0.4s;
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.99em;
+    color: rgb(var(--gray-7));
 }
 
 table.ui-table tr th {
     color: rgb(var(--dark));
-    font-family: 'Karla', sans-serif;
-    font-size: 0.99em;
+    font-family: 'Blinker', sans-serif;
+    font-size: 1.05em;
+    padding: 1%;
+    text-align: left;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 table.ui-table tr {
-    border-bottom: 1px solid rgb(var(--gray-2));
     color: rgb(var(--gray-6));
 }
 
 table.ui-table tr:nth-child(even) {
-    background-color: rgba(var(--purple), 0.05);
+    background-color: rgb(var(--gray-1));
 }
 
 table.ui-table tr {
     cursor: pointer;
-}
-
-table.ui-table tr td img {
-    width: 60px;
-    height: 60px;
-}
-
-table.ui-table tr td {
-    animation: down 0.4s;
-    font-family: 'Open Sans', sans-serif;
 }

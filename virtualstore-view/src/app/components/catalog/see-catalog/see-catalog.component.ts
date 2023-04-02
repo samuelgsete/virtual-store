@@ -48,11 +48,7 @@ export class SeeCatalogComponent implements OnInit {
       this.pagination.page = params['page'] || '';
       this.listPaginate.run(this.pagination);
       this.listPaginate.done().subscribe(response => {
-        this.products = response.content;
-        console.log(this.products);
-        this.pagination.isFirstPage = response.first;
-        this.pagination.isLastPage = response.last;
-        this.pagination.totalElements = response.totalElements;
+        this.products = response.content
       })
     });
   }

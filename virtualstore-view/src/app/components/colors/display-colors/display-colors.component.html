@@ -1,0 +1,47 @@
+<main>
+    <section>
+        <header>
+            <h1>
+                <mat-icon>lens_blur</mat-icon>
+                Cores Cadastradas
+            </h1>
+            <div class="input-search">
+                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar cor pelo nome">
+                <mat-icon>search</mat-icon>
+            </div>
+            <button class="btn" color="light" matRipple>+ NOVA COR</button>
+        </header>
+        <app-empty-data 
+            *ngIf="listColors.isEmpty()" 
+            [search]="formSearch.value" 
+            message="Clique em +NOVA COR para criar novas cores" 
+            title="Nenhum resultado encontrado :("
+        ></app-empty-data>
+        <table class="ui-table" *ngIf="!listColors.isEmpty()">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Código Hexadecimal</th>
+                <th>Visualização</th>
+                <th>Atualizado</th>
+                <th>Ações</th>
+            </tr>
+            <tr *ngFor="let color of colors">
+                <td>{{ color.id }}</td>
+                <td>{{ color.name }}</td>
+                <td>{{ color.hexCode }}</td>
+                <td>
+                    <app-color-preview [name]="color.name" [hexCode]="color.hexCode"></app-color-preview>
+                </td>
+                <td>{{ color.updatedAt | dateDuration }}</td>
+                <td>
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <app-pagination></app-pagination>
+    </section>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DisplayCatalogComponent } from './components/catalog/display-catalog/display-catalog.component';
 import { SearchProductsComponent } from './components/catalog/search-products/search-products.component';
 import { DisplayShoppingCartComponent } from './components/shopping-carts/display-shopping-cart/display-shopping-cart.component';
+import { DisplayColorsComponent } from './components/colors/display-colors/display-colors.component';
 
 const routes: Routes = [
   { path: 'uploads/images', component: UploadImageComponent },
@@ -24,13 +25,13 @@ const routes: Routes = [
   ]},
   { path: 'store', component: StoreLayoutComponent, children: [
     { path: 'catalog', component: DisplayCatalogComponent },
-    { path: 'search', component: SearchProductsComponent },
-    { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent }
+    { path: 'search', component: SearchProductsComponent }
   ]},
   { path: 'home', component: StoreLayoutComponent, children: [
     { path: '', component: HomeComponent }
   ]},
-  { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent }
+  { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent },
+  { path: 'colors', component: DisplayColorsComponent }
 ];
 
 @NgModule({

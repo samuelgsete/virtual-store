@@ -1,0 +1,11 @@
+<ul class="pagination" *ngIf="pages.length > 1">
+    <li 
+        class="page" 
+        *ngFor="let page of pages"
+        [ngClass]="{ 'isCurrent' : page.isCurrent == true }"
+        (click)="changePage(page)"
+        matRipple
+    >
+        {{ page.label + 1 }}
+    </li>
+</ul>
