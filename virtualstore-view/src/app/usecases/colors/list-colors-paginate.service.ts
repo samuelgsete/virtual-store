@@ -20,11 +20,13 @@ export class ListColorsPaginateService extends ListPaginateService {
         this.listPaginate.run(pagination).subscribe({
             next: (response) => {
                 this.spinner.hide();
+                this.finally = true;
                 this.emptyData = response.content.length == 0 ? true : false;
                 this.complete.emit(response);
             },
             error: (eventErr) => {
                 this.spinner.hide();
+                this.finally = true;
                 this.toastr.error('Não foi possível listar as cores', 'Há não :(', { progressBar: true });
             }
         })

@@ -1,0 +1,11 @@
+@import url('/src/assets/css/product-checkout.css');
+@import url('/src/assets/css/animations.css');
+
+section.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 4%;
+    margin-top: 180px;
+    width: 92%;
+    animation: fade-in 0.6s;
+}

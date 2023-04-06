@@ -6,7 +6,7 @@
             <mat-icon>chevron_right</mat-icon>
             <span>{{ category }}</span>
         </div>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Ordenar por</mat-label>
             <mat-select (valueChange)="orderBy.run($event)">
                 <mat-option *ngFor="let ordination of orderBy.ordinations" [value]="ordination">
@@ -24,7 +24,7 @@
                 <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
             </div>
             <div class="main-image">
-                <img class="product-image" [src]="mainImage.run(product.images)" alt="Main Image">
+                <img class="product-image" [src]="product.images[0].url" alt="Main Image">
             </div>
             <div class="card-product-body">
                 <p class="product-name">{{ product.name }}</p> 
@@ -44,7 +44,7 @@
                     </span> 
                     sem juros no cartão
                 </p>
-                <button class="btn" color="pink" block="true" (click)="goToDetails.run(product.code)" matRipple>QUERO COMPRAR</button>
+                <button class="btn" color="pink" block="true" (click)="goToCheckoutProduct.run(product.code)" matRipple>QUERO COMPRAR</button>
             </div>
         </div>
     </div>

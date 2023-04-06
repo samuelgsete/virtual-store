@@ -2,15 +2,15 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { API_REST_SERVER } from "../api-rest-url";
 import { Pagination } from "src/app/models/pagination.entity";
+import { ListPaginateResource } from "../models/list-paginate.resource";
 
 @Injectable()
-export class ListColorsPaginateResource {
+export class ListColorsPaginateResource extends ListPaginateResource {
 
-    private readonly baseUrl = API_REST_SERVER.localUrl.concat('/colors');
-
-    public constructor(private readonly http: HttpClient) {}
+    public constructor(private readonly http: HttpClient) {
+        super('colors')
+    }
 
     public run(pagination: Pagination): Observable<any> {
         const _params = new HttpParams()
@@ -18,7 +18,6 @@ export class ListColorsPaginateResource {
             .set('ordination', pagination.ordination)
             .set('page', pagination.page)
             .set('size', pagination.size)
-
-        return this.http.get<any>(this.baseUrl, { params: _params });
+        return this.http.get<any>(this.getBaseUrl(), { params: _params });
     }
 }

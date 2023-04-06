@@ -70,15 +70,20 @@ h1.card-product-name {
 
 div.card-checkout-product
 div.card-product-description
-span.produt-unique-code {
+p.card-availability-product {
     color: rgb(var(--gray-7));
+}
+
+div.card-checkout-product
+div.card-product-description
+span.product-unique-code {
     font-family: 'Ubuntu';
 }
 
 div.card-checkout-product
 div.card-product-description
 span.product-in-stock {
-    color: rgb(var(--default));
+    color: rgb(var(--florest));
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
 }
@@ -119,7 +124,7 @@ p.product-incash-discount {
 div.card-checkout-product
 div.card-product-description
 span.discount-value {
-    color: rgb(var(--pink));
+    color: rgb(var(--amber));
     font-weight: bolder;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -152,28 +157,16 @@ div.card-product-description
     margin: 5px 0;
 }
 
-div.card-checkout-product
-div.card-product-description
-.product-version-preview {
-    border: 1.5pt solid rgb(var(--gray-2));
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 50px;
-    color: rgb(var(--gray-7));
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 0.98em;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: border 6ms;
+mat-panel-title {
+    font-size: 1.1em;
+    font-family: 'Noto Sans', sans-serif;
+    color: rgb(var(--gray-8));
 }
 
-div.card-checkout-product
-div.card-product-description
-.color-preview {
-    border: 1.2pt solid rgb(var(--gray-3));
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+.text-details {
+    text-align: justify;
+    line-height: 24px;
+    color: rgb(var(--dark));
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.19em;
 }

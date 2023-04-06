@@ -1,36 +1,31 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
 
 import { Product } from "src/app/models/product.entity";
-import { FindByUniqueCodeResource } from "src/app/resources/products/findby-unique-code.resource";
+import { FindProductByUniqueCodeResource } from "src/app/resources/products/find-product-by-unique-code.resource";
+import { findByCodeService } from "../models/find-by-code.service";
 
 @Injectable()
-export class FindByUniqueCodeService {
-
-    private readonly complete: EventEmitter<Product> = new EventEmitter<Product>();
-    private progress: boolean = true;
-
+export class FindProductByUniqueCodeService extends findByCodeService<Product> {
+    
     public constructor(
         private readonly toastr: ToastrService,
         private readonly spinner: NgxSpinnerService,
-        private readonly findOne: FindByUniqueCodeResource
-    ) {}
-
-    public done(): EventEmitter<Product> { return this.complete }
-
-    public inProgress(): boolean { return this.progress; }
+        private readonly findOne: FindProductByUniqueCodeResource
+    ) { super() }
 
     public run(code: string) {
         this.spinner.show();
         this.findOne.run(code).subscribe({
             next: (response) => {
                 this.spinner.hide();
-                this.progress = false;
+                this.progress = true;
                 this.complete.emit(response);
             },
             error: (eventErr) => {
                 this.spinner.hide();
+                this.progress = true;
                 this.toastr.error('Não foi possível buscar o produto', 'Há não :(', { progressBar: true });
             }
         })

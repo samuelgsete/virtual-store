@@ -2,18 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { API_REST_SERVER } from "../api-rest-url";
 import { ItemCart } from 'src/app/models/item-cart.entity';
+import { DeleteResource } from '../models/delete.resource';
 
 @Injectable()
-export class DeleteItemCartResource {
+export class DeleteItemCartResource extends DeleteResource<ItemCart> {
 
-    private readonly baseUrl = API_REST_SERVER.localUrl.concat('/item-cart');
+    public constructor(private readonly http: HttpClient) {
+        super('item-cart')
+    }
 
-    public constructor(private readonly http: HttpClient) {}
-
-    public run(id: number, itemCart: ItemCart): Observable<any> {
-        return this.http.delete<ItemCart>(this.baseUrl.concat(`/${id}`), {
+    public run(id: number, itemCart: ItemCart): Observable<ItemCart> {
+        return this.http.delete<ItemCart>(this.getBaseUrl().concat(`/${id}`), {
             body: itemCart
         });
     }

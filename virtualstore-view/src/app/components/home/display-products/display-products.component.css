@@ -1,7 +1,7 @@
-@import url('../../../../assets/css/product-catalog.css');
+@import url('/src/assets/css/product-catalog.css');
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 
-section {
+section.content {
     padding: 30px 0 40px;
     border-bottom: 3px solid rgb(var(--gray-2));
 }

@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Pagination } from 'src/app/models/pagination.entity';
 import { Product } from 'src/app/models/product.entity';
-import { DisplayDetailsProductService } from 'src/app/usecases/products/display-details-product.service';
-import { DisplayMainImageService } from 'src/app/usecases/products/display-main-image.service';
+import { GoToCheckoutProductService } from 'src/app/usecases/products/go-to-checkout-product.service';
 import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
 import { OrderByProductsService } from 'src/app/usecases/products/orderby-products.service';
 
@@ -22,8 +21,7 @@ export class SearchProductsComponent implements OnInit {
     private readonly route: ActivatedRoute,
     protected readonly listPaginate: ListProductsPaginateService,
     protected readonly orderBy: OrderByProductsService,
-    protected readonly mainImage: DisplayMainImageService,
-    protected readonly goToDetails:DisplayDetailsProductService
+    protected readonly goToCheckoutProduct: GoToCheckoutProductService
   ) {}
 
   public ngOnInit(): void {

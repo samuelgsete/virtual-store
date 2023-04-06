@@ -1,9 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { ImageModel } from 'src/app/models/image-model.entity';
 import { Pagination } from 'src/app/models/pagination.entity';
 import { Product } from 'src/app/models/product.entity';
+import { ScrollToService } from 'src/app/shared/services/scroll-to.service';
+import { GoToCheckoutProductService } from 'src/app/usecases/products/go-to-checkout-product.service';
 import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
 
 @Component({
@@ -12,40 +12,23 @@ import { ListProductsPaginateService } from 'src/app/usecases/products/list-prod
   styleUrls: ['./display-products.component.css'],
   providers: [ListProductsPaginateService]
 })
-export class DisplayProductsComponent implements OnInit, OnDestroy {
-
+export class DisplayProductsComponent implements OnInit {
   @Input() public title: string = '';
   @Input() public ordination: string = '';
   protected products: Product[] = [];
   protected pagination: Pagination = new Pagination();
 
   public constructor(
-    private readonly router: Router,
-    private readonly listPaginate: ListProductsPaginateService
+    protected readonly listPaginate: ListProductsPaginateService,
+    protected readonly goToCheckoutProduct: GoToCheckoutProductService,
+    protected readonly scrollTo: ScrollToService
   ) {}
     
-  protected seeDetailsProduct(code: string): void {
-    this.router.navigate([`catalogo/produto/${code}`])
-  }
-
-  protected getMainImage(images: ImageModel[]): String {
-    return images.filter(img => { return img.isMain })[0].url;
-  }
-
-  protected scrollTo(element: HTMLElement, scrollValue: number): void {
-    element.scrollLeft += scrollValue;
-  }
-
   public ngOnInit(): void {
     this.pagination.ordination = this.ordination;
     this.listPaginate.run(this.pagination);
     this.listPaginate.done().subscribe(response => {
       this.products = response.content;
     });
-  }
-
-  public ngOnDestroy(): void {
-    this.listPaginate.done().unsubscribe();
-    this.products = [];
   }
 }

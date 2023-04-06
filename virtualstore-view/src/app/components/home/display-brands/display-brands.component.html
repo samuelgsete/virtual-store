@@ -1,18 +1,18 @@
 <section>
     <h1 class="title">{{ title }}</h1>
     <div class="list-brands">
-        <button mat-icon-button class="no-shadow" (click)="scrollTo(scrollBrands, -480)">
+        <button mat-icon-button class="no-shadow" (click)="scroll.run(scrollBrands, -480)">
             <mat-icon>arrow_back</mat-icon>
         </button>
         <ul #scrollBrands>
             <li *ngFor="let brand of brands">
                 <div class="card-brand" matRipple>
                     <img [src]="brand.urlLogo" [alt]="brand.name">
-                    <a (click)="goTo(brand.website)">{{ brand.name }}</a>  
+                    <a (click)="goToWebsite.run(brand.website)">{{ brand.name }}</a>  
                 </div> 
             </li>
         </ul>
-        <button mat-icon-button class="no-shadow" (click)="scrollTo(scrollBrands, +480)">
+        <button mat-icon-button class="no-shadow" (click)="scroll.run(scrollBrands, +480)">
             <mat-icon>arrow_forward</mat-icon>
         </button>
     </div>

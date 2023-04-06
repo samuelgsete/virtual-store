@@ -10,6 +10,7 @@ section {
     position: fixed;
     z-index: 999;
     background-color: rgb(var(--dark-1));
+    top: 0;
 }
 
 header.top-bar {

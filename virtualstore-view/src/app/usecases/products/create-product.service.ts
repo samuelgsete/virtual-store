@@ -9,7 +9,6 @@ import { CreateProductResource } from "src/app/resources/products/create-product
 export class CreateProductService {
 
     private complete: EventEmitter<any> = new EventEmitter<any>();
-   
 
     public constructor(
         private readonly toastr: ToastrService,
@@ -52,7 +51,6 @@ export class CreateProductService {
             specifications: _specifications,
             measurements: _measurements
         });
-        console.log(product);
         this.spinner.show();
         this.create.run(product).subscribe({
             next: (response) => {

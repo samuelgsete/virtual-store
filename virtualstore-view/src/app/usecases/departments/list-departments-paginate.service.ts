@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
-import { debounceTime } from "rxjs";
 
 import { Department } from "src/app/models/department.entity";
 import { Pagination } from "src/app/models/pagination.entity";
@@ -22,9 +21,7 @@ export class ListDepartmentsPaginateService {
 
     public run(pagination: Pagination) {
         this.spinner.show();
-        this.listPaginate.run(pagination)
-        .pipe(debounceTime(5000))
-        .subscribe({
+        this.listPaginate.run(pagination).subscribe({
             next: (response) => {
                 this.spinner.hide();
                 this.complete.emit(response.content);

@@ -1,7 +1,7 @@
-<section>
+<section class="content" *ngIf="listPaginate.isFinally()">
     <h1 class="title">{{ title }}</h1>
     <div class="list-products">
-        <button mat-icon-button class="no-shadow" (click)="scrollTo(scrollProducts, -480)">
+        <button mat-icon-button class="no-shadow" (click)="scrollTo.run(scrollProducts, -480)">
             <mat-icon>arrow_back</mat-icon>
         </button>
         <ul class="cards-list" #scrollProducts>
@@ -14,7 +14,7 @@
                         <app-star-rater [ratingAverage]="product.ratingAverage" [numberOfRaters]="product.numberOfRaters"></app-star-rater>
                     </div>
                     <div class="main-image">
-                        <img class="product-image" [src]="getMainImage(product.images)" alt="Main Image">
+                        <img class="product-image" [src]="product.images[0].url" [alt]="product.images[0].randomName">
                     </div>
                     <div class="card-product-body">
                         <p class="product-name">{{ product.name }}</p> 
@@ -34,12 +34,12 @@
                             </span> 
                             sem juros no cartão
                         </p>
-                        <button class="btn" color="pink" block="true" (click)="seeDetailsProduct(product.code)" matRipple>QUERO COMPRAR</button>
+                        <button class="btn" color="pink" block="true" (click)="goToCheckoutProduct.run(product.code)" matRipple>QUERO COMPRAR</button>
                     </div>
                 </div>
             </li>
         </ul>
-        <button mat-icon-button class="no-shadow" (click)="scrollTo(scrollProducts, +480)">
+        <button mat-icon-button class="no-shadow" (click)="scrollTo.run(scrollProducts, +480)">
             <mat-icon>arrow_forward</mat-icon>
         </button>
     </div>
