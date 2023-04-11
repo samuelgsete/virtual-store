@@ -6,18 +6,23 @@ import { ListDepartmentsPaginateService } from 'src/app/usecases/departments/lis
 import { DiplayProductsByDepartments } from 'src/app/usecases/products/display-products-by-departments.service';
 
 @Component({
-  selector: 'app-display-departments',
-  templateUrl: './display-departments.component.html',
-  styleUrls: ['./display-departments.component.css']
+  selector: 'app-display-all-departments',
+  templateUrl: './display-all-departments.component.html',
+  styleUrls: ['./display-all-departments.component.css']
 })
-export class DisplayDepartmentsComponent implements OnInit {
+export class DisplayAllDepartmentsComponent implements OnInit {
 
-  public departments: Department[] = [];
+  protected isVisible: boolean = !true;
+  protected departments: Department[] = [];
 
   public constructor(
     protected readonly displayProducts: DiplayProductsByDepartments,
     protected readonly listDepartments: ListDepartmentsPaginateService
   ) {}
+  
+  public toggle(): void {
+    this.isVisible = !this.isVisible;
+  }
 
   public ngOnInit(): void {
     this.listDepartments.run(new Pagination({ size: 50 }))

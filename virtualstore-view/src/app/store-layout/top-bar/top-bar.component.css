@@ -15,7 +15,7 @@ section {
 
 header.top-bar {
     width: 96%;
-    padding: 2% 2% 0 2%;
+    padding: 2% 2% 2% 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +26,6 @@ header.top-bar div.logotipo {
 }
 
 header.top-bar img.logo {
-    width: 170px;
+    width: 180px;
     cursor: pointer;
 }

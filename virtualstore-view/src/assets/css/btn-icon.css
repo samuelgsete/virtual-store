@@ -1,0 +1,98 @@
+button.btn-icon {
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: box-shadow 0.5s;
+}
+
+button.btn-icon i {
+    padding: 0;
+    margin: 15px;
+}
+
+button.btn-icon:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button.btn-icon[color=primary] {
+    background-color: rgb(var(--primary));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=danger] {
+    background-color: rgb(var(--danger));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=secondary] {
+    background-color: rgb(var(--secondary));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=default] {
+    background-color: rgb(var(--default));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=info] {
+    background-color: rgb(var(--info));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=warning] {
+    background-color: rgb(var(--warning));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=success] {
+    background-color: rgb(var(--success));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=pink] {
+    background-color: rgb(var(--pink));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=indigo] {
+    background-color: rgb(var(--indigo));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=dark] {
+    background-color: rgb(var(--dark));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=light] {
+    background-color: rgb(var(--light));
+    border: none;
+    color: rgb(var(--black));
+}
+
+button.btn-icon[color=amber] {
+    background-color: rgb(var(--amber));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[color=purple] {
+    background-color: rgb(var(--purple));
+    border: none;
+    color: #ffff;
+}
+
+button.btn-icon[disabled=true], button:disabled {
+    opacity: 0.85;
+    cursor: not-allowed;
+}

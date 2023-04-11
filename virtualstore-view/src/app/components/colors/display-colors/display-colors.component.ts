@@ -17,6 +17,7 @@ export class DisplayColorsComponent implements OnInit {
   protected colors: Color[] = [];
   protected pagination: Pagination = new Pagination({ size: 7 });
   protected formSearch: FormControl = new FormControl();
+  protected totalElements: number = 0;
 
   public constructor(
     protected readonly route: ActivatedRoute,
@@ -25,24 +26,26 @@ export class DisplayColorsComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      let currentPage = params['currentPage'];
+      let search = params['search'] || '';
+      this.pagination.page = currentPage;
+      this.pagination.search = search;
+      this.listColors.run(this.pagination);
+    })
+
     this.listColors.done().subscribe(response => {
       this.colors = response.content;
+      this.totalElements = response.totalElements;
       this.router.navigate([], { 
         queryParams: {  currentPage: response.number, numberOfPages: response.totalPages },
         queryParamsHandling: 'merge'
       });
     })
-    this.route.queryParams.subscribe(params => {
-      let currentPage = params['currentPage'];
-      let search = params['search'];
-      this.pagination.page = currentPage;
-      this.pagination.search = search;
-      this.formSearch.patchValue(search);
-      this.listColors.run(this.pagination);
-    })
+    
     this.formSearch.valueChanges.pipe(debounceTime(700)).subscribe(keyword => {
       this.router.navigate([], { 
-        queryParams: { search: keyword.toLowerCase() },
+        queryParams: { search: keyword.toLowerCase(), currentPage: 0 },
         queryParamsHandling: 'merge'
       });
     });

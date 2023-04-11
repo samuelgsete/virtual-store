@@ -1,0 +1,19 @@
+<nav class="ui-nav-menu" *ngIf="isVisible">
+    <ul class="ui-menu" (mouseleave)="toggle()">
+        <li class="ui-item-menu" *ngFor="let department of departments">
+            <p class="ui-item-label">
+                {{ department.name }}
+                <mat-icon>arrow_right</mat-icon>
+            </p>
+            <ul class="ui-menu">
+                <li class="ui-item-menu" *ngFor="let category of department.categories" matRipple>
+                    <p class="ui-item-label">
+                        {{ category.name }}
+                        <mat-icon>arrow_right</mat-icon>
+                    </p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--<div class="backdrop"></div>--> 

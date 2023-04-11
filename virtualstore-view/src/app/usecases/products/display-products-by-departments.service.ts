@@ -10,9 +10,8 @@ export class DiplayProductsByDepartments {
         this.router.navigate(['catalog/view'], { queryParams: { 
             department: department, 
             category: category, 
-            ordination: '',
-            search: '',
-            page: ''
+            ordination: 'bestsellers',
+            page: '0'
           }})
     }
 }

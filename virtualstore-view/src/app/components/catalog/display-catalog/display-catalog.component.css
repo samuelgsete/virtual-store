@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('../../../../assets/css/product-catalog.css');
 
 section {
@@ -22,9 +23,9 @@ div.title {
 }
 
 div.title > span {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Raleway', sans-serif;
     cursor: pointer;
-    color: rgb(var(--gray-7));
+    color: rgb(var(--gray-8));
     font-size: 1.21em;
     transition: all 0.5s;
 }

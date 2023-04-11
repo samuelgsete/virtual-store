@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
 @import url('./colors.css');
 
 button.btn {
     margin: 12px 0;
     padding: 15px 30px;
-    font-size: 0.9em;
+    font-size: 0.99em;
     font-weight: bold;
     border: none;
+    font-family: 'Kanit', sans-serif;
 }
 
 /* Primary button */

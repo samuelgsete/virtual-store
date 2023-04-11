@@ -15,7 +15,7 @@ public class CreateColor extends Create<Color, ColorRepository> {
         var createdColor = getRepository().save(newColor);
         return ServletUriComponentsBuilder
             .fromCurrentRequest()
-            .path("/{code}")
+            .path("/{id}")
             .buildAndExpand(createdColor.getId())
             .toUri();
     }

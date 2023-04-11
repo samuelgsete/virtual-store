@@ -1,20 +1,19 @@
 <main>
     <section>
         <header>
-            <h1>
-                <mat-icon>lens_blur</mat-icon>
-                Cores Cadastradas
-            </h1>
-            <div class="input-search">
-                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar cor pelo nome">
+            <h1 [matBadge]="totalElements" matBadgeColor="accent">Cores cadastradas</h1>
+            <button class="btn-icon" color="purple" (click)="router.navigateByUrl('/colors/create')" matRipple>
+                <i class="material-icons">add</i>
+            </button>
+            <div class="input-search" matRipple>
                 <mat-icon>search</mat-icon>
+                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar cores">
             </div>
-            <button class="btn" color="light" matRipple>+ NOVA COR</button>
         </header>
         <app-empty-data 
             *ngIf="listColors.isEmpty()" 
             [search]="formSearch.value" 
-            message="Clique em +NOVA COR para criar novas cores" 
+            message="Clique em + para criar novas cores" 
             title="Nenhum resultado encontrado :("
         ></app-empty-data>
         <table class="ui-table" *ngIf="!listColors.isEmpty()">
@@ -35,7 +34,7 @@
                 </td>
                 <td>{{ color.updatedAt | dateDuration }}</td>
                 <td>
-                    <button mat-icon-button>
+                    <button mat-icon-button matTooltip="Editar esta cor?">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </td>

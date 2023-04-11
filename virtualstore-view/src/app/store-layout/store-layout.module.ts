@@ -16,6 +16,7 @@ import { DisplayDepartmentsComponent } from './top-bar/display-departments/displ
 import { DiplayProductsByDepartments } from '../usecases/products/display-products-by-departments.service';
 import { FindOneShoppingCartResource } from '../resources/shoppingCarts/find-one-shopping-cart.resource';
 import { FindOneShoppingCartService } from '../usecases/shoppingCarts/find-one-shopping-cart.service';
+import { DisplayAllDepartmentsComponent } from './top-bar/display-all-departments/display-all-departments.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FindOneShoppingCartService } from '../usecases/shoppingCarts/find-one-s
     FooterComponent,
     FieldSearchComponent,
     NavBarComponent,
-    DisplayDepartmentsComponent
+    DisplayDepartmentsComponent,
+    DisplayAllDepartmentsComponent
   ],
   imports: [
     CommonModule,

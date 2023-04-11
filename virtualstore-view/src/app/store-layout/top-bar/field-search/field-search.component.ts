@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 
 @Component({
@@ -10,13 +10,18 @@ import { debounceTime } from 'rxjs';
 })
 export class FieldSearchComponent implements OnInit {
 
-  protected search: FormControl = new FormControl('');
+  protected formSearch: FormControl = new FormControl('');
+  protected ordination: string = 'bestsellers';
+  protected search!: string;
 
-  public constructor(protected readonly router: Router) {}
+  public constructor(
+    protected readonly router: Router,
+    protected readonly route: ActivatedRoute,
+  ) {}
 
   public ngOnInit(): void {
-    this.search.valueChanges.pipe(debounceTime(700)).subscribe(_search => {
-      this.router.navigate(['catalog/search'], { queryParams: { search: _search, ordination: 'bestsellers' }})
+    this.formSearch.valueChanges.pipe(debounceTime(700)).subscribe(_search => {
+      this.router.navigate(['catalog/search'], { queryParams: { search: _search, ordination: this.ordination }})
     })
   }
 }

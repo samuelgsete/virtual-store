@@ -14,7 +14,7 @@ export class OrderByProductsService {
 
     public constructor(private readonly router: Router) {}
 
-    public run(ordination: any): void {
-        this.router.navigate(['catalog/search'], { queryParams: { ordination: ordination.name }, queryParamsHandling: "merge" })
+    public run(ordination: any, route: string): void {
+        this.router.navigate([`${route}`], { queryParams: { ordination: ordination.name }, queryParamsHandling: "merge" })
     }
 }

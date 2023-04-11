@@ -9,7 +9,7 @@
 table.ui-table {
     padding: 2%;
     border-collapse: collapse;
-    width: 96%;
+    width: 100%;
 }
 
 table.ui-table tr td {
@@ -18,16 +18,17 @@ table.ui-table tr td {
     animation: down 0.4s;
     font-family: 'Mulish', sans-serif;
     font-size: 0.99em;
-    color: rgb(var(--gray-7));
+    color: rgb(var(--gray-8));
 }
 
 table.ui-table tr th {
-    color: rgb(var(--dark));
+    color: rgb(var(--gray-6));
     font-family: 'Blinker', sans-serif;
     font-size: 1.05em;
     padding: 1%;
     text-align: left;
     font-weight: normal;
+    border-top: 1.45pt solid rgb(var(--gray-2));
     text-transform: uppercase;
 }
 

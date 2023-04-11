@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ListProductsPaginateResource } from 'src/app/resources/products/list-products-paginate.resource';
-import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
 import { FindProductByUniqueCodeService } from 'src/app/usecases/products/find-product-by-unique-code.service';
 import { FindProductByUniqueCodeResource } from 'src/app/resources/products/find-product-by-unique-code.resource';
 import { CalculateShippingComponent } from './calculate-shipping/calculate-shipping.component';
@@ -31,11 +29,8 @@ import { CheckoutProductComponent } from './checkout-product/checkout-product.co
     SharedModule
   ],
   providers: [
-    ListProductsPaginateResource,
-    ListProductsPaginateService,
     FindProductByUniqueCodeService,
     FindProductByUniqueCodeResource,
-    OrderByProductsService,
     GoToCheckoutProductService,
     CreateShoppingCartService,
     CreateShoppingCartResource,

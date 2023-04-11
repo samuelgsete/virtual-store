@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+@import url('/src/assets/css/colors.css');
+@import url('/src/assets/css/animations.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav.ui-nav-menu {
+    position: absolute;
+    margin-top: 5px;
+    height: 420px;
+    width: 600px;
+    background-color: rgb(var(--white));
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    z-index: 9999999;
+}
+
+ul.ui-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    z-index: 99999;
+    animation: fade-in 0.37s;
+}
+
+ul.ui-menu li.ui-item-menu > ul.ui-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    height: 100%;
+}
+
+ul.ui-menu li.ui-item-menu:hover > ul.ui-menu {
+    display: inline;
+}
+
+ul.ui-menu li.ui-item-menu {
+    padding: 10px;
+}
+
+ul.ui-menu li.ui-item-menu p {  
+    font-family: 'Lato' sans-serif;
+    font-size: 1.01em; 
+    color: rgb(var(--dark)); 
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.25s;
+}
+
+ul.ui-menu li.ui-item-menu:hover {
+    background-color: rgb(var(--gray-2));
+    color: rgb(var(--dark));
+} 
+
+ul.ui-menu li.ui-item-menu p mat-icon {
+    color: rgb(var(--gray-6));
+    transform: rotate(90deg);
+    transition: all 0.25s;
+}
+
+ul.ui-menu li.ui-item-menu:hover p mat-icon {
+    transform: rotate(-0deg);
+    color: rgb(var(--purple));
+}
+
+div.backdrop {
+    position: fixed;
+    background-color: rgb(var(--gray-8));
+    width: 100%;
+    height: 100%;
+    opacity: 0.22;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}

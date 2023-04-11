@@ -1,15 +1,24 @@
 <section class="search-cards-product">
-    <header class="header">
-        <h1>Resultados da busca</h1>
+    <header class="header" *ngIf="!listPaginate.isEmpty()">
+        <h1>
+            <mat-icon>find_in_page</mat-icon>
+            Resultados da busca
+        </h1>
         <mat-form-field appearance="outline">
             <mat-label>Ordenar por</mat-label>
-            <mat-select (valueChange)="orderBy.run($event)">
+            <mat-select (valueChange)="orderBy.run($event, '/catalog/search')">
                 <mat-option *ngFor="let ordination of orderBy.ordinations" [value]="ordination">
                     {{ ordination.label }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
     </header>
+    <app-empty-data 
+            *ngIf="listPaginate.isEmpty()" 
+            [search]="this.pagination.search" 
+            message="Verifique erros de digitação na palavra chave" 
+            title="Nenhum resultado encontrado :("
+        ></app-empty-data>
     <div class="grid">
         <div class="card-product-default" *ngFor="let product of products">
             <div class="card-product-header">

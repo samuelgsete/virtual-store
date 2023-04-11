@@ -12,26 +12,28 @@ import { SearchProductsComponent } from './components/catalog/search-products/se
 import { DisplayShoppingCartComponent } from './components/shopping-carts/display-shopping-cart/display-shopping-cart.component';
 import { DisplayColorsComponent } from './components/colors/display-colors/display-colors.component';
 import { CheckoutProductComponent } from './components/catalog/checkout-product/checkout-product.component';
-
-const routes: Routes = [
-  { path: 'uploads/images', component: UploadImageComponent },
-  { path: 'cores/adicionar', component: AddColorComponent },
-  { path: 'produto/novo', component: CreateProductComponent },
-  { path: 'produto/versoes', component: AddProductVersionsComponent },
-  { path: 'catalog', component: StoreLayoutComponent, children: [
-    { path: 'view', component: DisplayCatalogComponent },
-    { path: 'search', component: SearchProductsComponent },
-    { path: 'product/checkout/:code', component: CheckoutProductComponent }
-  ]},
-  { path: 'home', component: StoreLayoutComponent, children: [
-    { path: '', component: HomeComponent }
-  ]},
-  { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent },
-  { path: 'colors', component: DisplayColorsComponent }
-];
+import { CreateColorComponent } from './components/colors/create-color/create-color.component';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    [
+      { path: 'uploads/images', component: UploadImageComponent },
+      { path: 'cores/adicionar', component: AddColorComponent },
+      { path: 'produto/novo', component: CreateProductComponent },
+      { path: 'produto/versoes', component: AddProductVersionsComponent },
+      { path: 'catalog', component: StoreLayoutComponent, children: [
+        { path: 'view', component: DisplayCatalogComponent },
+        { path: 'search', component: SearchProductsComponent },
+        { path: 'product/checkout/:code', component: CheckoutProductComponent }
+      ]},
+      { path: 'home', component: StoreLayoutComponent, children: [
+        { path: '', component: HomeComponent }
+      ]},
+      { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent },
+      { path: 'colors', component: DisplayColorsComponent },
+      { path: 'colors/create', component: CreateColorComponent }
+    ]
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

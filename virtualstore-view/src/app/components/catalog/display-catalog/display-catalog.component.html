@@ -8,7 +8,7 @@
         </div>
         <mat-form-field appearance="outline">
             <mat-label>Ordenar por</mat-label>
-            <mat-select (valueChange)="orderBy.run($event)">
+            <mat-select (valueChange)="orderBy.run($event, '/catalog/view')">
                 <mat-option *ngFor="let ordination of orderBy.ordinations" [value]="ordination">
                     {{ ordination.label }}
                 </mat-option>

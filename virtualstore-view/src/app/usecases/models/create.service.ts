@@ -1,13 +1,13 @@
 import { EventEmitter } from "@angular/core";
 
-export abstract class CreateService<T> {
+export abstract class CreateService {
     
-    protected complete: EventEmitter<T> = new EventEmitter<T>();
+    protected complete: EventEmitter<any> = new EventEmitter<any>();
     protected progress: boolean = false;
 
-    public done(): EventEmitter<T> { return this.complete }
+    public done(): EventEmitter<any> { return this.complete }
 
     public isFinish(): boolean { return this.progress; }
 
-    public abstract run(id: number, newObject: T): void
+    public abstract run(data: any): void
 }

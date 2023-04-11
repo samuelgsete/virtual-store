@@ -12,3 +12,11 @@ div.row-content {
     flex-direction: column;
     row-gap: 0.25%;
 }
+
+div.vertical-align {
+    align-items: center;
+}
+
+div.horizontal-align {
+    justify-content: center;
+}

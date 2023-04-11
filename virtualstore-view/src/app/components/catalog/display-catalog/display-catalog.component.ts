@@ -10,7 +10,8 @@ import { GoToCheckoutProductService } from 'src/app/usecases/products/go-to-chec
 @Component({
   selector: 'app-display-catalog',
   templateUrl: './display-catalog.component.html',
-  styleUrls: ['./display-catalog.component.css']
+  styleUrls: ['./display-catalog.component.css'],
+  providers: [OrderByProductsService]
 })
 export class DisplayCatalogComponent implements OnInit {
 

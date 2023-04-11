@@ -10,7 +10,8 @@ import { OrderByProductsService } from 'src/app/usecases/products/orderby-produc
 @Component({
   selector: 'app-search-products',
   templateUrl: './search-products.component.html',
-  styleUrls: ['./search-products.component.css']
+  styleUrls: ['./search-products.component.css'],
+  providers: [OrderByProductsService]
 })
 export class SearchProductsComponent implements OnInit {
 

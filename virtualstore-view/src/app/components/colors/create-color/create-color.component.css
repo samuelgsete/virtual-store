@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
+@import url('/src/assets/css/grid.css');
+@import url('/src/assets//css/colors.css');
+@import url('/src/assets/css/animations.css');
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(var(--purple));
+}
+
+section {
+    padding: 4%;
+    background-color: rgb(var(--gray-0));
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    max-width: 340px;
+    animation: up 0.39s;
+}
+
+section header h1 {
+    font-family: 'Sora', sans-serif;
+    margin: 12px 0;
+}
+
+section form {
+    width: 100%;
+    animation: fade 0.41s;
+    animation-delay: 0.25s;
+}
+
+section form mat-form-field:first-child {
+    margin-bottom: 10px;
+}
+
+span {
+    color: rgb(var(--gray-8));
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.01em;
+}
+
+label {
+    color: rgb(var(--gray-8));
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.01em;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+input#color-palette {
+    visibility: hidden;
+}
+
+label:hover {
+    color: rgb(var(--purple));
+}
+
+button {
+    margin-top: 15px;
+}
