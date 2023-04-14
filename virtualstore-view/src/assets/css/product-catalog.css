@@ -114,7 +114,7 @@ div.card-product-body
 p.incash-discount {
     font-family: 'Ubuntu', sans-serif;
     color: rgb(var(--gray-7));
-     font-size: 1.12em;
+    font-size: 1.12em;
 }
 
 div.card-product-default 

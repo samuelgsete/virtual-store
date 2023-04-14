@@ -8,16 +8,17 @@
 @import url('/src/assets/css/btn-icon.css');
 
 main {
-    padding: 3% 3% 3% 3%;
-    background-color: rgb(var(--dark));
-    height: 94%;
+    padding: 3%;
+    background-color: rgb(var(--purple));
+    min-height: 94%;
+    overflow-y: auto;
 }
 
 section {
     padding: 2%;
     border-radius: 5px;
     background-color: #fff;
-    margin-top: -10pxx;
+    margin-top: -10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -63,8 +64,24 @@ div.input-search mat-icon {
 }
 
 table tr td:nth-child(1) {
-    width: 5%;
+    width: 8%;
     font-weight: bold;
     font-family: 'Blinker', sans-serif;
     font-size: 1.05em;
+}
+
+/*table tr td .image-product {
+    width: 64px;
+    height: 52px;
+}*/
+
+table tr td div.product-description {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+table tr td div.product-description img.image-product {
+    width: 72px;
+    height: 60px;
 }

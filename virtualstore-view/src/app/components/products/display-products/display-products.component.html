@@ -1,0 +1,52 @@
+<main>
+    <section>
+        <header>
+            <h1 [matBadge]="totalElements" matBadgeColor="accent">Produtos cadastrados</h1>
+            <button class="btn-icon" color="purple" (click)="router.navigateByUrl('/produto/novo')" matRipple>
+                <i class="material-icons">add</i>
+            </button>
+            <div class="input-search" matRipple>
+                <mat-icon>search</mat-icon>
+                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar produtos">
+            </div>
+        </header>
+        <app-empty-data 
+            *ngIf="listProducts.isEmpty()" 
+            [search]="formSearch.value" 
+            message="Clique em + para adicionar novos produtos" 
+            title="Nenhum resultado encontrado :("
+        ></app-empty-data>
+        <table class="ui-table default" *ngIf="!listProducts.isEmpty()">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Preço à vista</th>
+                <th>Atualizado</th>
+                <th>Ações</th>
+            </tr>
+            <tr *ngFor="let product of products">
+                <td>{{ product.code }}</td>
+                <td>
+                    <div class="product-description">
+                        <img class="image-product" [src]="product.images[0].url" [alt]="product.name">
+                        {{ product.name | smalltext: '20' }}
+                    </div>
+                </td>
+                <td>{{ product.brand.name }}</td>
+                <td>{{ product.pricing.incashPrice | currency: 'BRL' }}</td>
+                <td>{{ product.updatedAt | dateDuration }}</td>
+                <td>
+                    <button mat-icon-button matTooltip="Editar este produto?">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Ver este produto?">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <app-pagination></app-pagination>
+    </section>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

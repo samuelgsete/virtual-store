@@ -3,26 +3,26 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 
-import { Brand } from 'src/app/models/brand.entity';
 import { Pagination } from 'src/app/models/pagination.entity';
-import { ListBrandsPaginateService } from 'src/app/usecases/brands/list-brands-paginate.service';
+import { Product } from 'src/app/models/product.entity';
+import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
 
 @Component({
-  selector: 'app-display-brands',
-  templateUrl: './display-brands.component.html',
-  styleUrls: ['./display-brands.component.css']
+  selector: 'app-display-products',
+  templateUrl: './display-products.component.html',
+  styleUrls: ['./display-products.component.css']
 })
-export class DisplayBrandsComponent implements OnInit {
+export class DisplayProductsComponent implements OnInit {
 
-  protected brands: Brand[] = [];
+  protected products: Product[] = [];
   protected pagination: Pagination = new Pagination({ size: 7 });
   protected formSearch: FormControl = new FormControl();
   protected totalElements: number = 0;
-
+  
   public constructor(
     protected readonly route: ActivatedRoute,
     protected readonly router: Router,
-    protected readonly listBrands: ListBrandsPaginateService
+    protected readonly listProducts: ListProductsPaginateService
   ) {}
 
   public ngOnInit(): void {
@@ -31,10 +31,10 @@ export class DisplayBrandsComponent implements OnInit {
       let search = params['search'] || '';
       this.pagination.page = currentPage;
       this.pagination.search = search;
-      this.listBrands.run(this.pagination);
+      this.listProducts.run(this.pagination);
     })
-    this.listBrands.done().subscribe(response => {
-      this.brands = response.content;
+    this.listProducts.done().subscribe(response => {
+      this.products = response.content;
       console.log(response);
       this.totalElements = response.totalElements;
       this.router.navigate([], { 

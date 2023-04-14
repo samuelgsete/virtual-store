@@ -17,13 +17,17 @@ import { PricingModule } from '../pricing/pricing.module';
 import { GeneralInfoProductComponent } from './general-info-product/general-info-product.component';
 import { CreateProductResource } from 'src/app/resources/products/create-product.resource';
 import { CreateProductService } from 'src/app/usecases/products/create-product.service';
+import { DisplayProductsComponent } from './display-products/display-products.component';
+import { ListProductsPaginateResource } from 'src/app/resources/products/list-products-paginate.resource';
+import { ListProductsPaginateService } from 'src/app/usecases/products/list-products-paginate.service';
 
 @NgModule({
   declarations: [
     CreateProductComponent,
     AddSpecificationComponent,
     ProductMeasurementsComponent,
-    GeneralInfoProductComponent
+    GeneralInfoProductComponent,
+    DisplayProductsComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +44,9 @@ import { CreateProductService } from 'src/app/usecases/products/create-product.s
     ListDepartmentsPaginateService,
     ListDepartmentsPaginateResource,
     CreateProductResource,
-    CreateProductService
+    CreateProductService,
+    ListProductsPaginateResource,
+    ListProductsPaginateService
   ]
 })
 export class ProductsModule {}

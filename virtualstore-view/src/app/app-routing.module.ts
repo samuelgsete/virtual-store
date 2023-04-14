@@ -15,6 +15,7 @@ import { CheckoutProductComponent } from './components/catalog/checkout-product/
 import { CreateColorComponent } from './components/colors/create-color/create-color.component';
 import { CreateBrandComponent } from './components/brands/create-brand/create-brand.component';
 import { DisplayBrandsComponent } from './components/brands/display-brands/display-brands.component';
+import { DisplayProductsComponent } from './components/products/display-products/display-products.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
@@ -35,7 +36,8 @@ import { DisplayBrandsComponent } from './components/brands/display-brands/displ
       { path: 'colors', component: DisplayColorsComponent },
       { path: 'colors/create', component: CreateColorComponent },
       { path: 'brands/create', component: CreateBrandComponent },
-      { path: 'brands', component: DisplayBrandsComponent }
+      { path: 'brands', component: DisplayBrandsComponent },
+      { path: 'products', component: DisplayProductsComponent }
     ]
   )],
   exports: [RouterModule]
