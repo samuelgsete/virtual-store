@@ -1,4 +1,4 @@
-<table *ngIf="productVersions.length > 0">
+<table class="ui-table stripped" *ngIf="productVersions.length > 0">
     <tr>
         <th>Cor</th>
         <th>Estoque</th>
@@ -7,7 +7,10 @@
     <tr *ngFor="let productVersion of productVersions; let i = index">
         <td>
             <div class="color">
-                <div class="color-preview" [ngStyle]="{ 'background-color': productVersion.color.hexCode }"></div>
+                <app-color-preview 
+                    [hexCode]="productVersion.color.hexCode" 
+                    [name]="productVersion.color.name"
+                ></app-color-preview>
                 {{ productVersion.color.name }}
             </div>
         </td>
@@ -22,7 +25,7 @@
                     (click)="deleteVersion(i)"
                     matTooltip="Deseja remover!?"
                 >
-                    <mat-icon>cancel</mat-icon>
+                    <mat-icon>close</mat-icon>
                 </button>
             </div>
         </td>

@@ -11,11 +11,13 @@ import { UnuploadImageBrandLogoService } from 'src/app/usecases/brands/unupload-
 import { UnuploadImageBrandLogoResource } from 'src/app/resources/brands/unupload-image-brand-logo.resource';
 import { CreateBrandService } from 'src/app/usecases/brands/create-brand.service';
 import { CreateBrandResource } from 'src/app/resources/brands/create-brand.resource';
+import { DisplayBrandsComponent } from './display-brands/display-brands.component';
 
 @NgModule({
   declarations: [
     CreateBrandComponent,
-    UploadBrandLogoComponent
+    UploadBrandLogoComponent,
+    DisplayBrandsComponent
   ],
   imports: [
     CommonModule,

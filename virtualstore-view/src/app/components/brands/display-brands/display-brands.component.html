@@ -1,0 +1,46 @@
+<main>
+    <section>
+        <header>
+            <h1 [matBadge]="totalElements" matBadgeColor="accent">Marcas cadastradas</h1>
+            <button class="btn-icon" color="purple" (click)="router.navigateByUrl('/brands/create')" matRipple>
+                <i class="material-icons">add</i>
+            </button>
+            <div class="input-search" matRipple>
+                <mat-icon>search</mat-icon>
+                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar marcas">
+            </div>
+        </header>
+        <app-empty-data 
+            *ngIf="listBrands.isEmpty()" 
+            [search]="formSearch.value" 
+            message="Clique em + para adicionar novas marcas" 
+            title="Nenhum resultado encontrado :("
+        ></app-empty-data>
+        <table class="ui-table default" *ngIf="!listBrands.isEmpty()">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Logotipo</th>
+                <th>Website</th>
+                <th>Atualizado</th>
+                <th>Ações</th>
+            </tr>
+            <tr *ngFor="let brand of brands">
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+                <td>
+                    <img class="image-brand-logo" [src]="brand.urlLogo" [alt]="brand.name">
+                </td>
+                <td>{{ brand.website }}</td>
+                <td>{{ brand.updatedAt | dateDuration }}</td>
+                <td>
+                    <button mat-icon-button matTooltip="Editar esta marca?">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <app-pagination></app-pagination>
+    </section>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

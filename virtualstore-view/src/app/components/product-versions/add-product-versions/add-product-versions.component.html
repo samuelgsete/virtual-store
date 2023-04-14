@@ -14,7 +14,11 @@
                     <div *ngFor="let color of filteredColors | async">
                         <mat-option [value]="color" [disabled]="color.isAdded" #_color>
                             {{ color.name }}
-                            <div class="image-preview" [ngStyle]="{ 'background-color': _color.value.hexCode }"></div>
+                            <app-color-preview 
+                                class="image-preview"
+                                [name]="_color.value.name"
+                                [hexCode]="_color.value.hexCode"
+                            ></app-color-preview>
                         </mat-option>
                     </div>
                 </mat-autocomplete>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CreateBrandService } from 'src/app/usecases/brands/create-brand.service';
+import { Router } from '@angular/router';
 
+import { CreateBrandService } from 'src/app/usecases/brands/create-brand.service';
 import { UnuploadImageBrandLogoService } from 'src/app/usecases/brands/unupload-image-brand-logo.service';
 import { UploadImageService } from 'src/app/usecases/uploads-images/upload-image.service';
 
@@ -16,6 +17,7 @@ export class CreateBrandComponent implements OnInit {
   
   public constructor(
     protected readonly _fb: FormBuilder,
+    protected readonly router: Router,
     protected readonly uploadImage: UploadImageService,
     protected readonly unuploadImage: UnuploadImageBrandLogoService,
     protected readonly createBrand: CreateBrandService,
@@ -33,6 +35,9 @@ export class CreateBrandComponent implements OnInit {
     })
     this.unuploadImage.done().subscribe(response => {
       this.formBrand['controls']['urlLogo'].reset()
+    })
+    this.createBrand.done().subscribe(response => {
+      this.router.navigateByUrl('/brands')
     })
   }
 }

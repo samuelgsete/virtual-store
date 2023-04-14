@@ -22,7 +22,8 @@ export class ListBrandsPaginateService extends ListPaginateService {
             next: (response) => {
                 this.finally = true;
                 this.spinner.hide();
-                this.complete.emit(response.content);
+                this.emptyData = response.content.length == 0 ? true : false;
+                this.complete.emit(response);
             },
             error: (eventErr) => {
                 this.spinner.hide();

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { UploadImageComponent } from './components/uploads-images/upload-image/upload-image.component';
 import { CreateProductComponent } from './components/products/create-product/create-product.component';
@@ -14,7 +14,7 @@ import { DisplayColorsComponent } from './components/colors/display-colors/displ
 import { CheckoutProductComponent } from './components/catalog/checkout-product/checkout-product.component';
 import { CreateColorComponent } from './components/colors/create-color/create-color.component';
 import { CreateBrandComponent } from './components/brands/create-brand/create-brand.component';
-import { UploadBrandLogoComponent } from './components/brands/upload-brand-logo/upload-brand-logo.component';
+import { DisplayBrandsComponent } from './components/brands/display-brands/display-brands.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
@@ -35,7 +35,7 @@ import { UploadBrandLogoComponent } from './components/brands/upload-brand-logo/
       { path: 'colors', component: DisplayColorsComponent },
       { path: 'colors/create', component: CreateColorComponent },
       { path: 'brands/create', component: CreateBrandComponent },
-      { path: 'image/preview', component: UploadBrandLogoComponent }
+      { path: 'brands', component: DisplayBrandsComponent }
     ]
   )],
   exports: [RouterModule]

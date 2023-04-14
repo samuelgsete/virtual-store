@@ -60,9 +60,9 @@ export class AddProductVersionsComponent implements OnInit {
       stock: ['', Validators.required]
     })
 
-    this.listColors.run(new Pagination());
-    this.listColors.done().subscribe(colors => {
-      this.colors = colors;
+    this.listColors.run(new Pagination({ size: 200 }));
+    this.listColors.done().subscribe(response => {
+      this.colors = response.content;
     });
     this.filteredColors = this.form['controls']['color'].valueChanges.pipe(
       startWith(''),

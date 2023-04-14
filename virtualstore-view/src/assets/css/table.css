@@ -36,10 +36,18 @@ table.ui-table tr {
     color: rgb(var(--gray-6));
 }
 
-table.ui-table tr:nth-child(even) {
+/*table.ui-table tr:nth-child(even) {
     background-color: rgb(var(--gray-1));
-}
+}*/
 
 table.ui-table tr {
     cursor: pointer;
+}
+
+.stripped tr:nth-child(even) {
+    background-color: rgb(var(--gray-1));
+}
+
+.default tr {
+    border-bottom: 1.45pt solid rgb(var(--gray-2));
 }

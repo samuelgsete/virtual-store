@@ -61,14 +61,14 @@ export class GeneralInfoProductComponent implements OnInit {
       category: ['', Validators.required]
     })
 
-    this.listDepartments.run(new Pagination());
+    this.listDepartments.run(new Pagination({ size: 200 }));
     this.listDepartments.done().subscribe(departments => {
       this.departments = departments;
     })
 
-    this.listBrands.run(new Pagination())
-    this.listBrands.done().subscribe(brands => {
-      this.brands = brands;
+    this.listBrands.run(new Pagination({ size: 200 }))
+    this.listBrands.done().subscribe(response => {
+      this.brands = response.content;
     })
 
     this.filteredBrands = this.form['controls']['brand'].valueChanges.pipe(
