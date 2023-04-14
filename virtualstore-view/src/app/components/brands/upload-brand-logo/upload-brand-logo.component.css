@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+@import url('/src/assets/css/colors.css');
+
+div.to-upload {
+    padding: 12px 0;
+    text-align: center;
+    margin: 5px 0;
+    background-color: rgb(var(--gray-2));
+    cursor: pointer;
+}
+
+div.to-upload mat-icon {
+    color: rgb(var(--purple));
+}
+
+div.to-upload p {
+    font-size: 0.96em;
+    color: rgb(var(--gray-8));
+    font-family: 'Ubuntu', sans-serif;
+    margin: 3px 0;
+}
+
+div.to-upload p label {
+    font-weight: bold;
+    color: rgb(var(--purple));
+    cursor: pointer;
+}
+
+div.to-upload p label:hover {
+    text-decoration: underline;
+}
+
+div.card-image-uploaded {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 8px 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+div.card-image-uploaded div.uploaded-image {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+    overflow-y: auto;
+}
+
+div.card-image-uploaded div.uploaded-image img.image-preview {
+    width: 66px;
+}
+
+div.card-image-uploaded div.uploaded-image div.image-description p {
+    padding: 0;
+    margin: 4px 0;
+}
+
+div.card-image-uploaded div.uploaded-image div.image-description p.image-name {
+    color: rgb(var(--dark));
+    font-size: 0.94em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+div.card-image-uploaded div.uploaded-image div.image-description a.image-url {
+    color: rgb(var(--gray-6));
+    font-size: 0.85em;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.45s;
+}
+
+div.card-image-uploaded div.uploaded-image div.image-description a.image-url:hover {
+    color: rgb(var(--gray-8));
+    text-decoration: underline;
+}

@@ -16,7 +16,7 @@ import { OnLoadFilesService } from 'src/app/usecases/uploads-images/on-load-file
 export class UploadImageComponent implements OnInit {
 
   protected images: ImageModel[] = [];
-  protected readonly maxSizeUploads: number = 1;
+  protected readonly maxSizeUploads: number = 6;
   
   public constructor(
     protected readonly upload: UploadImageService,

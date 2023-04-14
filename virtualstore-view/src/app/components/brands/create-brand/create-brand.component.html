@@ -1,0 +1,42 @@
+<main>
+    <section>
+        <h1>Nova Marca</h1>
+        <form [formGroup]="formBrand">
+            <mat-form-field class="width-fix" appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input #nameColor formControlName="name" placeholder="Ex.: Microsoft" minlength="2" maxlength="64" matInput required>
+                <mat-error *ngIf="formBrand['controls']['name'].errors?.['required']">
+                    O nome da cor é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formBrand['controls']['name'].errors?.['minlength']">
+                    Informe no mínimo 2 caracteres
+                </mat-error>
+                <mat-error *ngIf="formBrand['controls']['name'].errors?.['maxlength']">
+                    Informe no mínimo 64 caracteres
+                </mat-error>
+            </mat-form-field> 
+            <mat-form-field class="width-fix" appearance="outline">
+                <mat-label>Website</mat-label>
+                <input formControlName="website" placeholder="Ex.: www.website.com" maxlength="1024" matInput required>
+                <mat-error *ngIf="formBrand['controls']['website'].errors?.['required']">
+                    Esse campo é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formBrand['controls']['website'].errors?.['maxlength']">
+                    Informe no máximo 1024 caracteres
+                </mat-error>
+            </mat-form-field>
+            <app-upload-brand-logo></app-upload-brand-logo>
+            <button 
+                class="btn" 
+                color="purple" 
+                block="true"
+                (click)="createBrand.run(this.formBrand.value)"
+                [disabled]="!formBrand.valid"
+                matRipple
+            >
+                CADASTRAR NOVA MARCA
+            </button>
+        </form>
+    </section>
+</main>
+<ngx-spinner size="medium" type="ball-clip-rotate-pulse"></ngx-spinner>

@@ -1,0 +1,19 @@
+<section>
+    <div class="to-upload" *ngIf="!isUploaded" matRipple>
+        <mat-icon>upload_file</mat-icon>
+        <p><label for="input-upload">Clique aqui</label> para selecionar um arquivo</p>
+        <input type="file" id="input-upload" accept="image/png, image/jpg, image/jpeg" hidden>
+    </div>
+    <div class="card-image-uploaded" *ngIf="isUploaded" matRipple>
+        <div class="uploaded-image">
+            <img class="image-preview" [src]="url" [alt]="name">
+            <div class="image-description">
+                <p class="image-name">{{ name }}</p>
+                <a [href]="url" class="image-url">{{ url }}</a>
+            </div>
+        </div>
+        <button mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</section>

@@ -39,6 +39,7 @@ import { ColorPreviewComponent } from './components/color-preview/color-preview.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { EmptyDataComponent } from './components/empty-data/empty-data.component';
 import { DateDurationPipe } from '../pipes/date-duration.pipe';
+import { ImageUploadedPreviewComponent } from './components/image-uploaded-preview/image-uploaded-preview.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DateDurationPipe } from '../pipes/date-duration.pipe';
     StarRaterComponent,
     ColorPreviewComponent,
     PaginationComponent,
-    EmptyDataComponent
+    EmptyDataComponent,
+    ImageUploadedPreviewComponent
   ],
   imports: [
     CommonModule,
@@ -120,7 +122,8 @@ import { DateDurationPipe } from '../pipes/date-duration.pipe';
     StarRaterComponent,
     ColorPreviewComponent,
     PaginationComponent,
-    EmptyDataComponent
+    EmptyDataComponent,
+    ImageUploadedPreviewComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

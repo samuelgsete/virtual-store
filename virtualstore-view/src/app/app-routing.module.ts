@@ -13,6 +13,8 @@ import { DisplayShoppingCartComponent } from './components/shopping-carts/displa
 import { DisplayColorsComponent } from './components/colors/display-colors/display-colors.component';
 import { CheckoutProductComponent } from './components/catalog/checkout-product/checkout-product.component';
 import { CreateColorComponent } from './components/colors/create-color/create-color.component';
+import { CreateBrandComponent } from './components/brands/create-brand/create-brand.component';
+import { UploadBrandLogoComponent } from './components/brands/upload-brand-logo/upload-brand-logo.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
@@ -31,7 +33,9 @@ import { CreateColorComponent } from './components/colors/create-color/create-co
       ]},
       { path: 'shopping-cart/:id', component: DisplayShoppingCartComponent },
       { path: 'colors', component: DisplayColorsComponent },
-      { path: 'colors/create', component: CreateColorComponent }
+      { path: 'colors/create', component: CreateColorComponent },
+      { path: 'brands/create', component: CreateBrandComponent },
+      { path: 'image/preview', component: UploadBrandLogoComponent }
     ]
   )],
   exports: [RouterModule]

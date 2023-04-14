@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+@import url('/src/assets//css/colors.css');
+@import url('/src/assets/css/animations.css');
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(var(--purple));
+}
+
+section {
+    padding: 4%;
+    background-color: rgb(var(--gray-0));
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    max-width: 400px;
+    animation: up 0.39s;
+}
+
+section header h1 {
+    color: rgb(var(--dark));
+    font-family: 'Sora', sans-serif;
+    margin-bottom: 18px;
+}
+
+section form {
+    width: 100%;
+    animation: fade 0.21s;
+    animation-delay: 0.15s;
+}
+
+section form mat-form-field:first-child {
+    margin-bottom: 10px;
+}
