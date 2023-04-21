@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ImageModel } from 'src/app/models/image-model.entity';
 
-import SwiperCore, { Pagination, Autoplay, EffectCoverflow, Thumbs } from 'swiper';
+import SwiperCore, { Pagination, EffectCoverflow } from 'swiper';
 
-SwiperCore.use([ Pagination, Autoplay, EffectCoverflow, Thumbs ]);
+SwiperCore.use([ Pagination, EffectCoverflow ]);
 
 @Component({
   selector: 'app-carousel',
@@ -12,11 +12,10 @@ SwiperCore.use([ Pagination, Autoplay, EffectCoverflow, Thumbs ]);
 })
 export class CarouselComponent {
 
-  @Input()
-  protected brandLogo: string = '';
-  @Input()
-  protected isFavorite: boolean = false;
+  @Input() protected brandLogo: string = '';
+
+  @Input() protected isFavorite: boolean = false;
+  
   @Input() public images: ImageModel[] = [];
 
-  protected thumbsSwiper: any;
 }

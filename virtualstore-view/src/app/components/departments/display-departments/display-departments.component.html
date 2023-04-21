@@ -2,8 +2,8 @@
     <section>
         <header>
             <div class="container vertical-align space-between">
-                <h1 class="title-page">Suas Marcas</h1>
-                <button class="btn" color="purple" (click)="router.navigateByUrl('/brands/create')" matRipple>CRIAR NOVA</button>
+                <h1 class="title-page">Seus Departamentos</h1>
+                <button class="btn" color="purple" (click)="router.navigateByUrl('/departments/create')" matRipple>CRIAR NOVO</button>
             </div>
             <div class="container vertical-align space-between">
                 <div class="total-elements" matRipple>
@@ -12,35 +12,31 @@
                 </div>
                 <div class="input-search" matRipple>
                     <mat-icon>search</mat-icon>
-                    <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar marcas">
+                    <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar departamentos">
                 </div>
             </div>
         </header>
         <app-empty-data 
-            *ngIf="listBrands.isEmpty()" 
+            *ngIf="listDepartments.isEmpty()" 
             [search]="formSearch.value" 
-            message="Clique em CRIAR NOVA para adicionar novas marcas" 
+            message="Clique em CRIAR NOVO para adicionar novos departamentos" 
             title="Nenhum resultado encontrado :("
         ></app-empty-data>
-        <table class="ui-table default" *ngIf="!listBrands.isEmpty()">
+        <table class="ui-table default" *ngIf="!listDepartments.isEmpty()">
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>Logotipo</th>
-                <th>Website</th>
+                <th>Departamento</th>
+                <th>Nº de Produtos</th>
                 <th>Atualizado</th>
                 <th>Ações</th>
             </tr>
-            <tr *ngFor="let brand of brands">
-                <td>{{ brand.id }}</td>
-                <td>{{ brand.name }}</td>
+            <tr *ngFor="let department of departments">
+                <td>{{ department.id }}</td>
+                <td>{{ department.name }}</td>
+                <td>3 cadastrado</td>
+                <td>{{ department.updatedAt | dateDuration }}</td>
                 <td>
-                    <img class="image-brand-logo" [src]="brand.urlLogo" [alt]="brand.name">
-                </td>
-                <td>{{ brand.website }}</td>
-                <td>{{ brand.updatedAt | dateDuration }}</td>
-                <td>
-                    <button mat-icon-button matTooltip="Editar esta marca?">
+                    <button mat-icon-button matTooltip="Editar este departamento">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </td>

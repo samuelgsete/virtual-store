@@ -1,0 +1,59 @@
+<main>
+    <section>
+        <header>
+            <h1>Novo Departamento</h1>
+        </header>
+        <div class="form">
+            <mat-form-field class="width-fix" appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input #nameColor [formControl]="formDepartment" placeholder="Ex.: Periféricos" minlength="2" maxlength="32" matInput required>
+                <mat-error *ngIf="formDepartment.errors?.['required']">
+                    O nome é obrigatório
+                </mat-error>
+                <mat-error *ngIf="formDepartment.errors?.['minlength']">
+                    Informe no mínimo 2 caracteres
+                </mat-error>
+                <mat-error *ngIf="formDepartment.errors?.['maxlength']">
+                    Informe no mínimo 32 caracteres
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="width-fix" appearance="outline">
+                <mat-label>Informe as categorias</mat-label>
+                <mat-chip-grid #chipGrid [formControl]="formCategory">
+                    <mat-chip-row 
+                        *ngFor="let category of categories"
+                        (removed)="deleteCategory.run(category, categories)"
+                        [editable]="true"
+                        (edited)="updateCategory.run($event, category, categories)"
+                    >
+                        {{ category.name }}
+                        <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                  </mat-chip-row>
+                </mat-chip-grid>
+                <input 
+                    placeholder="Ex.: Microfone"
+                    [matChipInputFor]="chipGrid"
+                    (matChipInputTokenEnd)="addCategory.run($event, categories)"
+                />
+                <mat-error *ngIf="formCategory.errors?.['required']">
+                    As categorias são obrigatórias
+                </mat-error>
+            </mat-form-field>
+            <div *ngIf="categories.length == 0" class="alert" color="primary">
+                Digite o nome da categoria na caixa de texto e tecle ENTER para adicionar uma nova categoria
+            </div>
+            <button 
+                class="btn" 
+                color="success" 
+                block="true"
+                [disabled]="!formDepartment.valid || !formCategory.valid"
+                (click)="createDepartment.run(formDepartment.value, categories)"
+                matRipple
+            >
+                CADASTRAR DEPARTAMENTO
+            </button>
+        </div>
+    </section>
+</main>

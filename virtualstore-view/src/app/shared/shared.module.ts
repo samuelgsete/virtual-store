@@ -27,6 +27,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ToastrModule } from 'ngx-toastr';
 import { MatListModule } from '@angular/material/list';
+import { MatChipsModule } from '@angular/material/chips';
 import { NgxCurrencyModule } from "ngx-currency";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SwiperModule } from "swiper/angular";
@@ -80,7 +81,8 @@ import { ImageUploadedPreviewComponent } from './components/image-uploaded-previ
     MatRadioModule,
     MatBottomSheetModule,
     MatListModule,
-    
+    MatChipsModule,
+
     NgxCurrencyModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     SwiperModule
@@ -112,6 +114,8 @@ import { ImageUploadedPreviewComponent } from './components/image-uploaded-previ
     MatRippleModule,
     MatRadioModule,
     MatListModule,
+    MatChipsModule,
+    
     NgxCurrencyModule,
     NgxSpinnerModule,
     SwiperModule,

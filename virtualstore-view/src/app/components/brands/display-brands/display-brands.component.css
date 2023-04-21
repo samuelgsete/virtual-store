@@ -1,65 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
 
+@import url('/src/assets/css/flexbox.css');
 @import url('/src/assets/css/table.css');
 @import url('/src/assets/css/colors.css');
-@import url('/src/assets/css/btn-icon.css');
+@import url('/src/assets/css/input-search-table.css');
+@import url('/src/assets/css/total-elements.css');
 
 main {
-    padding: 3% 3% 3% 3%;
-    background-color: rgb(var(--dark));
-    height: 94%;
+    padding: 3%;
+    background-color: rgb(var(--gray-2));
+    min-height: 94%;
+    overflow-y: auto;
 }
 
 section {
-    padding: 2%;
+    padding: 0.5% 2% 2% 2%;
     border-radius: 5px;
     background-color: #fff;
-    margin-top: -10pxx;
+    margin-top: -10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 5px 0 20px 0;
 }
 
-header h1 {
-    font-size: 1.51em;
+header h1.title-page {
+    font-size: 1.95em;
     font-family: 'Sen', sans-serif;
-}
-
-div.input-search {
-    background-color: rgb(var(--gray-2));
-    position: relative;
-    width: 200px;
-    height: 38px;
-    border-radius: 4px;
-}
-
-div.input-search input.search {
-    width: 90%;
-    height: 100%;
-    border: none;
-    color: rgb(var(--gray-7));
-    padding-left: 5%;
-    font-family: 'Maven Pro', sans-serif;
-    background-color: transparent;
-}
-
-div.input-search input.search:focus {
-    outline: none;
-}
-
-div.input-search mat-icon {
-    position: absolute;
-    right: 7px;
-    top: 7px;
-    color: rgb(var(--gray-6));
+    max-width: min-content;
+    white-space: nowrap;
+    margin: 0;
 }
 
 table tr td:nth-child(1) {
@@ -67,4 +39,8 @@ table tr td:nth-child(1) {
     font-weight: bold;
     font-family: 'Blinker', sans-serif;
     font-size: 1.05em;
+}
+
+img.image-brand-logo {
+    transform: scale(64%);
 }

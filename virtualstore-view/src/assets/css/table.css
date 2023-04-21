@@ -33,14 +33,6 @@ table.ui-table tr th {
 }
 
 table.ui-table tr {
-    color: rgb(var(--gray-6));
-}
-
-/*table.ui-table tr:nth-child(even) {
-    background-color: rgb(var(--gray-1));
-}*/
-
-table.ui-table tr {
     cursor: pointer;
 }
 

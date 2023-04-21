@@ -1,19 +1,25 @@
 <main>
     <section>
         <header>
-            <h1 [matBadge]="totalElements" matBadgeColor="accent">Cores cadastradas</h1>
-            <button class="btn-icon" color="purple" (click)="router.navigateByUrl('/colors/create')" matRipple>
-                <i class="material-icons">add</i>
-            </button>
-            <div class="input-search" matRipple>
-                <mat-icon>search</mat-icon>
-                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar cores">
+            <div class="container vertical-align space-between">
+                <h1 class="title-page">Suas Cores</h1>
+                <button class="btn" color="purple" (click)="router.navigateByUrl('/colors/create')" matRipple>CRIAR NOVA</button>
+            </div>
+            <div class="container vertical-align space-between">
+                <div class="total-elements" matRipple>
+                    <h1 class="total">{{ totalElements }}</h1>
+                    <span class="label">Total cadastrado</span>
+                </div>
+                <div class="input-search" matRipple>
+                    <mat-icon>search</mat-icon>
+                    <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar cores">
+                </div>
             </div>
         </header>
         <app-empty-data 
             *ngIf="listColors.isEmpty()" 
             [search]="formSearch.value" 
-            message="Clique em + para criar novas cores" 
+            message="Clique em CRIAR NOVA para criar novas cores" 
             title="Nenhum resultado encontrado :("
         ></app-empty-data>
         <table class="ui-table stripped" *ngIf="!listColors.isEmpty()">

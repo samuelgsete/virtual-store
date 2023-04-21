@@ -30,7 +30,7 @@ ul.pagination li.page:hover {
 }
 
 ul.pagination li.isCurrent {
-    background-color: rgb(var(--dark));
+    background-color: rgb(var(--purple));
     color: rgb(var(--gray-0));
     pointer-events: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

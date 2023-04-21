@@ -9,7 +9,6 @@
 @import url('/src/assets/css/input-search-table.css');
 @import url('/src/assets/css/total-elements.css');
 
-
 main {
     padding: 3%;
     background-color: rgb(var(--gray-2));
@@ -38,19 +37,8 @@ header h1.title-page {
 }
 
 table tr td:nth-child(1) {
-    width: 8%;
+    width: 5%;
     font-weight: bold;
     font-family: 'Blinker', sans-serif;
     font-size: 1.05em;
-}
-
-table tr td div.product-description {
-    display: flex;
-    align-items: center;
-    column-gap: 15px;
-}
-
-table tr td div.product-description img.image-product {
-    width: 72px;
-    height: 60px;
 }

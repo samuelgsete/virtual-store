@@ -21,8 +21,8 @@ export class DisplayDepartmentsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.listDepartments.run(new Pagination({ size: 50 }))
-    this.listDepartments.done().subscribe(departments => {
-      this.departments = departments
+    this.listDepartments.done().subscribe(response => {
+      this.departments = response.content
     })
   }
 }

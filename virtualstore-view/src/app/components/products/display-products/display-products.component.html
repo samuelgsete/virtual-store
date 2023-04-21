@@ -1,25 +1,31 @@
 <main>
     <section>
         <header>
-            <h1 [matBadge]="totalElements" matBadgeColor="accent">Produtos cadastrados</h1>
-            <button class="btn-icon" color="purple" (click)="router.navigateByUrl('/produto/novo')" matRipple>
-                <i class="material-icons">add</i>
-            </button>
-            <div class="input-search" matRipple>
-                <mat-icon>search</mat-icon>
-                <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar produtos">
+            <div class="container vertical-align space-between">
+                <h1 class="title-page">Seus Produtos</h1>
+                <button class="btn" color="purple" (click)="router.navigateByUrl('/product/create')" matRipple>CRIAR NOVO</button>
+            </div>
+            <div class="container vertical-align space-between">
+                <div class="total-elements" matRipple>
+                    <h1 class="total">{{ totalElements }}</h1>
+                    <span class="label">Total cadastrado</span>
+                </div>
+                <div class="input-search" matRipple>
+                    <mat-icon>search</mat-icon>
+                    <input type="text" class="search" [formControl]="formSearch" placeholder="Pesquisar produtos">
+                </div>
             </div>
         </header>
         <app-empty-data 
             *ngIf="listProducts.isEmpty()" 
             [search]="formSearch.value" 
-            message="Clique em + para adicionar novos produtos" 
+            message="Clique em CRIAR NOVO para adicionar novos produtos" 
             title="Nenhum resultado encontrado :("
         ></app-empty-data>
         <table class="ui-table default" *ngIf="!listProducts.isEmpty()">
             <tr>
                 <th>Código</th>
-                <th>Nome</th>
+                <th>Produto</th>
                 <th>Marca</th>
                 <th>Preço à vista</th>
                 <th>Atualizado</th>
@@ -37,10 +43,10 @@
                 <td>{{ product.pricing.incashPrice | currency: 'BRL' }}</td>
                 <td>{{ product.updatedAt | dateDuration }}</td>
                 <td>
-                    <button mat-icon-button matTooltip="Editar este produto?">
+                    <button mat-icon-button>
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button matTooltip="Ver este produto?">
+                    <button mat-icon-button (click)="goToCheckoutProduct.run(product.code)">
                         <mat-icon>visibility</mat-icon>
                     </button>
                 </td>

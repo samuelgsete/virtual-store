@@ -1,11 +1,9 @@
 <swiper
     [slidesPerView]="1"
     [loop]="false"
-    [autoplay]="{ delay: 9500 }"
     effect="coverflow"
     [pagination]="{ clickable: true }"
     [speed]="800"
-    [thumbs]="{ swiper: thumbsSwiper }"
 >
     <ng-template swiperSlide *ngFor="let image of images">
         <img [src]="image.url" [alt]="image.randomName" loading="lazy">

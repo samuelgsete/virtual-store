@@ -16,13 +16,14 @@ import { CreateColorComponent } from './components/colors/create-color/create-co
 import { CreateBrandComponent } from './components/brands/create-brand/create-brand.component';
 import { DisplayBrandsComponent } from './components/brands/display-brands/display-brands.component';
 import { DisplayProductsComponent } from './components/products/display-products/display-products.component';
+import { CreateDepartmentComponent } from './components/departments/create-department/create-department.component';
+import { DisplayDepartmentsComponent } from './components/departments/display-departments/display-departments.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
     [
       { path: 'uploads/images', component: UploadImageComponent },
       { path: 'cores/adicionar', component: AddColorComponent },
-      { path: 'produto/novo', component: CreateProductComponent },
       { path: 'produto/versoes', component: AddProductVersionsComponent },
       { path: 'catalog', component: StoreLayoutComponent, children: [
         { path: 'view', component: DisplayCatalogComponent },
@@ -37,7 +38,10 @@ import { DisplayProductsComponent } from './components/products/display-products
       { path: 'colors/create', component: CreateColorComponent },
       { path: 'brands/create', component: CreateBrandComponent },
       { path: 'brands', component: DisplayBrandsComponent },
-      { path: 'products', component: DisplayProductsComponent }
+      { path: 'products', component: DisplayProductsComponent },
+      { path: 'product/create', component: CreateProductComponent },
+      { path: 'departments/create', component: CreateDepartmentComponent },
+      { path: 'departments', component: DisplayDepartmentsComponent }
     ]
   )],
   exports: [RouterModule]
